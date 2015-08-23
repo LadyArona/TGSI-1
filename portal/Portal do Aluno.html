@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">  
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+		<title>Gerenciamento de TGSI</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="./css/browser-detector-min.css"> 
+		<link rel="stylesheet" type="text/css" href="./css/jquery-ui-min.css"> 
+		<link rel="stylesheet" type="text/css" href="./css/mocca-pack-ufsm-min.css">
+
+		<script type="text/javascript" src="./js/browser-detector-min.js"></script> 
+		<script type="text/javascript" src="./js/jquery-min.js"></script> 
+		<script type="text/javascript" src="./js/jquery-ui-min.js"></script> 
+		<script type="text/javascript" src="./js/jquery-mocca-pack-min.js"></script> 
+
+		<style>  
+			.themed-band { 
+				background-color: #12416B; 
+				background-image: url("./img/UFSM-banner-bg.jpg"); 
+				top left repeat-x; 
+			} 
+			.form-spacing { 
+				height: 60px; 
+			} 
+			.form { 
+				margin-top: 1em; 
+				margin-bottom: 1em; 
+				background-color: rgba(245, 245, 245, .94); 
+			} 
+			.transparent-subband { /*min-height: 120px;*/ 
+				background-color: rgba(255, 255, 255, .85); 
+			} 
+			.form-subband { /*background-color: rgba(255, 255, 255, .1);*/ 
+			} 
+			.container.semi-narrow { 
+				padding-top: .5em; 
+				padding-bottom: .5em; 
+			} 
+		</style> 
+	</head> 
+
+	<body>
+		<!-- main --> 
+		<div class="band"> 
+			<div class="band themed-band shadowed"> 
+				<div class="band transparent-subband"> 
+					<div class="container">  
+						<a class="no-link h1 pull-right no-margin-top uppercase humanist-font" href="https://portal.ufsm.br/aluno/index.html;jsessionid=c1d316d6d225924c5e78e044fd45"><b>UFSM</b> | Gerenciamento de TGSI</a> 
+					</div> 
+				</div> 
+
+				<div class="band form-subband"> 
+					<div class="container no-padding-v"> 
+						<div class="row"> 
+							<div class="span4"> 
+								<div class="form-spacing hidden-phone-tablet">				
+								</div> 
+								
+								<img class="responsive hidden-phone" src="./img/UFSM-banner-logo.png" alt="logo"> 
+							</div>
+
+							<div class="span8"> 
+								<div class="form-spacing hidden-phone-tablet">									
+								</div> 
+								
+								<div class="box form bordered shadowed rounded pull-right-tablet-desktop">
+
+									<div class="span5"> 
+									<form action="https://portal.ufsm.br/aluno/j_security_check" method="post"> 
+										<div class="row">									
+										</div> 
+
+										<div class="row"> 
+											<div class="span12 padding-top"> 
+												<label for="login" class="label">Usuário</label> 
+												<input id="login" name="j_username" type="text" class="textfield width-100 block" value=""> 
+											</div> 
+										</div> 
+							
+										<div class="row"> 
+											<div class="span12 padding-top"> 
+												<label for="senha" class="label">Senha</label> 
+												<input id="senha" name="j_password" type="password" class="textfield width-100 block"> 
+												<span id="capsAlert_senha" class="pill danger" style="display: none;">Atenção! O CAPS LOCK está ligado!</span> 
+											</div>
+										</div> 
+							
+										<div class="row"> 
+											<div class="span12 margin-top"> 
+												<button type="submit" name="enter" class="btn primary pull-left"> <i class="icon-key"></i> Entrar </button>  
+												<a href="https://portal.ufsm.br/usuario/esqueciSenha.html" class="btn link pull-left"> Esqueci minha senha </a> 
+											</div>
+										</div> 
+										<br> 
+
+										<div class="row"> 		
+											<div class="span12 padding-top align-justify"> Para identificar-se, utilize a sua matrícula e a sua senha. 
+												<!-- Caso não possua, utilize a funcionalidade <a href="/usuario/esqueciSenha.html" class="link ">Esqueci minha senha</a> --> 
+											</div>
+										</div>
+									</form>
+									</div>
+		
+									<div class="span6 offset1"> 
+										<div class="row"> 
+											<div class="span12 padding-top"> 
+												<label class="label">Instruções - Alunos novos</label> 
+											</div> 
+										</div> 
+
+										<div class="row"> 
+											<div class="span12 padding-top align-justify"> Para alunos novos, a identificação será o número de matrícula e a senha a data de nascimento no formato <b>DDMMAAAA</b>. Por exemplo, <b>01091989</b>, para nascido em 01/09/1989. 
+											</div> 
+										</div>  
+
+										<div class="row"> 
+											<div class="span12 padding-top align-justify"> 
+												O número de matrícula e a senha são enviados para o e-mail informado na confirmação da matrícula da disciplina de TGSI, somente após esse processo, conforme calendário letivo. Obs: Caso não tenha recebido esse e-mail na caixa de entrada, verifique a caixa de spam, ou entre em contato com o professor coordenador do curso. 
+											</div> 
+										</div> 
+									</div> 
+								</div> 
+										<div class="row"> 		
+											<div class="span12 padding-top align-justify"> 
+											<br><br> 
+											</div> 
+										</div> 								
+							</div> 
+						</div> 
+
+						<script type="text/javascript"> $(document).ready(function() { $('#senha').capsAlert(); }); </script> 
+
+					</div> 
+				</div> 
+
+				<div class="band transparent-subband mini-font-size "> 
+					<div class="container semi-narrow stroked-top"> 
+						<div class="row"> 
+							<div class="span6">
+								<span class="dimmed">Gerenciamento de TGSI - Versão 1.0.0</span> 
+							</div> 
+
+							<div class="span6 align-right-tablet-desktop"> 
+								<span class="dimmed">Copyright © 2015 Sistemas de Informação - FSM/FW.  Todos os direitos reservados.</span> 
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+
+		 
+
+		<ul class="vakata-context"></ul><div id="jstree-marker" style="display: none;">&nbsp;
+		</div>
+	</body>
+</html>
