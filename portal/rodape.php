@@ -7,7 +7,7 @@
 			</div> 
 
 			<div class="span6 align-right-tablet-desktop"> 
-				<span class="dimmed">Copyright © 2015 Sistemas de Informação - FSM/FW.  Todos os direitos reservados.</span> 
+				<span class="dimmed">Copyright © 2015 Sistemas de Informação - UFSM/FW.  Todos os direitos reservados.</span> 
 			</div> 
 		</div>
 	</div>

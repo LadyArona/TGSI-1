@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html" charset="windows-1252">  
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+            <?php
+                include("cabecalho.php");
+            ?>
+            <title>Gerenciador de TGSI</title>               
 
-		<title>Gerenciamento de TGSI</title>
-		<link rel="stylesheet" type="text/css" media="screen" href="./css/browser-detector-min.css"> 
-		<link rel="stylesheet" type="text/css" href="./css/jquery-ui-min.css"> 
-		<link rel="stylesheet" type="text/css" href="./css/mocca-pack-ufsm-min.css">
-
-		<script type="text/javascript" src="./js/browser-detector-min.js"></script> 
-		<script type="text/javascript" src="./js/jquery-min.js"></script> 
-		<script type="text/javascript" src="./js/jquery-ui-min.js"></script> 
-		<script type="text/javascript" src="./js/jquery-mocca-pack-min.js"></script> 
-
-		<style>  
-			.themed-band { 
-				background-color: #12416B; 
-				background-image: url("./img/UFSM-banner-bg.jpg"); 
-				top left repeat-x; 
-			} 
-			.form-spacing { 
-				height: 60px; 
-			} 
-			.form { 
-				margin-top: 1em; 
-				margin-bottom: 1em; 
-				background-color: rgba(245, 245, 245, .94); 
-			} 
-			.transparent-subband { /*min-height: 120px;*/ 
-				background-color: rgba(255, 255, 255, .85); 
-			} 
-			.form-subband { /*background-color: rgba(255, 255, 255, .1);*/ 
-			} 
-			.container.semi-narrow { 
-				padding-top: .5em; 
-				padding-bottom: .5em; 
-			} 
-		</style> 
+            <style>  
+                    .themed-band { 
+                            background-color: #12416B; 
+                            background-image: url("./img/UFSM-banner-bg.jpg"); 
+                            //top left repeat-x; 
+                    } 
+                    .form-spacing { 
+                            height: 60px; 
+                    } 
+                    .form { 
+                            margin-top: 1em; 
+                            margin-bottom: 1em; 
+                            background-color: rgba(245, 245, 245, .94); 
+                    } 
+                    .transparent-subband { /*min-height: 120px;*/ 
+                            background-color: rgba(255, 255, 255, .85); 
+                    } 
+                    .form-subband { /*background-color: rgba(255, 255, 255, .1);*/ 
+                    } 
+                    .container.semi-narrow { 
+                            padding-top: .5em; 
+                            padding-bottom: .5em; 
+                    } 
+            </style> 
 	</head> 
 
 	<body>
@@ -67,7 +59,7 @@
 								<div class="box form bordered shadowed rounded pull-right-tablet-desktop">
 
 									<div class="span5"> 
-									<form action="validacao" method="post"> 
+									<form action="login.php" method="post"> 
 										<div class="row">									
 										</div> 
 
@@ -116,7 +108,7 @@
 
 										<div class="row"> 
 											<div class="span12 padding-top align-justify"> 
-												O número de matrícula e a senha são enviados para o e-mail informado na confirmação da matrícula da disciplina de TGSI, somente após esse processo, conforme calendário letivo. Obs: Caso não tenha recebido esse e-mail na caixa de entrada, verifique a caixa de spam, ou entre em contato com o professor coordenador do curso. 
+												O número de matrícula e a senha são enviados para o e-mail informado na confirmação da matrícula da disciplina de TGSI, somente após esse processo, conforme calendário letivo. Obs: Caso não tenha recebido esse e-mail na caixa de entrada, verifique a caixa de spam, ou entre em contato com o professor coordenador. 
 											</div> 
 										</div> 
 									</div> 
