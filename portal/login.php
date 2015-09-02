@@ -13,7 +13,7 @@
         // Validação do usuário/senha digitados
         $sql = "SELECT `USU_CODIGO`, `USU_NOME`
                 FROM `USUARIO`  
-                WHERE (`USU_LOGIN` = '". $login ."') AND (`USU_SENHA` = '". sha1($senha) ."') AND (`USU_SITUACAO` = 0)    
+                WHERE (`USU_LOGIN` = '". $login ."') AND (`USU_SENHA` = '". SHA1($senha) ."') AND (`USU_SITUACAO` = 0)    
                 LIMIT 1";        
         
         $query = mysql_query($sql);

@@ -40,20 +40,23 @@
 
                         <div class="span4">
                             <span class="label">Situação<span class="required"></span></span><br>
-                            <input id="situacao" name="situacao" class="textfield width-100" type="text" required>
+                            <select class="textfield width-100" id="situacao" name="situacao" required>
+                                <option value="0">Ativo</option>
+                                <option value="1">Inativo</option>
+                              </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="span12">                            
                             <span class="label">Categoria<span class="required"></span></span><br>
-                            <input id="categoria1" name="categoria" type="checkbox" value="1" >
+                            <input id="categoria1" name="categoria[]" type="checkbox" value="1" >
                             <label for="categoria1">Coordenador</label>
-                            <br><input id="categoria2" name="categoria" type="checkbox" value="2">
+                            <br><input id="categoria2" name="categoria[]" type="checkbox" value="2">
                             <label for="categoria2">Professor(Orientador)</label>
-                            <br><input id="categoria3" name="categoria" type="checkbox" value="3">
+                            <br><input id="categoria3" name="categoria[]" type="checkbox" value="3">
                             <label for="categoria3">Professor(Avaliador)</label>
-                            <br><input id="categoria4" name="categoria" type="checkbox" value="4">
+                            <br><input id="categoria4" name="categoria[]" type="checkbox" value="4">
                             <label for="categoria4">Aluno</label></span>
                         </div>
                     </div>
