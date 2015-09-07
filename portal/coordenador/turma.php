@@ -9,6 +9,44 @@
     <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Turma</h2>
+            <!--Caixa de busca-->
+            <div class="row">
+                <div class="row large-margin-top"> 
+                    <div class="span4"> 
+                        <label class="label" for="numeroControle">Ano</label>
+                        <br >
+                        <div class="input-append width-100"> 
+                            <div class="addon-wrapper"> 
+                                <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
+                                    <i class="icon-search"></i> Buscar
+                                </button> 
+                            </div> 
+                            <div class="input-wrapper"> 
+                                <input id="numeroControle" type="search" name="numeroControle" class="textfield"/> 
+                            </div>
+                        </div> 
+                        <span id="registroErro" class="pill error" style="display: none;"></span> 
+                    </div>
+                    
+                    <div class="span4"> 
+                        <label class="label" for="numeroControle">Semestre</label>
+                        <br >
+                        <div class="input-append width-100"> 
+                            <div class="addon-wrapper"> 
+                                <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
+                                    <i class="icon-search"></i> Buscar
+                                </button> 
+                            </div> 
+                            <div class="input-wrapper"> 
+                                <input id="numeroControle" type="search" name="numeroControle" class="textfield"/> 
+                            </div>
+                        </div> 
+                        <span id="registroErro" class="pill error" style="display: none;"></span>
+                    </div>
+                </div>
+            </div>
+            <br>           
+            <!--Formulário-->
             <form id="insereUsuario" action="insere-usuario.php" method="post">
                 <div class="box shadowed bordered rounded">
                     <div class="row">
@@ -46,25 +84,48 @@
                     </div>
                 </div>
                 <br>
+                
+                <!-- tabela de alunos -->
                 <div class="bordered rounded diced striped hovered shadowed narrow table">
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
                         <caption>Alunos da turma</caption>
-                        <thead class="header"> <tr><th></th> <th>Aluno</th> <th class="hidden-tablet">Orientador</th> <th>Coorientador</th> </tr> </thead>
+                        <thead class="header"> <tr><th WIDTH="80"></th> <th>Aluno</th> <th class="hidden-tablet">Orientador</th> <th class="hidden-tablet">Coorientador</th> </tr> </thead>
                         <tbody>
-                            <tr><td>
-                                <div class="btn-group mini">
-                                    <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                    <button type="button" class="btn large"><i class="icon-ban-circle"></i></button>
-                                </div>
+                            <tr>
+                                <td WIDTH="80">
+                                    <div class="btn-group mini">
+                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
+                                        <button type="button" class="btn large"><i class="icon-ban-circle"></i></button>
+                                    </div>
+                                </td>
+                                <td>Aluno 1-1</td> 
+                                <td class="hidden-tablet">Orientador 1-2</td> 
+                                <td class="hidden-tablet">Coorientador 1-3</td> 
+                            </tr>
+                            
+                            <tr>
+                                <td WIDTH="80">
+                                    <div class="btn-group mini">
+                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
+                                        <button type="button" class="btn large"><i class="icon-ban-circle"></i></button>
+                                    </div>
+                                </td>
+                                <td>Aluno 2-1</td> 
+                                <td class="hidden-tablet">Orientador 2-2</td> 
+                                <td class="hidden-tablet"> </td> 
+                            </tr>
+                            
+                            <tr>
+                                <td WIDTH="80">
+                                    <div class="btn-group mini">
+                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
+                                        <button type="button" class="btn large"><i class="icon-ban-circle"></i></button>
+                                    </div>
                                 </td> 
-                                
-                                
-                                
-                                
-                                
-                                <td>Aluno 1-1</td> <td class="hidden-tablet">Orientador 1-2</td> <td>Coorientador 1-3</td> </tr>
-                            <tr><td>Aluno 1-1</td> <td>Aluno 2-1</td> <td class="hidden-tablet">Orientador 2-2</td> <td> </td> </tr>
-                            <tr><td>Aluno 1-1</td> <td>Aluno 3-1</td> <td class="hidden-tablet">Orientador 3-2</td> <td>Coorientador 3-3</td> </tr>
+                                <td>Aluno 3-1</td> 
+                                <td class="hidden-tablet">Orientador 3-2</td> 
+                                <td class="hidden-tablet">Coorientador 3-3</td> 
+                            </tr>
                         </tbody>
                     </table>
 

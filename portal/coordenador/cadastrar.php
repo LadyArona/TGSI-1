@@ -9,8 +9,31 @@
     <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Usuário</h2>
-            <form id="insereUsuario" action="insere-usuario.php" method="post">
-                <div class="box shadowed bordered rounded">
+           <!--Caixa de busca-->
+            <div class="row">
+                <div class="row large-margin-top"> 
+                    <div class="span4"> 
+                        <label class="label" for="numeroControle">Matrícula</label>
+                        <br >
+                        <div class="input-append width-100"> 
+                            <div class="addon-wrapper"> 
+                                <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
+                                    <i class="icon-search"></i> Buscar
+                                </button> 
+                            </div> 
+                            <div class="input-wrapper"> 
+                                <input id="numeroControle" type="search" name="numeroControle" class="textfield"/> 
+                            </div> 
+                        </div> 
+
+                        <span id="registroErro" class="pill error" style="display: none;"></span> 
+                    </div> 
+                </div>
+            </div>
+            <br>
+            <!--Formulário-->
+             <form id="insereUsuario" action="insere-usuario.php" method="post">            
+                <div class="box shadowed bordered rounded">                   
                     <div class="row">
                         <div class="span4">
                             <span class="label">Login<span class="required"></span></span><br>

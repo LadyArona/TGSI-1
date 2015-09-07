@@ -3,7 +3,9 @@
                     <ul class="nav responsive">
                         <li class=""><a href="index.php" target=""><i class="icon-home"></i>  
                             Página Inicial </a>
-                        </li>      
+                        </li>  
+                        
+                        <!-- Cadastrar -->
                         <li class="">
                         <div class="btn-group block">
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> 
@@ -20,31 +22,16 @@
                                         Turma
                                     </a>
                                 </li>  
+                                <li class="">
+                                    <a href="banca.php" target="">
+                                        Banca
+                                    </a>
+                                </li> 
                             </ul>
                         </div>
                         </li>
-                
-                        <li class="">
-                        <div class="btn-group block">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-edit"></i> 
-                            Gerenciar <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">    
-                                <li class="">
-                                    <a href="https://portal.ufsm.br/aluno/alteracao-curricular/solicitaTrancamentoTotal.html" target="">
-                                        Turmas
-                                    </a>
-                                </li>
-            
-                                <li class="">
-                                    <a href="https://portal.ufsm.br/aluno/requerimento/dispensa.html" target="">
-                                        Bancas
-                                    </a>
-                                </li>  
-                            </ul>
-                        </div>
-                        </li>
-   
+                        
+                        <!-- Relatórios -->
                         <li class="">
                         <div class="btn-group block">
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-print"></i>  
@@ -100,7 +87,7 @@
                         </div>
                         </li>    
 
-    
+                        <!-- Outros -->    
                         <li class="">
                         <div class="btn-group block">
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sitemap"></i>  
