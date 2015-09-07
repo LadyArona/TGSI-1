@@ -1,6 +1,5 @@
 <?php
-    include("restrito.php");    
-    include("conexao.php");
+    include("restrito.php");
     
     $codigo = $_POST['categoria'];
     switch ($codigo) {
@@ -10,4 +9,3 @@
         case 4: header("Location: aluno"); exit; break;
     }
 ?>
-

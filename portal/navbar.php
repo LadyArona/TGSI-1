@@ -2,7 +2,7 @@
     <div class="container"> 
         <ul class="nav"> 
             <li>
-                <a class="uppercase humanist-font" href="http://localhost/portal">
+                <a class="uppercase humanist-font" href="index.php">
                 <span class="bold">UFSM</span> | Gerenciador de TGSI</a>
             </li> 
         </ul> 
@@ -10,7 +10,7 @@
         <ul class="nav pull-right">
             <li> 
                 <div class="btn-group">    
-                <a class="dropdown-toggle" data-toggle="dropdown" href="http://localhost/portal/index.php"> 
+                <a class="dropdown-toggle" data-toggle="dropdown" href="index.php"> 
                     <i class="icon-user"></i> <?php echo $_SESSION['UsuarioNome']; ?> <span class="caret"></span> 
                 </a>
 
@@ -24,7 +24,7 @@
                         <i class="icon-question-sign"></i> Ajuda</a></li> <li role="menuitem" class="divider">
                     </li> 
                     <li role="menuitem">
-                        <a tabindex="-1" href="http://localhost/portal/logout.php">
+                        <a tabindex="-1" href="logout.php">
                         <i class="icon-signout"></i> Sair</a>
                     </li>
                 </ul>

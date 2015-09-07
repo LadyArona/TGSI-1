@@ -1,39 +1,21 @@
 <?php
     include("restrito.php");    
-    include("conexao.php");
+    include("include/conexao.php");
     
-    $sql = "SELECT C.`CAT_DESCRICAO`, C.`CAT_CODIGO` 
+    $sql = "SELECT C.`cat_descricao`, C.`cat_codigo` 
             FROM `categoria` AS C 
                     INNER JOIN `usuario_categoria` AS U 
-                    ON U.`CAT_CODIGO` = C.`CAT_CODIGO` 
-            WHERE U.`USU_CODIGO` = ".$_SESSION['UsuarioCOD'];
-    
-    $resposta = mysql_query($sql);
+                    ON U.`cat_codigo` = C.`cat_codigo` 
+            WHERE U.`usu_codigo` = ".$_SESSION['UsuarioCOD'];
+    $mysqli = $conexao;
+    $resposta = $mysqli->query($sql);
 ?>    
   
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="windows-1252"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
+        <?php include("cabecalho.php"); ?>
          <title> Gerenciador de TGSI </title>
-
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/browser-detector-min.css"> 
-        <link rel="stylesheet" type="text/css" href="css/jquery-ui-min.css"> 
-        <link rel="stylesheet" type="text/css" href="css/mocca-pack-ufsm-min.css">
-        <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
-
-        <script type="text/javascript" src="js/browser-detector-min.js"> </script> 
-        <script type="text/javascript" src="js/jquery-min.js"> </script> 
-        <script type="text/javascript" src="js/jquery-ui-min.js"></script>
-        <script type="text/javascript" src="js/jquery-mocca-pack-min.js"></script> 
-        <script type="text/javascript" src="js/moment.min.js"> </script>
-        <script type="text/javascript" src="js/fullcalendar.min.js"> </script> 
-        <script type="text/javascript" src="js/pt-br.js"></script> 
-        <script type="text/javascript" src="js/engine.js"></script>
-        <script type="text/javascript" src="js/util.js"></script>
-        <script type="text/javascript" src="js/dwr.js"></script> 
     </head>
 
     <body>
@@ -52,10 +34,10 @@
                         <span class="label">Visualizar como<span class="required"></span></span>
                         <br>
                         <?php                        
-                            while ($registro = mysql_fetch_assoc($resposta)) {    
+                            while ($registro = $resposta->fetch_assoc()) {    
                                 echo '<span>';
-                                echo '<input id="categoria'.$registro['CAT_CODIGO'].'" name="categoria" type="radio" value="'.$registro['CAT_CODIGO'].'">';
-                                echo '<label for="categoria'.$registro['CAT_CODIGO'].'">'.$registro['CAT_DESCRICAO'].'</label></span>';
+                                echo '<input id="categoria'.$registro['cat_codigo'].'" name="categoria" type="radio" value="'.$registro['cat_codigo'].'">';
+                                echo '<label for="categoria'.$registro['cat_codigo'].'">'.$registro['cat_descricao'].'</label></span>';
                                 echo '<br>';
                             }
                         ?>  
@@ -72,7 +54,7 @@
         </div> 
 
         <?php
-            include("../rodape.php");
+            include("rodape.php");
         ?>
     </body>
 </html>

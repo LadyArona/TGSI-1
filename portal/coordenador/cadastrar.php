@@ -16,11 +16,11 @@
                             <span class="label">Login<span class="required"></span></span><br>
                             <input id="login" name="login" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
-
                         <div class="span4">
                             <span class="label">Senha<span class="required"></span></span><br>
                             <input id="senha" name="senha" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
+                       
                         <div class="span4">
                             <span class="label">Matrícula<span class="required"></span></span><br>
                             <input id="matricula" name="matricula" class="textfield width-100" type="text" maxlength="150" required>
