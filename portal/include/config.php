@@ -1,3 +1,4 @@
 <?php
-    $URL_PADRAO="http://localhost/tgsi/portal/";
+    //sem barra no final da URL
+    $URL_PADRAO="http://localhost/tgsi/portal";
 ?>

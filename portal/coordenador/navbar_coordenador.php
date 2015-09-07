@@ -1,7 +1,7 @@
 <nav class="band navbar gradient control">
                 <div class="container mini-padding-v">
                     <ul class="nav responsive">
-                        <li class=""><a href="../" target=""><i class="icon-home"></i>  
+                        <li class=""><a href="index.php" target=""><i class="icon-home"></i>  
                             Página Inicial </a>
                         </li>      
                         <li class="">
@@ -13,6 +13,11 @@
                                 <li class="">
                                     <a href="cadastrar.php" target="">
                                          Usuário
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="turma.php" target="">
+                                        Turma
                                     </a>
                                 </li>  
                             </ul>
@@ -39,25 +44,7 @@
                             </ul>
                         </div>
                         </li>
-    
-
-    
-                        <li class="">
-                        <div class="btn-group block">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-table"></i>  
-                            Pesquisa <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                               <li class="disabled">
-                                    <a>
-                                        Teste
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        </li>
-
-    
+   
                         <li class="">
                         <div class="btn-group block">
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-print"></i>  

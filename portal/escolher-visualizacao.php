@@ -29,7 +29,7 @@
          <div class="band"> 
             <div class="container"> 
                 <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Visualização do Gerenciador </h2>
-                <form id="formRelatorio" action="redireciona.php" method="post"> 
+                <form id="formRelatorio" action="include/redireciona.php" method="post"> 
                     <div class="margin-bottom">     
                         <span class="label">Visualizar como<span class="required"></span></span>
                         <br>

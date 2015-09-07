@@ -35,7 +35,7 @@
 
                         <div class="span4">
                             <span class="label">E-mail<span class="required"></span></span><br>
-                            <input id="email" name="email" class="textfield width-100" type="text" maxlength="150" required>
+                            <input id="email" name="email" class="textfield width-100" type="email" maxlength="150" required>
                         </div>
 
                         <div class="span4">
@@ -65,6 +65,8 @@
                 <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button">
                         <i class="icon-ban-circle"></i> Cancelar</button>
+                    <button class="btn left Reset" id="limpar" name="limpar" type="reset">
+                        <i class="icon-eraser"></i> Limpar</button>
                     <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
                         <i class="icon-save"></i> Salvar</button>
                 </div>
