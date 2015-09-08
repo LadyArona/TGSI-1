@@ -83,7 +83,7 @@
 										<div class="row"> 
 											<div class="span12 margin-top"> 
 												<button type="submit" name="enter" class="btn primary pull-left"> <i class="icon-key"></i> Entrar </button>  
-												<a href="https://portal.ufsm.br/usuario/esqueciSenha.html" class="btn link pull-left"> Esqueci minha senha </a> 
+												<a href="esqueciSenha.php" class="btn link pull-left"> Esqueci minha senha </a> 
 											</div>
 										</div> 
 										<br> 
