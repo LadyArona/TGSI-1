@@ -8,13 +8,18 @@
     <!-- main -->
     <div class="band">
         <div class="container">
-            <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Turma</h2>
-            <!--Caixa de busca-->
-            <div class="row">
-                <div class="row large-margin-top"> 
+            <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Banca</h2>
+            
+            <div class="box shadowed bordered rounded">
+                <div class="row">
+                    <h3 class="text-shadowed stroked-bottom">Buscar Turma</h3>
+                </div>
+                <!--Caixa de busca-->
+                <div class="row">
+                     
                     <div class="span4"> 
-                        <label class="label" for="numeroControle">Ano</label>
-                        <br >
+                        <label class="label" for="numeroControle">Ano<span class="required"></span></label>
+                        <br>
                         <div class="input-append width-100"> 
                             <div class="addon-wrapper"> 
                                 <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
@@ -27,10 +32,10 @@
                         </div> 
                         <span id="registroErro" class="pill error" style="display: none;"></span> 
                     </div>
-                    
+
                     <div class="span4"> 
-                        <label class="label" for="numeroControle">Semestre</label>
-                        <br >
+                        <label class="label" for="numeroControle">Semestre<span class="required"></span></label>
+                        <br>
                         <div class="input-append width-100"> 
                             <div class="addon-wrapper"> 
                                 <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
@@ -43,6 +48,21 @@
                         </div> 
                         <span id="registroErro" class="pill error" style="display: none;"></span>
                     </div>
+                    <div class="span4"> 
+                        <label class="label" for="numeroControle">Matrícula do Aluno</label>
+                        <br>
+                        <div class="input-append width-100"> 
+                            <div class="addon-wrapper"> 
+                                <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
+                                    <i class="icon-search"></i> Buscar
+                                </button> 
+                            </div> 
+                            <div class="input-wrapper"> 
+                                <input id="numeroControle" type="search" name="numeroControle" class="textfield"/> 
+                            </div>
+                        </div> 
+                        <span id="registroErro" class="pill error" style="display: none;"></span>
+                    </div>  
                 </div>
             </div>
             <br>           
@@ -51,19 +71,24 @@
                 <div class="box shadowed bordered rounded">
                     <div class="row">
                         <div class="span4">
-                            <span class="label">Ano<span class="required"></span></span><br>
-                            <input id="ano" name="ano" class="textfield width-100" type="text" maxlength="150" required>
+                            <span class="label">Aluno<span class="required"></span></span><br>
+                            <select class="textfield width-100" id="aluno" name="situacao" required>
+                                <option value=""></option>
+                                <option value="1">Aluno 1</option>
+                                <option value="2">Aluno 2</option>
+                                <option value="2">Aluno 3</option>
+                            </select>
                         </div>
                         <div class="span4">
-                            <span class="label">Período<span class="required"></span></span><br>
+                            <span class="label">Tipo<span class="required"></span></span><br>
                             <select class="textfield width-100" id="situacao" name="situacao" required>
-                                <option value="1">1. Semestre</option>
-                                <option value="2">2. Semestre</option>
+                                <option value="1">1. TGSI 1</option>
+                                <option value="2">2. TGSI 2</option>
                               </select>
                         </div>
                        
                         <div class="span4">
-                            <span class="label">Data de entrega<span class="required"></span></span><br>
+                            <span class="label">Data<span class="required"></span></span><br>
                             <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
                         </div>
                     </div>
@@ -88,8 +113,8 @@
                 <!-- tabela de alunos -->
                 <div class="bordered rounded diced striped hovered shadowed narrow table">
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
-                        <caption>Alunos da turma</caption>
-                        <thead class="header"> <tr><th WIDTH="80"></th> <th>Aluno</th> <th class="hidden-tablet">Orientador</th> <th class="hidden-tablet">Coorientador</th> </tr> </thead>
+                        <caption>Participantes da Banca</caption>
+                        <thead class="header"> <tr><th WIDTH="80"></th> <th>Participante</th> <th class="hidden-tablet">Categoria</th> </tr> </thead>
                         <tbody>
                             <tr>
                                 <td WIDTH="80">
@@ -98,9 +123,8 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td>
-                                <td>Aluno 1-1</td> 
-                                <td class="hidden-tablet">Orientador 1-2</td> 
-                                <td class="hidden-tablet">Coorientador 1-3</td> 
+                                <td>Professor 1</td> 
+                                <td class="hidden-tablet">Coordenador</td>
                             </tr>
                             
                             <tr>
@@ -110,9 +134,8 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td>
-                                <td>Aluno 2-1</td> 
-                                <td class="hidden-tablet">Orientador 2-2</td> 
-                                <td class="hidden-tablet"> </td> 
+                                <td>Professor 2</td> 
+                                <td class="hidden-tablet">Orientador</td>
                             </tr>
                             
                             <tr>
@@ -122,9 +145,28 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td> 
-                                <td>Aluno 3-1</td> 
-                                <td class="hidden-tablet">Orientador 3-2</td> 
-                                <td class="hidden-tablet">Coorientador 3-3</td> 
+                                <td>Professor 3</td> 
+                                <td class="hidden-tablet">Avaliador</td>
+                            </tr>
+                            <tr>
+                                <td WIDTH="80">
+                                    <div class="btn-group mini">
+                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
+                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
+                                    </div>
+                                </td> 
+                                <td>Professor 4</td> 
+                                <td class="hidden-tablet">Avaliador</td>
+                            </tr>
+                            <tr>
+                                <td WIDTH="80">
+                                    <div class="btn-group mini">
+                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
+                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
+                                    </div>
+                                </td> 
+                                <td>Professor 5</td> 
+                                <td class="hidden-tablet">Avaliador</td>
                             </tr>
                         </tbody>
                     </table>
