@@ -49,16 +49,15 @@
             }
             
             if (mysqli_num_rows($resposta) == 1){
-                $registro = mysql_fetch_assoc($resposta);
-                switch ($registro['CAT_CODIGO']) {
-                    case 1: header("Location: coordenador"); exit; break;
-                    case 2: header("Location: orientador"); exit; break;
-                    case 3: header("Location: avaliador"); exit; break;
-                    case 4: header("Location: aluno"); exit; break;
+                $registro = $resposta->fetch_assoc();
+                switch ($registro['cat_codigo']) {
+                    case '1': header("Location: coordenador"); exit; break;
+                    case '2': header("Location: orientador"); exit; break;
+                    case '3': header("Location: avaliador"); exit; break;
+                    case '4': header("Location: aluno"); exit; break;
                 }
             } else {
                 header("Location: escolher-visualizacao.php");
-                
                 exit;
             }          
         } 
