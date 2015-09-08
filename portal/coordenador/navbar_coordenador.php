@@ -94,31 +94,10 @@
                             Outros <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                <li class="">
-                                    <a href="https://portal.ufsm.br/biblioteca/index.html" target="">
-                                         Biblioteca
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="http://site.ufsm.br/ufsm/calendario-academico" target="_blank">
-                                         Calendário letivo
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="https://portal.ufsm.br/ru/usuario" target="">
-                                         Restaurante Universitário
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="https://portal.ufsm.br/prae/index.html" target="">
-                                         Benefício Socioeconômico
-                                    </a>
-                                </li>
-                                <li class="disabled">
-                                    <a>
-                                         Teste de suficiência em língua estrangeira
-                                    </a>
-                                </li>
+                               
+                                     
+                               
+                              
                             </ul>
                         </div>
                         </li> 
