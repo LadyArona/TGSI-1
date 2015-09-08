@@ -9,5 +9,5 @@
         case 3: header("Location: avaliador"); exit; break;
         case 4: header("Location: aluno"); exit; break;
     }
-
+?>
 
