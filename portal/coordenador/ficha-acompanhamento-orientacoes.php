@@ -1,8 +1,17 @@
 <?php
+    include("../restrito.php");
+    include("cabecalho.php");
+    include("../navbar.php");
+    include("navbar_coordenador.php");
+?>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+    <!-- main -->
+    <div class="band">
+        <div class="container">
+            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Ficha de Acompanhamento das Orientações do TGSI</h2>
+            
+            
+        </div>
+    </div>
+    
+<?php include("../rodape.php"); ?>
