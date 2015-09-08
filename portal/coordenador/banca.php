@@ -15,55 +15,33 @@
                     <h3 class="text-shadowed stroked-bottom">Buscar Turma</h3>
                 </div>
                 <!--Caixa de busca-->
-                <div class="row">
-                     
-                    <div class="span4"> 
-                        <label class="label" for="numeroControle">Ano<span class="required"></span></label>
-                        <br>
-                        <div class="input-append width-100"> 
-                            <div class="addon-wrapper"> 
-                                <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
-                                    <i class="icon-search"></i> Buscar
-                                </button> 
-                            </div> 
-                            <div class="input-wrapper"> 
-                                <input id="numeroControle" type="search" name="numeroControle" class="textfield"/> 
-                            </div>
-                        </div> 
-                        <span id="registroErro" class="pill error" style="display: none;"></span> 
+                <div class="row"> 
+                    <div class="span2"> 
+                        <label class="label" for="ano">Ano<span class="required"></span></label>
+                        <br >
+                        <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
+                    </div> 
+                    <div class="span3"> 
+                        <span class="label">Período<span class="required"></span></span>
+                    <br >
+                    <select id="periodo" name="periodo" class="textfield width-100"> 
+                        <option value="101">1. Semestre</option>
+                        <option value="102">2. Semestre</option>
+                    </select>
                     </div>
-
-                    <div class="span4"> 
-                        <label class="label" for="numeroControle">Semestre<span class="required"></span></label>
-                        <br>
-                        <div class="input-append width-100"> 
-                            <div class="addon-wrapper"> 
-                                <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
-                                    <i class="icon-search"></i> Buscar
-                                </button> 
-                            </div> 
-                            <div class="input-wrapper"> 
-                                <input id="numeroControle" type="search" name="numeroControle" class="textfield"/> 
-                            </div>
-                        </div> 
-                        <span id="registroErro" class="pill error" style="display: none;"></span>
-                    </div>
-                    <div class="span4"> 
-                        <label class="label" for="numeroControle">Matrícula do Aluno</label>
-                        <br>
-                        <div class="input-append width-100"> 
-                            <div class="addon-wrapper"> 
-                                <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
-                                    <i class="icon-search"></i> Buscar
-                                </button> 
-                            </div> 
-                            <div class="input-wrapper"> 
-                                <input id="numeroControle" type="search" name="numeroControle" class="textfield"/> 
-                            </div>
-                        </div> 
-                        <span id="registroErro" class="pill error" style="display: none;"></span>
+                    <div class="span2"> 
+                        <label class="label" for="ano">Matrícula do Aluno<span class="required"></span></label>
+                        <br >
+                        <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
                     </div>  
+                    <div class="span2">
+                        <label class="label" for=""></label><br >
+                        <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
+                            <i class="icon-search"></i> Buscar
+                        </button> 
+                    </div>
                 </div>
+                <!--FIM Caixa de busca-->
             </div>
             <br>           
             <!--Formulário-->
@@ -105,6 +83,12 @@
                                 <option value="0">Ativo</option>
                                 <option value="1">Inativo</option>
                               </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <span class="label">Local<span class="required"></span></span><br>
+                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
                     </div>
                 </div>
