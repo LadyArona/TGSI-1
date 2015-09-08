@@ -5,14 +5,15 @@
                             Página Inicial </a>
                         </li>      
                         <li class="">
-                        <div class="btn-group block">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> 
-                            Analisar<span class="caret"></span>
+                      <div class="btn-group block">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-user"> </i> 
+                            Arquivo TGSI <span class="caret"></span>
                             </a>                    
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
                                 <li class="">
-                                    <a href="cadastrar.php" target="">
-                                         Arquivo
+                                    <a href="enviar-arquivo.php" target="">
+                                         Baixar arquivo
                                     </a>
                                 </li>  
                             </ul>
@@ -22,49 +23,28 @@
                         <li class="">
                         <div class="btn-group block">
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-edit"></i> 
-                            Gerenciar <span class="caret"></span>
+                            Resultado Avaliações <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">    
                                 <li class="">
                                     <a href="https://portal.ufsm.br/aluno/alteracao-curricular/solicitaTrancamentoTotal.html" target="">
-                                        Turmas
+                                        Proposta
                                     </a>
                                 </li>
             
                                 <li class="">
                                     <a href="https://portal.ufsm.br/aluno/requerimento/dispensa.html" target="">
-                                        Bancas
+                                        TGSI
                                     </a>
                                 </li>  
                             </ul>
                         </div>
                         </li>
-    
-
-    
-                        <li class="">
-                        <div class="btn-group block">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-table"></i>  
-                            Pesquisa <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                               <li class="disabled">
-                                    <a>
-                                        Teste
-                                    </a>
-                                </li>
                             </ul>
                         </div>
-                        </li>
-
-                            <li class=""> </li>    
-
-                            <li class="">
-                        <div class="btn-group block">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sitemap"></i>  
-                            Outros <span class="caret"></span>
-                            </a>
-                            
+                        </li>    
+                          
+                            </ul>
                         </div>
                         </li> 
                     </ul>
