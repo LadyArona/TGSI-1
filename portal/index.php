@@ -20,10 +20,12 @@
                             margin-bottom: 1em; 
                             background-color: rgba(245, 245, 245, .94); 
                     } 
-                    .transparent-subband { /*min-height: 120px;*/ 
-                            background-color: rgba(255, 255, 255, .85); 
+                    .transparent-subband { 
+                        /*min-height: 120px;*/ 
+                        background-color: rgba(255, 255, 255, .85); 
                     } 
-                    .form-subband { /*background-color: rgba(255, 255, 255, .1);*/ 
+                    .form-subband { 
+                        /*background-color: rgba(255, 255, 255, .1);*/ 
                     } 
                     .container.semi-narrow { 
                             padding-top: .5em; 
