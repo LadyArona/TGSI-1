@@ -9,17 +9,21 @@
     $nome      = $mysqli->real_escape_string($_POST['nome']);
     $email     = $mysqli->real_escape_string($_POST['email']);
     $situacao  = $mysqli->real_escape_string($_POST['situacao']);
-    $categoria = $mysqli->fetch_array($_POST['categoria']);
     
-    $sql = "INSERT INTO `usuario` (`USU_LOGIN`, `USU_SENHA`, `USU_NOME`, `USU_EMAIL`, `USU_MATRICULA`, `USU_SITUACAO`) 
+    foreach ($_POST['categoria'] as $key => $value){
+            $categoria[$key] = $value;
+    }    
+    //$categoria = $mysqli->fetch_array($_POST['categoria']);
+    
+    $sql = "INSERT INTO `usuario` (`usu_login`, `usu_senha`, `usu_nome`, `usu_email`, `usu_matricula`, `usu_situacao`) 
             VALUES ('$login', '".SHA1($senha)."', '$nome', '$email', '$matricula', '$situacao');";
   
-    $queryInsert = $mysqli->query($sql);
-    $queryInsert->execute();
+    $mysqli->query($sql);
+    //$queryInsert->execute();
     
-    $sqlUsu = "SELECT `USU_CODIGO`
-             FROM `USUARIO`  
-             WHERE (`USU_LOGIN` = '". $login ."') AND (`USU_SENHA` = '". SHA1($senha) ."')    
+    $sqlUsu = "SELECT `usu_codigo`
+             FROM `usuario`  
+             WHERE (`usu_login` = '". $login ."') AND (`usu_senha` = '". SHA1($senha) ."')    
              LIMIT 1";
     $queryUsu = $mysqli->query($sqlUsu);    
     
@@ -29,19 +33,19 @@
             $resultado = $queryUsu->fetch_assoc();
             for($i=0; $i < $N; $i++)
             {
-                $sqlCategoria = "INSERT INTO `usuario_categoria` (`USU_CODIGO`, `CAT_CODIGO`) VALUES ('". $resultado['USU_CODIGO'] ."', '". $categoria[$i] ."')";
-                $queryCategoria = $mysqli->query($sqlCategoria);
-                $queryCategoria->execute();
+                $sqlCategoria = "INSERT INTO `usuario_categoria` (`usu_codigo`, `cat_codigo`) VALUES ('". $resultado['usu_codigo'] ."', '". $categoria[$i] ."')";
+                $mysqli->query($sqlCategoria);
             }
         }
     }  
-
-    include("../funcoes.php");
+    $mysqli->close();
+    include("../include/funcoes.php");
     
     $emailmsg = montaMensagem($login, $senha); 
     
     $emailret = smtpmailer($email, 'gerenciador.tgsi@gmail.com', $nome, 'Cadastro Gerenciador TGSI', $emailmsg);
     
     header("Location: cadastrar.php?mensagem=Usuário inserido com sucesso!");
+    $mysqli->close();
     die();
 ?>

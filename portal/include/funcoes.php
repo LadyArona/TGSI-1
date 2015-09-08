@@ -1,6 +1,6 @@
 <?php
     function smtpmailer($para, $de, $de_nome, $assunto, $corpo){
-        require_once ("phpmailer/class.phpmailer.php");
+        require_once ("../phpmailer/class.phpmailer.php");
         $mail = new PHPMailer();
         $mail->IsSMTP();
         $mail->IsHTML(true);
@@ -25,6 +25,7 @@
     }
     
     function montaMensagem ($login,$senha){
+        include ("config.php");
        $mensagem = 
        "<html>
             <body>
@@ -32,7 +33,7 @@
                 Você foi cadastrado do Gerenciador de TGSI!<br>
                 Nome completo: ".$login." <br>
                 Senha: ".$senha."<br></p> 
-                <p>Para efetuar login acesse: <a href='http://facebook.com.br'>Gerenciador TGSI</a></p>
+                <p>Para efetuar login acesse: <a href='http://www.dallconsistemas.com.br/tgsi'>Gerenciador TGSI</a></p>
                 
                 <p>---------------------------------------------------------------<br>
                 <em>Não Responder! Mensagem gerada automaticamente pelo servidor.<br></em></p>
