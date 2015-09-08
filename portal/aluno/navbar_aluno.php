@@ -7,7 +7,7 @@
                         <li class="">
                         <div class="btn-group block">
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> 
-                            Enviar TGSI <span class="caret"></span>
+                            Cadastrar <span class="caret"></span>
                             </a>                    
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
                                 <li class="">
