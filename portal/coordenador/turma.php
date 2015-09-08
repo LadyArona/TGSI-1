@@ -89,7 +89,7 @@
                 <div class="bordered rounded diced striped hovered shadowed narrow table">
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
                         <caption>Alunos da turma</caption>
-                        <thead class="header"> <tr><th WIDTH="80"></th> <th>Aluno</th> <th class="hidden-tablet">Orientador</th> <th class="hidden-tablet">Coorientador</th> </tr> </thead>
+                        <thead class="header"> <tr><th WIDTH="80"></th> <th>Aluno</th> <th class="hidden-tablet">Título do Trabalho</th> <th class="hidden-tablet">Orientador</th> <th class="hidden-tablet">Coorientador</th> </tr> </thead>
                         <tbody>
                             <tr>
                                 <td WIDTH="80">
@@ -99,6 +99,7 @@
                                     </div>
                                 </td>
                                 <td>Aluno 1-1</td> 
+                                <td class="hidden-tablet">Título do trabalho do aluno 1</td> 
                                 <td class="hidden-tablet">Orientador 1-2</td> 
                                 <td class="hidden-tablet">Coorientador 1-3</td> 
                             </tr>
@@ -111,6 +112,7 @@
                                     </div>
                                 </td>
                                 <td>Aluno 2-1</td> 
+                                <td class="hidden-tablet">Título do trabalho do aluno 2</td> 
                                 <td class="hidden-tablet">Orientador 2-2</td> 
                                 <td class="hidden-tablet"> </td> 
                             </tr>
@@ -122,7 +124,8 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td> 
-                                <td>Aluno 3-1</td> 
+                                <td>Aluno 3-1</td>
+                                <td class="hidden-tablet">Título do trabalho do aluno 3</td> 
                                 <td class="hidden-tablet">Orientador 3-2</td> 
                                 <td class="hidden-tablet">Coorientador 3-3</td> 
                             </tr>
