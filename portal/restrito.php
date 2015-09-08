@@ -7,9 +7,10 @@
     if (!isset($_SESSION['UsuarioCOD'])) {
         // Destrói a sessão por segurança
         session_destroy();
+        //echo 'Sessão terminada';
         // Redireciona o visitante de volta pro login
         header("Location: ".$URL_PADRAO); 
-        exit;
+        exit();  
     }
 ?>
 

@@ -31,11 +31,10 @@
             //$mysqli->close();
             
             // Se a sessão não existir, inicia uma
-            if (!isset($_SESSION)) session_start();            
+            session_start();            
             // Salva os dados encontrados na sessão
-            $_SESSION['UsuarioCOD'] = $resultado['usu_codigo'];
-            $_SESSION['UsuarioNome'] = $resultado['usu_nome'];
-              
+                $_SESSION['UsuarioCOD'] = $resultado['usu_codigo'];
+                $_SESSION['UsuarioNome'] = $resultado['usu_nome'];              
             
             //$mysqli = $conexao;
             $sql2 = "SELECT c.`cat_codigo` FROM `usuario_categoria` as c WHERE (c.`usu_codigo` = '". $resultado['usu_codigo'] ."')";

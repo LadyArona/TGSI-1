@@ -10,7 +10,7 @@
     $situacao  = $_POST['situacao'];
     $categoria = $_POST['categoria'];
     
-    $sql = "INSERT INTO `gerenciador`.`usuario` (`USU_LOGIN`, `USU_SENHA`, `USU_NOME`, `USU_EMAIL`, `USU_MATRICULA`, `USU_SITUACAO`) 
+    $sql = "INSERT INTO `usuario` (`USU_LOGIN`, `USU_SENHA`, `USU_NOME`, `USU_EMAIL`, `USU_MATRICULA`, `USU_SITUACAO`) 
             VALUES ('$login', '".SHA1($senha)."', '$nome', '$email', '$matricula', '$situacao');";
     mysql_query($sql) or die (mysql_error());
     
@@ -26,7 +26,7 @@
             $resultado = mysql_fetch_assoc($queryUsu);
             for($i=0; $i < $N; $i++)
             {
-                $sqlCategoria = "INSERT INTO `gerenciador`.`usuario_categoria` (`USU_CODIGO`, `CAT_CODIGO`) VALUES ('". $resultado['USU_CODIGO'] ."', '". $categoria[$i] ."')";
+                $sqlCategoria = "INSERT INTO `usuario_categoria` (`USU_CODIGO`, `CAT_CODIGO`) VALUES ('". $resultado['USU_CODIGO'] ."', '". $categoria[$i] ."')";
                 mysql_query($sqlCategoria) or die (mysql_error());
             }
         }
