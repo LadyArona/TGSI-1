@@ -3,29 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/TGSI/portal/aluno/index.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/escolher-visualizacao.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/coordenador/insere-usuario.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/coordenador/navbar_coordenador.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/validacao/conexao.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/aluno/enviar-aluno.html</file>
-            <file>file:/C:/wamp/www/TGSI/portal/index.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/aluno/enviar-arquivo.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/orientador/index.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/navbar.php</file>
             <file>file:/C:/wamp/www/TGSI/portal/coordenador/cabecalho.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/aluno/navbar_aluno.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/funcoes.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/coordenador/index.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/redireciona.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/logout.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/orientador/cabecalho.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/login.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/cabecalho.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/conexao.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/restrito.php</file>
             <file>file:/C:/wamp/www/TGSI/portal/coordenador/cadastrar.php</file>
-            <file>file:/C:/wamp/www/TGSI/portal/orientador/navbar_orientador.php</file>
+            <file>file:/C:/wamp/www/TGSI/portal/avaliador/index.php</file>
+            <file>file:/C:/wamp/www/TGSI/portal/avaliador/navbar_avaliador.php</file>
         </group>
     </open-files>
 </project-private>
