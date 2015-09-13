@@ -14,9 +14,5 @@
     if (!$conexao) {
         die('Nao foi possivel conectar devido ao erro a seguir: ' . mysql_error());
     }
-//    mysqli_select_db($base_mysql) or die(mysqli_error());
+    //mysqli_select_db($base_mysql) or die(mysqli_error());
 ?>
-
-
-
-
