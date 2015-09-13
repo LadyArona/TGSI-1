@@ -1,4 +1,4 @@
-# TGSI
+﻿# TGSI
 
 Trabalho desenvolvido para a disciplica de **Projeto de Software II**
 
@@ -12,7 +12,7 @@ Trabalho desenvolvido para a disciplica de **Projeto de Software II**
 
 **Professor:** Cristiano Bertolini
 
-**Alunos:** Fredi Tiburski, Jardel Buzzato, Juliana de Fátima da Silva, Mateus Butura e Talliny Dalla Nora.
+**Alunos:** Fredi Tiburski, Jardel Buzzato,Jefferson Dalanhol, Juliana de Fátima da Silva, Mateus Butura e Talliny Dalla Nora.
 
 
 
