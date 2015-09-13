@@ -10,21 +10,21 @@
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Pesquisa de Usuário</h2>
             <!--Formulário de busca-->
-             <form id="insereUsuario" action="" method="post">            
+             <form id="busca-usuario" action="" method="post">            
                 <div class="box shadowed bordered rounded">                   
                     <div class="row">
                         <div class="span4">
                             <span class="label">Login</span><br>
-                            <input id="login" name="login" class="textfield width-100" type="text" maxlength="150" required>
+                            <input id="login" name="login" class="textfield width-100" type="text" maxlength="150">
                         </div>
                        
                         <div class="span4">
                             <span class="label">Matrícula</span><br>
-                            <input id="matricula" name="matricula" class="textfield width-100" type="text" maxlength="150" required>
+                            <input id="matricula" name="matricula" class="textfield width-100" type="text" maxlength="150">
                         </div>
                         <div class="span4">
                             <span class="label">Situação</span><br>
-                            <select class="textfield width-100" id="situacao" name="situacao" required>
+                            <select class="textfield width-100" id="situacao" name="situacao">
                                 <option value="0">Ativo</option>
                                 <option value="1">Inativo</option>
                               </select>
@@ -33,12 +33,12 @@
                     <div class="row">
                         <div class="span8">
                             <span class="label">Nome</span><br>
-                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150" required>
+                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150">
                         </div>
 
                         <div class="span4">
                             <span class="label">E-mail</span><br>
-                            <input id="email" name="email" class="textfield width-100" type="email" maxlength="150" required>
+                            <input id="email" name="email" class="textfield width-100" type="email" maxlength="150">
                         </div>
 
 
@@ -73,42 +73,42 @@
             <!--tabela-->
             <br>
             <div id="paginationWrapper"> 
-                <table class="table narrow striped hovered nowrap"> 
+                <table class="bordered rounded diced striped hovered shadowed narrow table"> 
                     <thead class="header"> 
                         <tr> 
-                            <th>Login</th> 
-                            <th>Matrícula</th> 
+                            <th WIDTH="150">Login</th> 
+                            <th WIDTH="150">Matrícula</th> 
                             <th>Nome</th> 
                             <th>E-mail</th> 
                             <th>Categoria</th> 
-                            <th>Situação</th> 
+                            <th WIDTH="100">Situação</th> 
                         </tr> 
                     </thead> 
                     
                     <tbody> 
-                        <tr data-role="tableRow" data-id="@{id}"> 
-                            <td>201509013</td> 
-                            <td>201509013</td>
+                        <tr data-role="tableRow" data-id=""> 
+                            <td WIDTH="150">201509013</td> 
+                            <td WIDTH="150">201509013</td>
                             <td>Nome do Aluno</td> 
                             <td>aluno@ufsm.com.br</td> 
                             <td>Aluno</td> 
-                            <td>Ativo</td> 
+                            <td WIDTH="100">Ativo</td> 
                         </tr>
-                        <tr data-role="tableRow" data-id="@{id}"> 
-                            <td>201509014</td> 
-                            <td>201509014</td>
+                        <tr data-role="tableRow" data-id=""> 
+                            <td WIDTH="150">201509014</td> 
+                            <td WIDTH="150">201509014</td>
                             <td>Nome do Aluno 2</td> 
                             <td>aluno2@ufsm.com.br</td> 
                             <td>Aluno</td> 
-                            <td>Ativo</td> 
+                            <td WIDTH="100">Ativo</td> 
                         </tr> 
-                        <tr data-role="tableRow" data-id="@{id}"> 
-                            <td>201009013</td> 
-                            <td>201009013</td>
+                        <tr data-role="tableRow" data-id=""> 
+                            <td WIDTH="150">201009013</td> 
+                            <td WIDTH="150">201009013</td>
                             <td>Nome do Professor</td> 
-                            <td>aprofessor@ufsm.com.br</td> 
+                            <td>professor@ufsm.com.br</td> 
                             <td>Professor(Avaliador)</td> 
-                            <td>Ativo</td> 
+                            <td WIDTH="100">Ativo</td> 
                         </tr>                         
                     </tbody> 
                 </table> 

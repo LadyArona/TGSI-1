@@ -61,8 +61,9 @@
                         <div class="span4">
                             <span class="label">Tipo<span class="required"></span></span><br>
                             <select class="textfield width-100" id="situacao" name="situacao" required>
-                                <option value="1">1. TGSI 1</option>
-                                <option value="2">2. TGSI 2</option>
+                                <option value="1">1. Proposta</option>
+                                <option value="1">2. TGSI 1</option>
+                                <option value="2">3. TGSI 2</option>
                               </select>
                         </div>
                        
