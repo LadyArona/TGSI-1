@@ -31,6 +31,32 @@
                         </div>
                         </li>
                         
+                        <!-- Pesquisar -->
+                        <li class="">
+                        <div class="btn-group block">
+                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i> 
+                            Pesquisar <span class="caret"></span>
+                            </a>                    
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
+                                <li class="">
+                                    <a href="pesquisa-usuario.php" target="">
+                                         Usuário
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="pesquisa-turma.php" target="">
+                                        Turma
+                                    </a>
+                                </li>  
+                                <li class="">
+                                    <a href="pesquisa-banca.php" target="">
+                                        Banca
+                                    </a>
+                                </li> 
+                            </ul>
+                        </div>
+                        </li>                        
+                        
                         <!-- Relatórios -->
                         <li class="">
                         <div class="btn-group block">
@@ -85,22 +111,7 @@
                                 </li>
                             </ul>
                         </div>
-                        </li>    
-
-                        <!-- Outros -->    
-                        <li class="">
-                        <div class="btn-group block">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sitemap"></i>  
-                            Outros <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                               
-                                     
-                               
-                              
-                            </ul>
-                        </div>
-                        </li> 
+                        </li>   
                     </ul>
                 </div>
     </nav>

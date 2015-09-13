@@ -30,7 +30,14 @@
                     </div> 
                 </div>
             </div>
-            <br>
+            <br>            
+            <?php
+                if(isset($_GET['mensagem'])){
+                    echo "<div class='row'><div class='span8'><div class='box success'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                    echo $_GET['mensagem'];
+                    echo "</div></div></div>";
+                }
+            ?>
             <!--Formulário-->
              <form id="insereUsuario" action="insere-usuario.php" method="post">            
                 <div class="box shadowed bordered rounded">                   
@@ -93,7 +100,7 @@
                     <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
                         <i class="icon-save"></i> Salvar</button>
                 </div>
-            </form>
+            </form>            
         </div>
     </div>
 

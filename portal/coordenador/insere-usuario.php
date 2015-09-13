@@ -1,6 +1,5 @@
 <?php
-    include("../include/conexao.php");    
-    include("../restrito.php");        
+    include("../include/conexao.php");       
     $mysqli = $conexao;
     
     $login     = $mysqli->real_escape_string($_POST['login']);
@@ -38,14 +37,13 @@
             }
         }
     }  
-    $mysqli->close();
+
     include("../include/funcoes.php");
     
     $emailmsg = montaMensagem($login, $senha); 
     
     $emailret = smtpmailer($email, 'gerenciador.tgsi@gmail.com', $nome, 'Cadastro Gerenciador TGSI', $emailmsg);
     
-    header("Location: cadastrar.php?mensagem=Usuário inserido com sucesso!");
-    $mysqli->close();
+    header("Location: cadastrar.php?mensagem=Usuário inserido com sucesso! $emailret");
     die();
 ?>
