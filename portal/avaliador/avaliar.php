@@ -39,18 +39,17 @@
                 </div>               
                 
                 
-                 <form id="insereUsuario" action="insere-usuario.php" method="post">
+                 <form id="buscaUsuario" action="busca-usuario.php" method="post">
                 <div class="box shadowed bordered rounded">
                     <div class="row">
                         <div class="span4">
                             <span class="label">Aluno<span class="required"></span></span><br>
                             <input class="textfield width-100" id="aluno" name="situacao" disabled="">
-                              
                         </div>
+                        
                         <div class="span4">
                             <span class="label">Avaliação<span class="required"></span></span><br>
                             <input class="textfield width-100" id="avaliação" name="situacao" disabled="">
-                                
                         </div>
                        
                         <div class="span4">
@@ -71,6 +70,7 @@
                                
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="span12">
                             <span class="label">Local<span class="required"></span></span><br>
@@ -80,11 +80,12 @@
                 </div>
                 <br>
                 
-                <!-- tabela de alunos -->
+                <!-- avaliação -->               
+                
                 <div class="bordered rounded diced striped hovered shadowed narrow table">
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
-                        <caption>Notas</caption>
-                        <thead class="header"> <tr>Critério<th WIDTH="80"></th> <th>Peso</th> <th class="hidden-tablet">Nota Atribuída</th> </tr> </thead>
+                        <caption>Avaliação</caption>
+                        <thead class="header"> <tr><th WIDTH="80"></th> <th>Critério</th> <th class="hidden-tablet">Nota Atribuída</th> <th>Peso</th> </tr> </thead>
                         <tbody>
                             <tr>
                                 <td WIDTH="80">
@@ -93,8 +94,8 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td>
-                                <td>Professor 1</td> 
-                                <td class="hidden-tablet">Coordenador</td>
+                                <td>Motivação e/ou justificativa</td> 
+                                <td class="hidden-tablet">2,0</td>
                             </tr>
                             
                             <tr>
@@ -104,8 +105,8 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td>
-                                <td>Professor 2</td> 
-                                <td class="hidden-tablet">Orientador</td>
+                                <td>Redação adequada do artigo (ortografia, gramática)</td> 
+                                <td class="hidden-tablet">0,5</td>
                             </tr>
                             
                             <tr>
@@ -115,8 +116,8 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td> 
-                                <td>Professor 3</td> 
-                                <td class="hidden-tablet">Avaliador</td>
+                                <td>Formatação do artigo adequada (normas científicas)</td> 
+                                <td class="hidden-tablet">0,5</td>
                             </tr>
                             <tr>
                                 <td WIDTH="80">
@@ -125,8 +126,8 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td> 
-                                <td>Professor 4</td> 
-                                <td class="hidden-tablet">Avaliador</td>
+                                <td>Coerência na fundamentação, metodologia e desenvolvimento da produção com a temática estabelecida e objetivos propostos</td> 
+                                <td class="hidden-tablet">4,0</td>
                             </tr>
                             <tr>
                                 <td WIDTH="80">
@@ -135,23 +136,46 @@
                                         <button type="button" class="btn large"><i class="icon-trash"></i></button>
                                     </div>
                                 </td> 
-                                <td>Professor 5</td> 
-                                <td class="hidden-tablet">Avaliador</td>
+                                <td>Resultados compatíveis com os previstos no cronograma estabelecido na proposta do TGSI</td> 
+                                <td class="hidden-tablet">1,0</td>
                             </tr>
+                            
+                             <tr>
+                                <td WIDTH="80">
+                                    <div class="btn-group mini">
+                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
+                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
+                                    </div>
+                                </td> 
+                                <td>Cumprimento das atividades definidas na proposta do TGSI</td> 
+                                <td class="hidden-tablet">1,0</td>
+                            </tr>
+                            
+                                 <tr>
+                                <td WIDTH="80">
+                                    <div class="btn-group mini">
+                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
+                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
+                                    </div>
+                                </td> 
+                                <td>Apresentação perante a banca</td> 
+                                <td class="hidden-tablet">2,0</td>
+                            </tr>
+                            
                         </tbody>
                     </table>
 
                 </div>
                 
 
-                <div class="form-actions">
+<!--                <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                         <i class="icon-eraser"></i> Limpar</button>
                     <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
-                        <i class="icon-save"></i> Salvar</button>
-                </div>
+                        <i class="icon-save"></i> Enviar</button>
+                </div>-->
             </form>
                 
                 
