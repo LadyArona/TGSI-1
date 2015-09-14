@@ -48,9 +48,9 @@
                             <p><br>Aguardando envio!<br></p>
                             <br>
                             <div class="form-actions bottom ">            
-                                <button class="btn primary gerarBtn" id="gerar" name="gerar" type="button">
+                                <button class="btn primary gerarBtn" id="gerar" name="gerar"  type="button" onclick="window.open('enviar-arquivo.php','_parent')">
                                     <i class="icon-save"></i> Enviar
-                                </button>
+                                </button>                               
                             </div>
                         </div>
                         <div class="span2">
