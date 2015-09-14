@@ -19,7 +19,7 @@
                     <div class="span3"> 
                         <span class="label">Período<span class="required"></span></span>
                     <br >
-                    <select id="periodo" name="periodo" class="textfield width-100"> 
+                    <select id="periodo" name="periodo" class="selectfield width-100"> 
                         <option value="101">1. Semestre</option>
                         <option value="102">2. Semestre</option>
                     </select>
@@ -39,11 +39,11 @@
                     <div class="row">
                         <div class="span4">
                             <span class="label">Ano<span class="required"></span></span><br>
-                            <input id="ano" name="ano" class="textfield width-100" type="text" maxlength="150" required>
+                            <input id="ano" name="ano" class="textfield width-100" type="number" maxlength="150" required>
                         </div>
                         <div class="span4">
                             <span class="label">Período<span class="required"></span></span><br>
-                            <select class="textfield width-100" id="situacao" name="situacao" required>
+                            <select class="selectfield" id="situacao" name="situacao" required>
                                 <option value="1">1. Semestre</option>
                                 <option value="2">2. Semestre</option>
                               </select>
@@ -63,7 +63,7 @@
 
                         <div class="span4">
                             <span class="label">Situação<span class="required"></span></span><br>
-                            <select class="textfield width-100" id="situacao" name="situacao" required>
+                            <select class="selectfield width-100" id="situacao" name="situacao" required>
                                 <option value="0">Ativo</option>
                                 <option value="1">Inativo</option>
                               </select>
@@ -123,7 +123,7 @@
                 
 
                 <div class="form-actions">
-                    <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button">
+                    <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                         <i class="icon-eraser"></i> Limpar</button>
