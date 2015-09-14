@@ -5,7 +5,7 @@
                             Página Inicial </a>
                         </li>  
                         
-                        <!-- Cadastrar -->
+                        <!-- Avaliar -->
                         <li class="">
                         <div class="btn-group block">
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> 
@@ -14,7 +14,7 @@
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
                                 <li class="">
                                     <a href="avaliar.php" target="">
-                                         Aluno
+                                         Fazer avaliação de aluno
                                     </a>
                                 </li>
                                 
@@ -24,11 +24,11 @@
                         
                         <!-- Relatórios -->
                         
-                        <!-- Outros -->    
+                        <!-- Pesquisar -->    
                         <li class="">
                         <div class="btn-group block">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sitemap"></i>  
-                            Outros <span class="caret"></span>
+                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i>  
+                            Pesquisar <span class="caret"></span>
                             </a>
                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
                                 <li class="">

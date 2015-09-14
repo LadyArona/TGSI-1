@@ -153,7 +153,7 @@
                                             
                 <div class="form-actions">
                     
-                    <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button">
+                    <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                         <i class="icon-eraser"></i> Limpar</button>
@@ -161,8 +161,9 @@
                         <i class="icon-save"></i> Salvar</button>
                     <button class="btn right primary" id="Enviar" name="enviar" type="button">
                         <i class="icon-mail-forward"></i> Enviar</button>
-                </div>
-            </form>                               
+                </div> 
+                    
+               </form>                               
         
     </div>
     

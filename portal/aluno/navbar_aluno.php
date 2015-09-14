@@ -7,7 +7,7 @@
             
             <li class="">
                 <div class="btn-group block">
-                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-edit"></i> 
+                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i> 
                     Resultado Avaliações <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">    
