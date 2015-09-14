@@ -41,7 +41,7 @@
                  <form id="buscaUsuario" action="busca-usuario.php" method="post">
                 <div class="box shadowed bordered rounded">
                     <div class="row">
-                        <div class="span4">
+                        <div class="span6">
                             <span class="label">Aluno</span><br>
                             <input class="textfield width-100" id="aluno" value="Julia da Silva" name="situacao" disabled="">
                         </div>
@@ -51,20 +51,28 @@
                             <input class="textfield width-100" id="avaliação" value="Proposta de TGSI" name="situacao" disabled="">
                         </div>
                        
-                        <div class="span4">
+                        <div class="span2">
                             <span class="label">Data<span ></span></span><br>
                             <input id="data" name="data" class="textfield width-100" value="16/03/2016"type="text"  maxlength="150" disabled="text" >
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="span8">
-                            <span class="label">Título do TGSI</span><br>
-                            <input id="nome" name="nome" class="textfield width-100" value= "Problemas Enfrentados pelos Sistemas Especialistas Atuais" type="text" maxlength="150"disabled="" >
+                        <div class="span6">
+                            <span class="label">Título do TGSI</span> <br>
+                            <input id="nome" name="nome" class="textfield width-100" value= "Problemas Enfrentados pelos Sistemas Especialistas Atuais" type="text" maxlength="150"disabled="" > 
                         </div>
-
-                        <div class="span4">
-                            <span class="label">Professor(Orientador)</span><br>
+                        
+                            <div class="span2">
+                                 <span class="label"></span> <br>
+                            <button class="btn mini" id="download" name="download" type="button">
+                     
+                        <i class="icon-download-alt"></i> Download do arquivo</button>
+                            
+                        </div>
+                                  
+                            <div class="span4">
+                            <span class="label">Professor(Orientador)</span> <br>
                             <input class="textfield width-100" id="situacao" name="situacao" value="Cristiano Bertolini"disabled="">
                                
                         </div>
@@ -144,12 +152,15 @@
                     <br>
                                             
                 <div class="form-actions">
+                    
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                         <i class="icon-eraser"></i> Limpar</button>
-                    <button class="btn primary saveBtn" id="Enviar" name="save" type="submit">
+                    <button class="btn primary saveBtn" id="Salvar" name="save" type="submit">
                         <i class="icon-save"></i> Salvar</button>
+                    <button class="btn right primary" id="Enviar" name="enviar" type="button">
+                        <i class="icon-mail-forward"></i> Enviar</button>
                 </div>
             </form>                               
         

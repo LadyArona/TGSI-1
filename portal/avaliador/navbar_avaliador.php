@@ -30,9 +30,28 @@
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sitemap"></i>  
                             Outros <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                               
-                                     
+                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
+                                <li class="">
+                                    <a href="avaliar.php" target="">
+                                         Relatorio de Notas
+                                    </a>
+                                </li>
+                                
+                                                               
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
+                                <li class="">
+                                    <a href="avaliar.php" target="">
+                                         Aluno
+                                    </a>
+                                </li>
+                                
+                                 <li class="">
+                                    <a href="avaliar.php" target="">
+                                         Aluno
+                                    </a>
+                                </li>
+                                
+                                </ul>   
                                
                               
                             </ul>
