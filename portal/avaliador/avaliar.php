@@ -10,12 +10,12 @@
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Avaliação do TGSI</h2>
             
-            <form id="formAvaliacao" action="" method="post"> 
+            <form id="insereUsuario" action="insere-usuario.php" method="post">
                 <div class="row"> 
                     <div class="span2"> 
                         <label class="label" for="ano">Ano<span class="required"></span></label>
                         <br >
-                        <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
+                        <input id="ano" name="ano" value="2016" class="textfield width-100 integer" type="text" value=""/>  
                     </div> 
                     <div class="span3"> 
                         <span class="label">Período<span class="required"></span></span>
@@ -29,146 +29,130 @@
                         <label class="label" for="ano">Aluno</label>
                         <br >
                         <select id="aluno" name="aluno" class="textfield width-100" > 
-                            <option value="0" Escolher</option>
-                            <option value="1">Aluno 1</option>
-                            <option value="2">Aluno 2</option>
-                            <option value="3">Aluno 3</option>
-                            <option value="4">Aluno 4</option>
+                            <option value="0"> Julia da Silva</option>
+                            <option value="1">Aluno 2</option>
+                            <option value="2">Aluno 3</option>
+                            <option value="3">Aluno 4</option>
+                            <option value="4">Aluno 5</option>
                         </select> 
                     </div> 
                 </div>               
-                
-                
-                 <form id="insereUsuario" action="insere-usuario.php" method="post">
+                               
+                 <form id="buscaUsuario" action="busca-usuario.php" method="post">
                 <div class="box shadowed bordered rounded">
                     <div class="row">
                         <div class="span4">
-                            <span class="label">Aluno<span class="required"></span></span><br>
-                            <input class="textfield width-100" id="aluno" name="situacao" disabled="">
-                              
+                            <span class="label">Aluno</span><br>
+                            <input class="textfield width-100" id="aluno" value="Julia da Silva" name="situacao" disabled="">
                         </div>
+                        
                         <div class="span4">
-                            <span class="label">Avaliação<span class="required"></span></span><br>
-                            <input class="textfield width-100" id="avaliação" name="situacao" disabled="">
-                                
+                            <span class="label">Avaliação</span></span><br>
+                            <input class="textfield width-100" id="avaliação" value="Proposta de TGSI" name="situacao" disabled="">
                         </div>
                        
                         <div class="span4">
                             <span class="label">Data<span ></span></span><br>
-                            <input id="data" name="data" class="textfield width-100" type="text"  maxlength="150" disabled="text" >
+                            <input id="data" name="data" class="textfield width-100" value="16/03/2016"type="text"  maxlength="150" disabled="text" >
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="span8">
                             <span class="label">Título do TGSI</span><br>
-                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150"disabled="" >
+                            <input id="nome" name="nome" class="textfield width-100" value= "Problemas Enfrentados pelos Sistemas Especialistas Atuais" type="text" maxlength="150"disabled="" >
                         </div>
 
                         <div class="span4">
                             <span class="label">Professor(Orientador)</span><br>
-                            <input class="textfield width-100" id="situacao" name="situacao" disabled="">
+                            <input class="textfield width-100" id="situacao" name="situacao" value="Cristiano Bertolini"disabled="">
                                
                         </div>
                     </div>
                     <div class="row">
                         <div class="span12">
-                            <span class="label">Local<span class="required"></span></span><br>
-                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150" disabled="">
+                            <span class="label">Local</span><br>
+                            <input id="nome" name="nome" class="textfield width-100" value="UFSM|FW - Laborátorio de Software" type="text" maxlength="150" disabled="">
                         </div>
                     </div>
                 </div>
                 <br>
                 
-                <!-- tabela de alunos -->
-                <div class="bordered rounded diced striped hovered shadowed narrow table">
+                <!-- tabela de Avaliacao -->
+               
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
-                        <caption>Notas</caption>
-                        <thead class="header"> <tr>Critério<th WIDTH="80"></th> <th>Peso</th> <th class="hidden-tablet">Nota Atribuída</th> </tr> </thead>
+                        <caption><h2>Avaliação</h2></caption>
+                        <thead class="header"> <tr>
+                                <th> Critério</th> <th WIDTH="120">Nota Atribuída</th> <th WIDTH="250">Peso</th> </tr> </thead>
                         <tbody>
                             <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td>
-                                <td>Professor 1</td> 
-                                <td class="hidden-tablet">Coordenador</td>
-                            </tr>
+                                <td>Motivacao e/ou justificativa </td>
+                                <td>2,0</td> 
+                                <td>  <input class="textfield width-15" type=number id="nota" name="nota">   </td>
+                            </tr> 
                             
                             <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td>
-                                <td>Professor 2</td> 
-                                <td class="hidden-tablet">Orientador</td>
+                                <td >Redação adequada do artigo (ortografia, gramática)</td>
+                            <td> 0,5</td> 
+                                <td> <input class="textfield width-15" type=number id="nota" name="nota" > </td>
+                            </tr> 
+                             <tr>
+                                 
+                                <td>Formatacão do artigo adequada (normas científicas)</td>         
+                                <td>0,5</td> 
+                                <td><input class="textfield width-15" type=number id="nota" name="nota" ></td>
+                            </tr>
+                            <tr>
+                                <td>Coerência na fundamentação, metodologia e desenvolvimento da produção com a temática estabelecida e objetivos propostos</td>
+                                <td>4,0</td>    
+                                <td><input class="textfield width-15" type=number id="nota" name="nota" > </td>
+                            </tr>
+                            <tr>
+                                <td>Resultados compatíveis com os previstos no cronograma estabelecido na proposta do TGSI</td>
+                                <td>1,0 </td>     
+                                <td><input class="textfield width-15" type=number id="nota" name="nota" ></td>
+                            </tr>
+                            <tr>
+                                <td>Cumprimento das atividades definidas na proposta do TGSI</td>
+                                <td>1,0 </td>     
+                                <td><input class="textfield width-15" type=number id="nota" name="nota" ></td>
+                            </tr>
+                            <tr>
+                                <td>Apresentação perante a banca</td>
+                                <td>2,0 </td>     
+                                <td><input class="textfield width-15" type=number id="nota" name="nota" ></td>
                             </tr>
                             
-                            <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td> 
-                                <td>Professor 3</td> 
-                                <td class="hidden-tablet">Avaliador</td>
-                            </tr>
-                            <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td> 
-                                <td>Professor 4</td> 
-                                <td class="hidden-tablet">Avaliador</td>
-                            </tr>
-                            <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td> 
-                                <td>Professor 5</td> 
-                                <td class="hidden-tablet">Avaliador</td>
-                            </tr>
                         </tbody>
                     </table>
-
-                </div>
-                
-
+                    <br>
+                        <div class="span11,1"> <span class="label">Parecer Descritivo Opcional</span>
+                        <br>
+                         <div class=""><textarea id="justificativa" name="justificativa" class="textarea" rows="5"></textarea><ul class="list-h inner-separated pull-right"><li>Restam 1024 caracteres</li><li>Caracteres: 0</li><li>Palavras: 0</li></ul></div>
+                         <span id="contadorParecer"></span>  
+                        </div>
+                    <br>
+                    <br>
+                        <div class="row">
+                        <div class="span2">
+                            <span class="label">Grau Final Atribuído</span>
+                        </div>
+                        <div class="span4">
+                            <input class="textfield width-100" value="Aprovado" id="grauFinal" name="grauFinal"disabled=""></span>
+                        </div>
+                   </div>
+                    <br>
+                                            
                 <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                         <i class="icon-eraser"></i> Limpar</button>
-                    <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
+                    <button class="btn primary saveBtn" id="Enviar" name="save" type="submit">
                         <i class="icon-save"></i> Salvar</button>
                 </div>
-            </form>
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="form-actions bottom ">            
-                    <button class="btn primary gerarBtn" id="gerar" name="gerar" type="button">
-                        <i class="icon-save"></i> avaliar
-                    </button>
-                </div>
-                <br>
-                            
-        </div>
+            </form>                               
+        
     </div>
     
 <?php include("../rodape.php"); ?>

@@ -76,7 +76,7 @@
                 <div class="bordered rounded diced striped hovered shadowed narrow table">
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
                         <caption>Alunos da turma</caption>
-                        <thead class="header"> <tr><th WIDTH="80"></th> <th>Aluno</th> <th class="hidden-tablet">Título do Trabalho</th> <th class="hidden-tablet">Orientador</th> <th class="hidden-tablet">Coorientador</th> </tr> </thead>
+                        <thead class="header"> <tr> <th WIDTH="80"></th> <th>Aluno</th> <th class="hidden-tablet">Título do Trabalho</th> <th class="hidden-tablet">Orientador</th> <th class="hidden-tablet">Coorientador</th> </tr> </thead>
                         <tbody>
                             <tr>
                                 <td WIDTH="80">

@@ -32,12 +32,7 @@
                                     <button id="addBtn" type="button" class="btn small inverse">+</button>
                                 </th> <th>Descrição</th> </tr> </thead> <tbody>  
                         </tbody> 
-                    </table> </fieldset>
-                
-                
-                
-                
-                
+                    </table> </fieldset>                                        
                 
                 <div class="form-actions bottom">
                     <button id="cancel" type="button" class="btn left">
