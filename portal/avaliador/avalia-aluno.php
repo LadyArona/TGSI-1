@@ -100,21 +100,21 @@
                             
                         </tbody>
                     </table>
-                    <br>
-                        <div class="span11,1"> <span class="label">Parecer Descritivo Opcional</span>  <br>
-                            <div class=""><textarea id="justificativa" name="justificativa" class="textarea" rows="5"></textarea><ul class="list-h inner-separated pull-right"><li>Restam 1024 caracteres</li><li>Caracteres: 0</li><li>Palavras: 0</li></ul></div>
-                             <span id="contadorParecer"></span>  
-                        </div>
-                    
-                        <div class="row">
-                            <div class="span4">
-                            <span class="label">Grau Final Atribuído:</span> <label for="data">APROVADO</label>  
-                            </div>
-                        </div>
-                  
-                                            
+                <br>
+                <div class="span11,1"> <span class="label">Parecer Descritivo Opcional</span>  <br>
+                    <div class=""><textarea id="justificativa" name="justificativa" class="textarea" rows="5"></textarea><ul class="list-h inner-separated pull-right"><li>Restam 1024 caracteres</li><li>Caracteres: 0</li><li>Palavras: 0</li></ul></div>
+                    <span id="contadorParecer"></span>  
+                </div>
+
+                <div class="row">
+                    <div class="span4">
+                        <span class="label">Grau Final Atribuído:</span> <label for="data">APROVADO</label>  
+                    </div>
+                </div>
+
+
                 <div class="form-actions">
-                    
+
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
@@ -124,10 +124,10 @@
                     <button class="btn right primary" id="Enviar" name="enviar" type="button">
                         <i class="icon-mail-forward"></i> Enviar</button>
                 </div> 
-                    
-               </form>                               
-        
-    </div>
+
+        </form>                               
+
+        </div>
           
                                     
 <?php include("../rodape.php"); 

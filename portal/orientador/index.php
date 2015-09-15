@@ -1,9 +1,9 @@
 
    <?php
-    include("../restrito.php");
-    include("cabecalho.php");
-    include("../navbar.php");
-    include("./navbar_avaliador.php");
+   include("cabecalho.php");
+   include("../restrito.php");
+   include("../navbar.php");
+   include("navbar_orientador.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,17 +11,11 @@
     <head>
          <title> Gerenciador de TGSI | Orientador </title>
          
-        <?php
-            include("cabecalho.php");
-        ?>
-    </head>
+            </head>
 
     <body>
         <div class="band shadowed no-print">
-        <?php
-            include("../navbar.php");
-            include("navbar_orientador.php");
-        ?>
+       
         </div> 
 
         <!-- main --> 

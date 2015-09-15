@@ -2,11 +2,32 @@
     include("../restrito.php");
     include("cabecalho.php");
     include("../navbar.php");
-    include("navbar_avaliador.php");
+    include("./navbar_orientador.php");
 ?>
 
- <table class="bordered rounded diced striped hovered shadowed narrow table">
-                       <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Avaliação da proposta de TGSI</h2>
+ <div class="band">
+        <div class="container">
+          
+        <form id="buscaUsuario" action="busca-usuario.php" method="post"> 
+        <fieldset class="bordered rounded shadowed margin-bottom"> 
+                <legend class="h3 primary text-shadowed no-margin-bottom">Parecer TGSI</legend>
+                   <div class="row">
+                        <div class="span5">
+                            <span class="label">Aluno</span><br>
+                            <label for="nome_aluno">Julia da Silva Antunes Almeida</label>
+                        </div>
+                                                                                                                        
+                    </div>
+
+                    <div class="row">
+                        <div class="span9">
+                            <span class="label">Título do TGSI</span> <br>
+                            <label for="tipo_avaliacao">Problemas Enfrentados pelos Sistemas Especialistas Atuais <a class="btn link" href="#myUrl">Download do arquivo</a></label> 
+                        </div>           
+                    </div>
+                
+                <table class="bordered rounded diced striped hovered shadowed narrow table">
+                       
                         <thead class="header"> <tr>
                                 <th> Critério</th> <th WIDTH="120">Peso</th> <th WIDTH="90">Nota atribuída</th> </tr> </thead>
                         <tbody>
@@ -56,5 +77,31 @@
                             
                         </tbody>
                     </table>
+                </fieldset>   
+            
+            
+                            <br>
+                
+                <div class="row">
+                    <div class="span4">
+                        <span class="label">Parecer:</span> <label>Favorável a Defesa</label>  
+                    </div>
+                </div>
 
+
+                <div class="form-actions">
+
+                    <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
+                        <i class="icon-ban-circle"></i> Cancelar</button>
+                    <button class="btn left Reset" id="limpar" name="limpar" type="reset">
+                        <i class="icon-eraser"></i> Limpar</button>
+                    <button class="btn primary saveBtn" id="Salvar" name="save" type="submit">
+                        <i class="icon-save"></i> Salvar</button>
+                    <button class="btn right primary" id="Enviar" name="enviar" type="button">
+                        <i class="icon-mail-forward"></i> Enviar</button>
+                </div> 
+
+        </form>                               
+
+        </div>
 <?php include("../rodape.php"); 
