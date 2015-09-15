@@ -1,4 +1,4 @@
-<div class="band transparent-subband mini-font-size "> 
+<div class="band transparent-subband mini-font-size align-center-phone-tablet"> 
 <footer> 
 	<div class="container semi-narrow stroked-top"> 
 		<div class="row"> 
