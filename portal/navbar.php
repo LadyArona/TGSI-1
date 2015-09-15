@@ -10,7 +10,7 @@
                     </li> 
                 </ul> 
             </div>
-            <div class="span6 align-center-phone-tablet">
+            <div class="span6 align-right align-center-phone-tablet">
                 <ul class="nav align-right align-center-phone-tablet">
                     <li> 
                         <div class="btn-group align-left">    
