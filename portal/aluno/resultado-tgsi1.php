@@ -9,7 +9,7 @@
     <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Resultado TGSI 1</h2>
-            
+            <span class="">Aguardando banca.</span>
             
         </div>
     </div>
