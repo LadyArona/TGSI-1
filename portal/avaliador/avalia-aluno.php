@@ -56,46 +56,46 @@
                         <tbody>
                             <tr>
                                 <td>Motivacao e/ou justificativa </td>
-                                <td>2,0</td> 
-                                <td>  <input class="textfield width-4em" type=number id="nota" name="nota">   </td>
+                                <td>1,0</td> 
+                                <td>  <input class="textfield width-4em" type=number value="1" id="nota" name="nota">   </td>
                             </tr> 
                             
                             <tr>
                                 <td >Redação adequada do artigo (ortografia, gramática)</td>
                             <td> 0,5</td> 
-                                <td> <input class="textfield width-4em" type=number id="nota" name="nota" > </td>
+                            <td> <input class="textfield width-4em" type=number value="0.5" id="nota" name="nota" > </td>
                             </tr> 
                              <tr>
                                  
                                 <td>Formatacão do artigo adequada (normas científicas)</td>         
                                 <td>0,5</td> 
-                                <td><input class="textfield width-4em" type=number id="nota" name="nota" ></td>
+                                <td><input class="textfield width-4em" type=number value="0.3"id="nota" name="nota" ></td>
                             </tr>
                             <tr>
                                 <td>Coerência na fundamentação, metodologia e desenvolvimento da produção com a temática estabelecida e objetivos propostos</td>
                                 <td>4,0</td>    
-                                <td><input class="textfield width-4em" type=number id="nota" name="nota" > </td>
+                                <td><input class="textfield width-4em" type=number value="3.5" id="nota" name="nota" > </td>
                             </tr>
                             <tr>
                                 <td>Resultados compatíveis com os previstos no cronograma estabelecido na proposta do TGSI</td>
                                 <td>1,0 </td>     
-                                <td><input class="textfield width-4em" type=number id="nota" name="nota" ></td>
+                                <td><input class="textfield width-4em" type=number value="1"id="nota" name="nota" ></td>
                             </tr>
                             <tr>
                                 <td>Cumprimento das atividades definidas na proposta do TGSI</td>
                                 <td>1,0 </td>     
-                                <td><input class="textfield width-4em" type=number id="nota" name="nota" ></td>
+                                <td><input class="textfield width-4em" type=number value="1" id="nota" name="nota" ></td>
                             </tr>
                             <tr>
                                 <td>Apresentação perante a banca</td>
                                 <td>2,0 </td>     
-                                <td><input class="textfield width-4em" type=number id="nota" name="nota" ></td>
+                                <td><input class="textfield width-4em" type=number value="1.9" id="nota" name="nota" > </td>
                             </tr>
                             
                              <tr>
                                 <td><strong>Nota Final</></td>
                                 <td><strong>10</> </td>     
-                                <td><span class="label"><strong> </>  </span><br></td>
+                                <td><span class="label"><strong> 9,2 </>  </span><br></td>
                             </tr>
                             
                         </tbody>
