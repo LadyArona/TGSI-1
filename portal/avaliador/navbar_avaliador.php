@@ -32,28 +32,18 @@
                             </a>
                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
                                 <li class="">
-                                    <a href="avaliar.php" target="">
-                                         Relatorio de Notas
+                                    <a href="pesquisa-alunoAvaliar.php" target="">
+                                         Alunos a serem avaliados
                                     </a>
                                 </li>
                                 
-                                                               
-                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
                                 <li class="">
-                                    <a href="avaliar.php" target="">
-                                         Aluno
+                                    <a href="pesquisa-alunoAvaliado.php" target="">
+                                         Alunos avaliados
                                     </a>
                                 </li>
                                 
-                                 <li class="">
-                                    <a href="avaliar.php" target="">
-                                         Aluno
-                                    </a>
-                                </li>
-                                
-                                </ul>   
-                               
-                              
+                        
                             </ul>
                         </div>
                         </li> 

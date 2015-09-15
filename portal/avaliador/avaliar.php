@@ -1,8 +1,8 @@
 <?php
     include("../restrito.php");
-    include("cabecalho.php");
+    include("./cabecalho.php");
     include("../navbar.php");
-    include("navbar_avaliador.php");
+    include("./navbar_avaliador.php");
 ?>
 
     <!-- main -->

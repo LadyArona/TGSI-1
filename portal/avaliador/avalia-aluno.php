@@ -10,11 +10,10 @@
  <div class="band">
         <div class="container">
           
-
-<form id="buscaUsuario" action="busca-usuario.php" method="post"> 
-<fieldset class="bordered rounded shadowed margin-bottom"> 
-                    <legend class="h3 primary text-shadowed no-margin-bottom">Dados do Aluno e TGSI</legend>
-                       <div class="row">
+        <form id="buscaUsuario" action="busca-usuario.php" method="post"> 
+        <fieldset class="bordered rounded shadowed margin-bottom"> 
+                <legend class="h3 primary text-shadowed no-margin-bottom">Dados do Aluno e TGSI</legend>
+                   <div class="row">
                         <div class="span5">
                             <span class="label">Aluno</span><br>
                             <label for="nome_aluno">Julia da Silva Antunes Almeida</label>
@@ -31,24 +30,23 @@
                         </div>
                            <div class="span3">
                            <span class="label">Professor(Orientador)</span> <br>
-                            <label for="data">Cristiano Bertolini</label>
+                           <label for="data">Cristiano Bertolini</label>
                            </div>
                     </div>
 
                     <div class="row">
                         <div class="span9">
                             <span class="label">Título do TGSI</span> <br>
-                             <label for="tipo_avaliacao">Problemas Enfrentados pelos Sistemas Especialistas Atuais <a class="btn link" href="#myUrl">Download do arquivo</a></label> 
+                            <label for="tipo_avaliacao">Problemas Enfrentados pelos Sistemas Especialistas Atuais <a class="btn link" href="#myUrl">Download do arquivo</a></label> 
                         </div>
                             
-                            <div class="span3">
-                          <span class="label">Local</span><br>
-                          <label for="data">UFSM|FW - Laborátorio de Software</label>    
+                        <div class="span3">
+                            <span class="label">Local</span><br>
+                            <label for="data">UFSM|FW - Laborátorio de Software</label>    
                         </div>
                     </div>
                     
-              
-               </fieldset>             
+            </fieldset>             
                 <!-- tabela de Avaliacao -->
                
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
@@ -95,26 +93,24 @@
                             </tr>
                             
                              <tr>
-                                <td>Nota Final</td>
-                                <td>  </td>     
-                                <td><span class="label"> </span><br></td>
+                                <td><strong>Nota Final</></td>
+                                <td><strong>10</> </td>     
+                                <td><span class="label"><strong> </>  </span><br></td>
                             </tr>
                             
                         </tbody>
                     </table>
                     <br>
-                        <div class="span11,1"> <span class="label">Parecer Descritivo Opcional</span>
-                        <br>
-                         <div class=""><textarea id="justificativa" name="justificativa" class="textarea" rows="5"></textarea><ul class="list-h inner-separated pull-right"><li>Restam 1024 caracteres</li><li>Caracteres: 0</li><li>Palavras: 0</li></ul></div>
-                         <span id="contadorParecer"></span>  
+                        <div class="span11,1"> <span class="label">Parecer Descritivo Opcional</span>  <br>
+                            <div class=""><textarea id="justificativa" name="justificativa" class="textarea" rows="5"></textarea><ul class="list-h inner-separated pull-right"><li>Restam 1024 caracteres</li><li>Caracteres: 0</li><li>Palavras: 0</li></ul></div>
+                             <span id="contadorParecer"></span>  
                         </div>
                     
                         <div class="row">
-                        <div class="span4">
+                            <div class="span4">
                             <span class="label">Grau Final Atribuído:</span> <label for="data">APROVADO</label>  
+                            </div>
                         </div>
-                        
-                   </div>
                   
                                             
                 <div class="form-actions">
@@ -136,3 +132,4 @@
                                     
 <?php include("../rodape.php"); 
   
+
