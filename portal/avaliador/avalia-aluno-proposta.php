@@ -21,7 +21,7 @@
                         
                         <div class="span2">
                             <span class="label">Tipo de Avaliação</span></span><br>
-                            <label for="tipo_avaliacao">TGSI 1</label>
+                            <label for="tipo_avaliacao">Proposta de TGSI</label>
                         </div>
                        
                         <div class="span2">
@@ -50,12 +50,12 @@
                 <!-- tabela de Avaliacao -->
                
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
-                       <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Avaliação do TGSI 1</h2>
+                       <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Avaliação da proposta de TGSI</h2>
                         <thead class="header"> <tr>
-                                <th> Critério</th> <th WIDTH="120">Nota Atribuída</th> <th WIDTH="90">Peso</th> </tr> </thead>
+                                <th> Critério</th> <th WIDTH="120">Peso</th> <th WIDTH="90">Nota atribuída</th> </tr> </thead>
                         <tbody>
                             <tr>
-                                <td>Motivacao e/ou justificativa </td>
+                                <td> Motivacao e/ou justificativa </td>
                                 <td>1,0</td> 
                                 <td>  <input class="textfield width-4em" type=number value="1" id="nota" name="nota">   </td>
                             </tr> 
@@ -131,5 +131,3 @@
           
                                     
 <?php include("../rodape.php"); 
-  
-
