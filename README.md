@@ -26,11 +26,12 @@ O sistema devera gerenciar todo o processo do TGSI, onde deverao ser feitos flux
 
 Tecnologias utilizadas
 --------------
-* HTML
-* CSS
+* Mocca Framework - UFSM
+* HTML 5
+* CSS 3
+* PHP
 * JavaScript
 * MySQL
-* PHP
 
 
 IDEs utilizadas
