@@ -1,23 +1,23 @@
-
-   <?php
-   include("cabecalho.php");
-   include("../restrito.php");
-   include("../navbar.php");
-   include("navbar_orientador.php");
+<?php
+    include("../restrito.php");
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
          <title> Gerenciador de TGSI | Orientador </title>
          
-            </head>
+        <?php
+            include("cabecalho.php");
+        ?>
+    </head>
 
     <body>
         <div class="band shadowed no-print">
-       
+        <?php
+            include("../navbar.php");
+            include("navbar_orientador.php");
+        ?>
         </div> 
-
         <!-- main --> 
         <div class="band"> 
             <div class="container">
