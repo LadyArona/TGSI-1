@@ -7,7 +7,7 @@
             <!-- Parecer para aluno antes da Banca-->
               <li class="">
             <div class="btn-group block">
-                <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i> 
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-edit"></i> 
                 Parecer <span class="caret"></span>
                 </a>                    
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
