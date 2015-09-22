@@ -23,7 +23,7 @@
         $rows = mysqli_num_rows($query);       
         if ($rows != 1) {
             // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
-            echo "Login inválido!";
+            header("Location: index.php?mensagem=Login inválido!");
             exit;
         } else {
             // Salva os dados encontados na variável $resultado
@@ -34,18 +34,24 @@
             session_start();            
             // Salva os dados encontrados na sessão
                 $_SESSION['UsuarioCOD'] = $resultado['usu_codigo'];
-                $_SESSION['UsuarioNome'] = $resultado['usu_nome'];              
+                $_SESSION['UsuarioNome'] = $resultado['usu_nome'];
             
             //$mysqli = $conexao;
             $sql2 = "SELECT c.`cat_codigo` FROM `usuario_categoria` as c WHERE (c.`usu_codigo` = '". $resultado['usu_codigo'] ."')";
             
             $resposta = $mysqli->query($sql2);
-            $mysqli->close(); 
+            $mysqli->close();
+
+            
             if (mysqli_num_rows($resposta) < 1) {
                 // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
-                echo "Categoria inválida!"; 
+                echo "Categoria inválida! Entre em contato com o administrador do sistema.";
+                session_destroy();
                 exit;
             }
+            
+            $rows = mysqli_num_rows($resposta);
+            $_SESSION['Categorias'] = $rows;
             
             if (mysqli_num_rows($resposta) == 1){
                 $registro = $resposta->fetch_assoc();

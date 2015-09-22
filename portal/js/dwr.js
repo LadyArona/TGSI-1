@@ -1,3 +1,5 @@
+/* global dwr */
+
 var dwrCallCount = 0;
 $(document).ready(function() {
     dwr.engine.setTextHtmlHandler(function() {

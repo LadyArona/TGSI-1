@@ -20,13 +20,19 @@
 
                             <ul class="dropdown-menu" role="menu">  
                                 <li role="menuitem">
-                                    <a tabindex="-1" href="">
+                                    <a tabindex="-1" href="<?PHP echo $URL_PADRAO."/alterar-senha.php"; ?>">
                                     <i class="icon-pencil"></i> Alterar senha</a>
                                 </li> 
-                                <li role="menuitem">
-                                    <a tabindex="-1" href="">
-                                    <i class="icon-question-sign"></i> Ajuda</a></li> <li role="menuitem" class="divider">
-                                </li> 
+                                
+                                <?php
+                                    if ($_SESSION['Categorias'] > 1) {
+                                        echo "<li role='menuitem'>";
+                                        echo "   <a tabindex='-1' href='$URL_PADRAO/escolher-visualizacao.php'>";
+                                        echo "   <i class='icon-question-sign'></i> Alterar Visualização</a></li> <li role='menuitem' class='divider'>";
+                                        echo "</li>";     
+                                    }
+                                ?>                                
+
                                 <li role="menuitem">
                                     <a tabindex="-1" href="<?php echo $URL_PADRAO."/logout.php"; ?>">
                                     <i class="icon-signout"></i> Sair</a>
