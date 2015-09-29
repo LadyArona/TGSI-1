@@ -110,14 +110,9 @@
                                         </div> 
                                     </div> 
 
-                                    <div class="row"> 
-                                        <div class="span12 padding-top align-justify"> Para alunos novos, a identificação será o número de matrícula e a senha a data de nascimento no formato <b>DDMMAAAA</b>. Por exemplo, <b>01091989</b>, para nascido em 01/09/1989. 
-                                        </div> 
-                                    </div>  
-
-                                    <div class="row"> 
+                                       <div class="row"> 
                                         <div class="span12 padding-top align-justify"> 
-                                                O número de matrícula e a senha são enviados para o e-mail informado na confirmação da matrícula da disciplina de TGSI, somente após esse processo, conforme calendário letivo. Obs: Caso não tenha recebido esse e-mail na caixa de entrada, verifique a caixa de spam, ou entre em contato com o professor coordenador. 
+                                                A matrícula e a senha são enviados para o e-mail informado na confirmação da matrícula da disciplina de TGSI. Obs: Caso não tenha recebido esse e-mail na caixa de entrada, verifique a caixa de spam, ou entre em contato com o professor coordenador. 
                                         </div> 
                                     </div> 
                                 </div> 
