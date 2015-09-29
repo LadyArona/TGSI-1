@@ -1,7 +1,5 @@
-?php
-
 <?php
-//Pasta onde o arquivo vai ser salvo
+// Pasta onde o arquivo vai ser salvo
 $_UP['pasta'] = 'uploads/';
 
 // Tamanho máximo do arquivo (em Bytes)
@@ -66,4 +64,4 @@ if ($upload == true) {
         echo "Não foi possível enviar o arquivo, tente novamente.";
     }
 }
-?> 
+?>
