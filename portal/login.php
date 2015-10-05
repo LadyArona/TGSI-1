@@ -1,4 +1,4 @@
-<?php
+<?php //
 	include "include/conexao.php";        
 
         // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
@@ -7,7 +7,7 @@
             exit;
         }
         
-        $mysqli = $conexao;
+//        $mysqli = $conexao;
 
         $login = $mysqli->real_escape_string($_POST["j_username"]);
         $senha = $mysqli->real_escape_string($_POST["j_password"]);

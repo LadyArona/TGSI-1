@@ -7,7 +7,7 @@
                     INNER JOIN `usuario_categoria` AS U 
                     ON U.`cat_codigo` = C.`cat_codigo` 
             WHERE U.`usu_codigo` = ".$_SESSION['UsuarioCOD'];
-    $mysqli = $conexao;
+//    $mysqli = $conexao;
     $resposta = $mysqli->query($sql);
 ?>    
   
