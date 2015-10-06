@@ -1,4 +1,7 @@
 <?php
+include("../include/conexao.php"); 
+include("../include/funcoes.php");
+
 // Pasta onde o arquivo vai ser salvo
 $_UP['pasta'] = 'uploads/';
 
@@ -9,7 +12,7 @@ $_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
 $_UP['extensoes'] = array('pdf');
 
 // Renomeia o arquivo? (Se true, o arquivo será salvo como .pdf e um nome único)
-$_UP['renomeia'] = false;
+$_UP['renomeia'] = true;
 
 // Array com os tipos de erros de upload do PHP
 $_UP['erros'][0] = 'Não houve erro';
@@ -50,18 +53,37 @@ if ($_UP['renomeia'] == true) {
 
 $upload = move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
 
+session_start();
+date_default_timezone_set('America/Sao_Paulo');
+
+$aluno = $_SESSION['UsuarioCOD'];
+$turma = $_SESSION['AlunoTurma'];
+$data = date('Y-m-d');
+$hora = date('H:i:s');
+$obs  = $mysqli->real_escape_string($_POST['texto']);
+$arqNome = $nome_final;
+$arqSituacao = 'N'; // A - Aprovado ou N  - Não aprovado, aqui no cadastro sempre passa N
+ $arqTipo = $mysqli->real_escape_string($_POST['tipo']);
+
 if ($upload == true) {
     // Cria uma query MySQL
-    $sql = "INSERT INTO `contas` (`id`, `nome`, `foto`) VALUES (NULL, '". $nomeMySQL ."', '". $nome ."')";
-    // Executa a consulta
-    $query = mysql_query($sql);
-    if ($query == true) {
+    $sql = "INSERT INTO 
+           `arquivo`(`usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`) 
+             VALUES ('$aluno', '$turma','$data','$hora','$obs','$arqNome','$arqSituacao','$arqTipo')";
+    
+    // Executa o insert    
+    //$mysqli->query($sql);
+    mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
+    header("Location: index.php?mensagem=Envio de arquivo efetuado com sucesso!!");
+    exit;
+
+/*    if ($query == true) {
         // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
         echo "Upload efetuado com sucesso!";
         echo '<a href="' . $_UP['pasta'] . $nome_final . '">Clique aqui para acessar o arquivo</a>';
     } else {
         // Não foi possível fazer o upload, provavelmente a pasta está incorreta
         echo "Não foi possível enviar o arquivo, tente novamente.";
-    }
+    }*/
 }
 ?>

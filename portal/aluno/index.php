@@ -31,6 +31,15 @@
         <!-- main --> 
         <div class="band align-center-phone">
             <div class="container"> 
+                
+                <?php
+                    if(isset($_GET['mensagem'])){
+                        echo "<div class='row'><div class='span8'><div class='box warning'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo $_GET['mensagem'];
+                        echo "</div></div></div>";
+                    }
+                ?> 
+                
                 <div class="box warning bordered tip shadowed rounded">
                     <div class="row">
                         <div class="span10">
@@ -42,7 +51,7 @@
                                 </div>
                                 <div class="span6 padding-v align-right align-center-phone">
                                     <form name="gerar" method="POST" action="enviar-arquivo.php">
-                                        <input type="hidden" name="tipo" value="Proposta">
+                                        <input type="hidden" name="tipo" value="1">
                                         <button class="btn primary gerarBtn" id="gerar" name="gerar"  type="Submit">
                                             <i class="icon-upload-alt"></i> Enviar Arquivo
                                         </button>                                         

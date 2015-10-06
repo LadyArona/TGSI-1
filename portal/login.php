@@ -1,13 +1,12 @@
-<?php //
-	include "include/conexao.php";        
+<?php
+	include "include/conexao.php";
+        include "include/funcoes.php";
 
         // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
         if (!empty($_POST) AND (empty($_POST['j_username']) OR empty($_POST['j_password']))) {
             header("Location: index.php"); 
             exit;
         }
-        
-//        $mysqli = $conexao;
 
         $login = $mysqli->real_escape_string($_POST["j_username"]);
         $senha = $mysqli->real_escape_string($_POST["j_password"]);
@@ -40,8 +39,6 @@
             $sql2 = "SELECT c.`cat_codigo` FROM `usuario_categoria` as c WHERE (c.`usu_codigo` = '". $resultado['usu_codigo'] ."')";
             
             $resposta = $mysqli->query($sql2);
-            $mysqli->close();
-
             
             if (mysqli_num_rows($resposta) < 1) {
                 // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
@@ -59,7 +56,10 @@
                     case '1': header("Location: coordenador"); exit; break;
                     case '2': header("Location: orientador"); exit; break;
                     case '3': header("Location: avaliador"); exit; break;
-                    case '4': header("Location: aluno"); exit; break;
+                    case '4': $_SESSION['AlunoTurma'] = PegaTurma($_SESSION['UsuarioCOD']);
+                              $_SESSION['AlunoOrientador'] = PegaOrientador($_SESSION['UsuarioCOD']); 
+                              header("Location: aluno");
+                              exit; break;
                 }
             } else {
                 header("Location: escolher-visualizacao.php");

@@ -42,5 +42,35 @@
        
        return $mensagem;
     }
+    
+    function pegaTurma($idAluno){
+        include("conexao.php");       
+        
+        $sql = "SELECT `tur_codigo` 
+                FROM `turma_detalhe` 
+                WHERE `usu_aluno` = $idAluno 
+                LIMIT 1";
+           
+        $query = $mysqli->query($sql);    
+        $resposta = $query->fetch_assoc();
+        if (mysqli_num_rows($query) > 0) {        
+            return $resposta['tur_codigo'];
+        }
+    }
+
+    function pegaOrientador($idAluno){
+        include("conexao.php");       
+        
+        $sql = "SELECT `usu_orientador` 
+                FROM `turma_detalhe` 
+                WHERE `usu_aluno` = $idAluno 
+                LIMIT 1";
+           
+        $query = $mysqli->query($sql);    
+        $resposta = $query->fetch_assoc();
+        if (mysqli_num_rows($query) > 0) {        
+            return $resposta['usu_orientador'];
+        }
+    }    
 ?>
 
