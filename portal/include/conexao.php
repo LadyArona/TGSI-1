@@ -15,5 +15,11 @@
     $mysqli = new mysqli($servidor_mysql, $login_mysql, $senha_mysql,$base_mysql);
     if ($mysqli->connect_error) {
         die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
-    }    
+    }   
+    
+//     'mysqli_stmt_bind_param()' e 'mysqli_stmt_execute()' e funcionou. Também é necessário informar o
+//             prepare no código bind_param, ficando: '$stmt = mysqli_stmt_bind_param($stmt, 'ssss' , ...); 
+//         Agora está funcionando normalmente.
+    
+    
 ?>

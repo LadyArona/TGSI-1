@@ -34,7 +34,7 @@
                 <!--FIM Caixa de busca-->
             <br>           
             <!--Formulário-->
-            <form id="insereUsuario" action="insere-usuario.php" method="post">
+            <form id="insereTurma" action="insere_turma.php" method="post">
                 <div class="box shadowed bordered rounded">
                     <div class="row">
                         <div class="span4">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="span4">
                             <span class="label">Período<span class="required"></span></span><br>
-                            <select class="selectfield" id="situacao" name="situacao" required>
+                            <select class="selectfield" id="semestre" name="semestre" required>
                                 <option value="1">1. Semestre</option>
                                 <option value="2">2. Semestre</option>
                               </select>
@@ -51,14 +51,14 @@
                        
                         <div class="span4">
                             <span class="label">Data de entrega<span class="required"></span></span><br>
-                            <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
+                            <input id="data" name="data_proposta" class="textfield width-100" type="date" maxlength="150" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="span8">
                             <span class="label">Descrição<span class="required"></span></span><br>
-                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150" required>
+                            <input id="descricao" name="descricao" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
 
                         <div class="span4">
