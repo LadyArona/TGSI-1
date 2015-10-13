@@ -34,7 +34,7 @@
                 <!--FIM Caixa de busca-->
             <br>           
             <!--Formulário-->
-            <form id="insereTurma" action="insere_turma.php" method="post">
+            <form id="insereTurma" action="insere-turma.php" method="post"> <!--envia dados para insere-turma.php ao clicar em Salvar-->
                 <div class="box shadowed bordered rounded">
                     <div class="row">
                         <div class="span4">
