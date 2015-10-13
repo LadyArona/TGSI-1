@@ -2,7 +2,7 @@
     include("../restrito.php");
     include("cabecalho.php");
     include("../navbar.php");
-    include("navbar_coordenador.php");
+    include("navbar-oordenador.php");
 ?>
 
     <!-- main -->

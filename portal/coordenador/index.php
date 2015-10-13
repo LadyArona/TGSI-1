@@ -15,7 +15,7 @@
         <div class="band shadowed no-print">
         <?php
             include("../navbar.php");
-            include("navbar_coordenador.php");
+            include("navbar-coordenador.php");
         ?>
         </div> 
 

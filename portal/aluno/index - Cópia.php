@@ -24,7 +24,7 @@
         <div class="band shadowed no-print">
         <?php
             include("../navbar.php");
-            include("navbar_aluno.php");
+            include("navbar-aluno.php");
         ?>
         </div> 
 

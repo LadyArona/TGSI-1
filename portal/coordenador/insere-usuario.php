@@ -1,7 +1,6 @@
 <?php
     include("../include/conexao.php");       
-
-    
+       
     $login     = $mysqli->real_escape_string($_POST['login']);
     $senha     = $mysqli->real_escape_string($_POST['senha']);
     $matricula = $mysqli->real_escape_string($_POST['matricula']);

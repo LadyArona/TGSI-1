@@ -2,7 +2,8 @@
     include("../restrito.php");
     include("cabecalho.php");
     include("../navbar.php");
-    include("navbar_coordenador.php");
+    include("navbar-coordenador.php");
+    include("../include/funcoes.php");
 ?>
 
     <!-- main -->
@@ -26,7 +27,7 @@
                     </div> 
                     <div class="span2">
                         <label class="label" for=""></label><br >
-                        <button id="search-btn1" type="button" class="btn primary small" onclick="buscaRegistro();">
+                        <button id="search-btn1" type="button" class="btn primary small" onclick="buscaTurma();">
                             <i class="icon-search"></i> Buscar
                         </button> 
                     </div>
