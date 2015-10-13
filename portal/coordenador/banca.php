@@ -46,7 +46,7 @@
             </div>
             <br>           
             <!--Formulário-->
-            <form id="insereUsuario" action="insere-usuario.php" method="post">
+            <form id="insereUsuario" action="insere-banca.php" method="post">
                 <div class="box shadowed bordered rounded">
                     <div class="row">
                         <div class="span4">
