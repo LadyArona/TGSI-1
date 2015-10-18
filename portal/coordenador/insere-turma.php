@@ -8,7 +8,7 @@
     
   
     //colocando a consulta dentro da variável sql
-    $sql = "INSERT INTO `turma.tur_codigo` (`tur_ano`, `tur_semestre`, `tur_descricao`, `tur_data_proposta`)
+    $sql = "INSERT INTO `turma` (`tur_ano`, `tur_semestre`, `tur_descricao`, `tur_data_proposta`)
      VALUES ('$ano','$semestre','$descricao', '$data_proposta');";
     
     $res = $mysqli->query($sql);
