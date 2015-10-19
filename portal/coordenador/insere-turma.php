@@ -18,9 +18,8 @@
         $sql = "INSERT INTO `turma` (`tur_ano`, `tur_semestre`, `tur_descricao`, `tur_data_proposta`)
          VALUES ('$ano','$semestre','$descricao', '$data_proposta');";
 
-        $res = $mysqli->query($sql);
+        $res = $mysqli->query($sql)or die ("Não foi possivel salvar os dados, verifique os valores passados");
         
-
         if ($mysqli->connect_error) {
         die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
         }  
@@ -28,8 +27,8 @@
         if (mysqli_connect_errno()) {
         printf("Falha ao se conectar: %s\n", mysqli_connect_error());
         exit();
-}
+        }
         header("Location: turma.php?mensagem=A turma ano $ano do $semestre º semestre foi inserida com sucesso! ");     
         die();    
-//}
+
       ?>     
