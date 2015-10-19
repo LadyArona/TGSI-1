@@ -33,7 +33,15 @@
                     </div>
                 </div>
                 <!--FIM Caixa de busca-->
-            <br>           
+            <br>  
+            
+                <?php //função recebe mensagem
+                    if(isset($_GET['mensagem'])){
+                        echo "<div class='row'><div class='span8'><div class='box success'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo $_GET['mensagem'];
+                        echo "</div></div></div>";
+                    }
+                ?>
             <!--Formulário-->
             <form id="insereTurma" action="insere-turma.php" method="post"> <!--envia dados para insere-turma.php ao clicar em Salvar-->
                 <div class="box shadowed bordered rounded">
@@ -121,7 +129,6 @@
                     </table>
 
                 </div>
-                
 
                 <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
