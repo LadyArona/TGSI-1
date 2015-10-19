@@ -10,28 +10,33 @@
     <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Turma</h2>
-                <!--Caixa de busca-->
-                <div class="row"> 
-                    <div class="span2"> 
-                        <label class="label" for="ano">Ano<span class="required"></span></label>
-                        <br >
-                        <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
-                    </div> 
-                    <div class="span3"> 
-                        <span class="label">Período<span class="required"></span></span>
-                    <br >
-                    <select id="periodo" name="periodo" class="selectfield width-100"> 
-                        <option value="101">1. Semestre</option>
-                        <option value="102">2. Semestre</option>
-                    </select>
-                    </div> 
-                    <div class="span2">
+                <!--Inicio Caixa de busca-->
+                
+                <form id="buscaTurma" action="busca-turma.php" method="post"> <!--busca turma-->
+              
+                    <div class="row">
+                        <div class="span4">
+                            <span class="label">Ano<span class="required"></span></span><br>
+                            <input id="ano" name="ano" class="textfield width-100" type="number" maxlength="150" required>
+                        </div>
+                        <div class="span4">
+                            <span class="label">Período<span class="required"></span></span><br>
+                            <select class="selectfield" id="semestre" name="semestre" required>
+                                <option value="1">1. Semestre</option>
+                                <option value="2">2. Semestre</option>
+                              </select>
+                        </div>
+                        
+                         <div class="span2">
                         <label class="label" for=""></label><br >
-                        <button id="search-btn1" type="button" class="btn primary small" onclick="buscaTurma();">
+                        <button id="buscaTurma" type="submit" class="btn primary small">
                             <i class="icon-search"></i> Buscar
                         </button> 
                     </div>
-                </div>
+                    </div>
+                                                
+            </form>
+             
                 <!--FIM Caixa de busca-->
             <br>  
             
@@ -79,8 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <br>
-                
+                               
                 <!-- tabela de alunos -->
                 <div class="bordered rounded diced striped hovered shadowed narrow table">
                     <table class="bordered rounded diced striped hovered shadowed narrow table">
