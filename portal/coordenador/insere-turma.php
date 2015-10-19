@@ -9,7 +9,7 @@
        
             $search = mysql_query("SELECT * FROM tabela3 WHERE ano = '$ano' AND semestre = '$semestre'");
             if(@mysqli_num_rows($search) > 0){
-            echo 'Esse post já existe';
+            echo 'Essa turma já existe';
             }else{   
   
             //colocando a consulta dentro da variável sql
