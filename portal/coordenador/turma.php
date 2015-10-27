@@ -4,7 +4,7 @@
     include("../navbar.php");
     include("navbar-coordenador.php");
     include("../include/funcoes.php");
-    
+      
 ?>
 
     <!-- main -->
@@ -13,7 +13,7 @@
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Turma</h2>
                 <!--Inicio Caixa de busca-->
                 
-                <form id="buscaTurma" action="busca-turma.php" method="post"> <!--busca turma-->
+                <form id="buscaTurma" action="turma-seg.php" method="post"> <!--busca turma-->
               
                     <div class="row">
                         <div class="span4">
@@ -27,7 +27,6 @@
                                 <option value="2">2. Semestre</option>
                               </select>
                         </div>
-                        
                          <div class="span2">
                         <label class="label" for=""></label><br >
                         <button id="buscaTurma" type="submit" class="btn primary small">
@@ -44,7 +43,11 @@
                 <?php //função recebe mensagem
                     if(isset($_GET['mensagem'])){
                         echo "<div class='row'><div class='span8'><div class='box success'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo 'A turma de ';
                         echo $_GET['mensagem'];
+                        echo ' do ';                        
+                        echo $_GET['semestre'];                        
+                        echo 'º Semestre já está cadastrada!';
                         echo "</div></div></div>";
                     }
                 ?>

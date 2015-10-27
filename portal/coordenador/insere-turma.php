@@ -21,7 +21,7 @@
         printf("Falha ao se conectar: %s\n", mysqli_connect_error());
         exit();
         }
-        header("Location: turma.php?mensagem=A turma ano $ano do $semestre º semestre foi inserida com sucesso! ");     
+        header("Location: turma.php?mensagem=A turma foi inserida com sucesso! ");     
         die();    
         
             

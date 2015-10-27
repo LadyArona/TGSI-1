@@ -18,18 +18,18 @@
             /*se ele encontrar linha com ano digitado igual a ano inserido e semestre digitado igual a semestre inserido a turma ja existe! */
             if($row['tur_ano'] == $ano and $row['tur_semestre']==$semestre) //se existe turma com ano e semestre iguais então a turma ja existe
                 
-            header("Location: turma.php?mensagem=A turma ano $ano do $semestre º semestre já existe! ");     /*informa usuário que turma já existe*/
+            header("Location: turma.php?mensagem=A turma ano $ano do $semestreº semestre já existe! ");     /*informa usuário que turma já existe*/
                 die();   
             }
         }
    
         else
         {
-            
             header("Location: turma-seg.php");   /*direciona para próxima tela e ja manda os valores de ano e semestre não editável para o usuário*/  
             die(); 
         }
         
          /* fecha a conexão */
                 mysqli_close($conexao);
-        ?>            
+        ?>     
+

@@ -2,7 +2,7 @@
     include("../restrito.php");
     include("cabecalho.php");
     include("../navbar.php");
-    include("navbar-oordenador.php");
+    include("navbar-coordenador.php");
 ?>
 
     <!-- main -->
@@ -40,7 +40,6 @@
                             <span class="label">E-mail</span><br>
                             <input id="email" name="email" class="textfield width-100" type="email" maxlength="150">
                         </div>
-
 
                     </div>
 

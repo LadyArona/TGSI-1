@@ -4,36 +4,51 @@
     include("../navbar.php");
     include("navbar-coordenador.php");
     include("../include/funcoes.php");
-    
-?>
+    include("../include/conexao.php");
+ 
+   
+    $ano            = $mysqli->real_escape_string($_POST['ano']); /*pegando os valores do formulario*/
+    $semestre       = $mysqli->real_escape_string($_POST['semestre']);
 
-    <!-- main -->
-    <div class="band">
+    /*pega no banco de dados da turma */
+    $query = mysqli_query($conexao,"SELECT  tur_ano ,tur_semestre,tur_descricao, tur_data_proposta from turma where tur_ano = '$ano' and tur_semestre = '$semestre'")or die(mysql_error());
+    /*retorna a quantidade registros encontrados na consulta acima */
+    $numrow = mysqli_num_rows($query);
+    /*se quantidade de linhas maior que zero*/
+         if($numrow > 0)
+        {
+         /*Retorna uma matriz que corresponde a linha obtida e move o ponteiro interno dos dados adiante */
+         while($row=mysqli_fetch_array($query))
+         {
+            /*se ele encontrar linha com ano digitado igual a ano inserido e semestre digitado igual a semestre inserido a turma ja existe! */
+            if($row['tur_ano'] == $ano and $row['tur_semestre']==$semestre){ //se existe turma com ano e semestre iguais então a turma ja existe
+
+            echo "<script>location.href='turma.php?mensagem=$ano&semestre=$semestre';</script>";
+            }
+        }}
+       
+        else
+        {
+           ?>
+             <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Turma</h2>
                        
             <br>  
-            
-                <?php //função recebe mensagem
-                    if(isset($_GET['mensagem'])){
-                        echo "<div class='row'><div class='span8'><div class='box success'><button type='button' class='close' data-dismiss='box'>&times;</button>";
-                        echo $_GET['mensagem'];
-                        echo "</div></div></div>";
-                    }
-                ?>
             <!--Formulário-->
-            <form id="insereTurma" action="insere-turma.php" method="post"> <!--envia dados para insere-turma.php ao clicar em Salvar-->
+            <form id="insereTurma" action="insere-turma.php" method="post"> <!--envia dados para insere-turma.php ao clicar em Salvar-->  
+        
                 <div class="box shadowed bordered rounded">
                     <div class="row">
                         <div class="span4">
                             <span class="label">Ano<span class="required"></span></span><br>
-                            <input id="ano" name="ano" class="textfield width-100" type="number" maxlength="150" required>
+                            <input id="ano" value= "<?php echo $ano ?>" name="ano" class="textfield width-100" type="number" maxlength="150" disabled="">
                         </div>
                         <div class="span4">
                             <span class="label">Período<span class="required"></span></span><br>
-                            <select class="selectfield" id="semestre" name="semestre" required>
-                                <option value="1">1. Semestre</option>
-                                <option value="2">2. Semestre</option>
+                            <select class="selectfield" id="semestre" name="semestre" disabled="">
+                                <option value="<?php echo $semestre ?>">1. Semestre</option>
+                                <option value="<?php echo $semestre ?>">2. Semestre</option>
                               </select>
                         </div>
                        
@@ -44,70 +59,12 @@
                     </div>
 
                     <div class="row">
-                        <div class="span8">
+                        <div class="span11">
                             <span class="label">Descrição<span class="required"></span></span><br>
                             <input id="descricao" name="descricao" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
-
-                        <div class="span4">
-                            <span class="label">Situação<span class="required"></span></span><br>
-                            <select class="selectfield width-100" id="situacao" name="situacao" required>
-                                <option value="0">Ativo</option>
-                                <option value="1">Inativo</option>
-                              </select>
-                        </div>
                     </div>
-                </div>
-                               
-                <!-- tabela de alunos -->
-<!--                <div class="bordered rounded diced striped hovered shadowed narrow table">
-                    <table class="bordered rounded diced striped hovered shadowed narrow table">
-                        <caption>Alunos da turma</caption>
-                        <thead class="header"> <tr> <th WIDTH="80"></th> <th>Aluno</th> <th class="hidden-tablet">Título do Trabalho</th> <th class="hidden-tablet">Orientador</th> <th class="hidden-tablet">Coorientador</th> </tr> </thead>
-                        <tbody>
-                            <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td>
-                                <td>Aluno 1-1</td> 
-                                <td class="hidden-tablet">Título do trabalho do aluno 1</td> 
-                                <td class="hidden-tablet">Orientador 1-2</td> 
-                                <td class="hidden-tablet">Coorientador 1-3</td> 
-                            </tr>
-                            
-                            <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td>
-                                <td>Aluno 2-1</td> 
-                                <td class="hidden-tablet">Título do trabalho do aluno 2</td> 
-                                <td class="hidden-tablet">Orientador 2-2</td> 
-                                <td class="hidden-tablet"> </td> 
-                            </tr>
-                            
-                            <tr>
-                                <td WIDTH="80">
-                                    <div class="btn-group mini">
-                                        <button type="button" class="btn"><i class="icon-edit"></i></button>
-                                        <button type="button" class="btn large"><i class="icon-trash"></i></button>
-                                    </div>
-                                </td> 
-                                <td>Aluno 3-1</td>
-                                <td class="hidden-tablet">Título do trabalho do aluno 3</td> 
-                                <td class="hidden-tablet">Orientador 3-2</td> 
-                                <td class="hidden-tablet">Coorientador 3-3</td> 
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>-->
-
+                </div>            
                 <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
@@ -119,7 +76,12 @@
             </form>
         </div>
     </div>
-
 <?php
-	include("../rodape.php");
-?>
+include("../include/conexao.php");
+   /* fecha a conexão */
+            mysqli_close($conexao);
+            include("../rodape.php");
+             }           
+            ?>
+
+
