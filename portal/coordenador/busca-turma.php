@@ -2,61 +2,34 @@
 
  include("../include/conexao.php");  
  
-    $ano            = $mysqli->real_escape_string($_POST['ano']); 
+    $ano            = $mysqli->real_escape_string($_POST['ano']); /*pegando os valores do formulario*/
     $semestre       = $mysqli->real_escape_string($_POST['semestre']);
-           
-    $sql = mysql_query("SELECT * FROM turma WHERE tur_ano='$ano' AND tur_semestre='$semestre'");
-    $res = $mysqli->query($sql)or die ("Não foi possivel salvar os dados, verifique os valores passados");
-  
-//   if (mysqli_num_rows($queryUsu) > 0) { 
-//        if (!empty($categoria)) {
-//            $N = count($categoria);
-//            $resultado = $queryUsu->fetch_assoc();
-//            for($i=0; $i < $N; $i++)
-//            {
-//                $sqlCategoria = "INSERT INTO `usuario_categoria` (`usu_codigo`, `cat_codigo`) VALUES ('". $resultado['usu_codigo'] ."', '". $categoria[$i] ."')";
-//                $mysqli->query($sqlCategoria);
-//            }
-//        }  
-    
-    
-        while ($turma = mysqli_affected_rows($query)) {
-          // Exibe um link com a notícia
-          echo '['. $turma['ano'] .']('. $turma['semestre'] .')';
-          echo '';
-        } // fim while
-// Total de notícias
-echo 'Cadastro: ' . mysqli_num_rows($query);
 
-////    $query = $mysqli->query($sql);
-//    while ($res = $query->mysqli_fetch_array()){
-//      echo 'Ano: ' . $res['tur_ano'] . '';
-//      echo 'Semestre: ' . $res['tur_semestre'] . '';
-//    }
-//    echo 'Registros encontrados:' . $query->num_rows;
-
- 
-//    $sql = "DELETE FROM `turma` WHERE `tur_ano` = 2019";
-//    $query = $mysqli->query($sql);
-//    echo 'Registros afetados: ' . $query->affected_rows;
-
-       
-//        $sql = "SELECT * FROM turma WHERE tur_ano='$ano' AND tur_semestre='$semestre'";
-//        $rs = mysqli_fetch_assoc ($sql);
-//        // verificar se existem...
-//        $ver = mysqli_num_rows ($sql);
-//        if( $ver <=0 )
-//        {
-//        echo"Inválido";
-//        }else{
-//        echo"Válido";
-//
-//        }  
-//    $sql = "SELECT `ano`, `semestre` FROM `turma` where ano= 5";
-//    $query = $mysqli->query($sql);
-//    while ($dados = $query->mysqli_fetch_array()) {
-//      echo 'ID: ' . $dados['ano'] . '';
-//      echo 'Título: ' . $dados['semestre'] . '';
-//    }
-//    echo 'Registros encontrados: ' . $query->num_rows;
+    /*pega no banco de dados da turma */
+    $query = mysqli_query($conexao,"SELECT  tur_ano ,tur_semestre,tur_descricao, tur_data_proposta from turma where tur_ano = '$ano' and tur_semestre = '$semestre'")or die(mysql_error());
+    /*retorna a quantidade registros encontrados na consulta acima */
+    $numrow = mysqli_num_rows($query);
+    /*se quantidade de linhas maior que zero*/
+        if($numrow > 0)
+        {
+         /*Retorna uma matriz que corresponde a linha obtida e move o ponteiro interno dos dados adiante */
+         while($row=mysqli_fetch_array($query))
+         {
+            /*se ele encontrar linha com ano digitado igual a ano inserido e semestre digitado igual a semestre inserido a turma ja existe! */
+            if($row['tur_ano'] == $ano and $row['tur_semestre']==$semestre) //se existe turma com ano e semestre iguais então a turma ja existe
+                
+            header("Location: turma.php?mensagem=A turma ano $ano do $semestre º semestre já existe! ");     /*informa usuário que turma já existe*/
+                die();   
+            }
+        }
+   
+        else
+        {
+            
+            header("Location: turma-seg.php");   /*direciona para próxima tela e ja manda os valores de ano e semestre não editável para o usuário*/  
+            die(); 
+        }
         
+         /* fecha a conexão */
+                mysqli_close($conexao);
+        ?>            
