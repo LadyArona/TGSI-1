@@ -1,23 +1,16 @@
    <?php
     include("../include/conexao.php"); 
-    
+        //as variaveis recebem os dados do formulário
        $ano            = $mysqli->real_escape_string($_POST['ano']); 
        $semestre       = $mysqli->real_escape_string($_POST['semestre']);
        $descricao      = $mysqli->real_escape_string($_POST['descricao']);
        $data_proposta  = $mysqli->real_escape_string ($_POST['data_proposta']);
     
-
-       $search = mysql_query("SELECT * FROM turma WHERE ano = '$ano' AND semestre = '$semestre'");
-            if(mysqli_num_rows($search) > 0){
-            echo 'Essa turma já existe';
-            }else{  
-                
-            }
-//        
-//        //executa 
+     
+        //passa os volores
         $sql = "INSERT INTO `turma` (`tur_ano`, `tur_semestre`, `tur_descricao`, `tur_data_proposta`)
          VALUES ('$ano','$semestre','$descricao', '$data_proposta');";
-
+        //executa
         $res = $mysqli->query($sql)or die ("Não foi possivel salvar os dados, verifique os valores passados");
         
         if ($mysqli->connect_error) {
@@ -30,5 +23,6 @@
         }
         header("Location: turma.php?mensagem=A turma ano $ano do $semestre º semestre foi inserida com sucesso! ");     
         die();    
-
+        
+            
       ?>     
