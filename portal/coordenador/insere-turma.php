@@ -5,8 +5,9 @@
        $semestre       = $mysqli->real_escape_string($_POST['semestre']);
        $descricao      = $mysqli->real_escape_string($_POST['descricao']);
        $data_proposta  = $mysqli->real_escape_string ($_POST['data_proposta']);
+       $codigo = $mysqli->real_escape_string ($_POST['data_proposta']);
     
-     
+    //Se o códio estiver vazio faz op insert 
         //passa os volores
         $sql = "INSERT INTO `turma` (`tur_ano`, `tur_semestre`, `tur_descricao`, `tur_data_proposta`)
          VALUES ('$ano','$semestre','$descricao', '$data_proposta');";
@@ -22,7 +23,10 @@
         exit();
         }
         header("Location: turma.php?mensagem=A turma foi inserida com sucesso! ");     
-        die();    
+        die();
+        
+    //Se não, se o códio tiver valor, faz um UPDATE where codigo = $codigo;
+        
         
             
       ?>     

@@ -6,7 +6,6 @@
     include("../include/funcoes.php");
       
 ?>
-
     <!-- main -->
     <div class="band">
         <div class="container">
