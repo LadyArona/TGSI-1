@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Out-2015 às 00:30
+-- Generation Time: 27-Out-2015 às 19:06
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -39,17 +39,7 @@ CREATE TABLE IF NOT EXISTS `arquivo` (
   PRIMARY KEY (`arq_codigo`),
   KEY `usu_aluno` (`usu_aluno`),
   KEY `tur_codigo` (`tur_codigo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Extraindo dados da tabela `arquivo`
---
-
-INSERT INTO `arquivo` (`arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`) VALUES
-(1, 1, 1, '0000-00-00', '03:29:18', '', '9d7d7f46ddd5badf8cd1b93068f5a948.pdf', 'N', '1'),
-(2, 1, 1, '0000-00-00', '03:34:29', 'sccscsc', 'a7b9d61dab87c02427b7f396a58a5c81.pdf', 'N', '1'),
-(3, 1, 1, '0000-00-00', '22:39:29', 'cscsc', '50f23db78cc47e0cfcde463df86a50b3.pdf', 'N', '1'),
-(4, 1, 1, '2015-10-04', '22:40:21', 'fefef', 'a61658def835e9e3fb711e150d4fda19.pdf', 'N', '1');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -80,20 +70,24 @@ INSERT INTO `categoria` (`CAT_CODIGO`, `CAT_DESCRICAO`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `turma` (
-  `tur_codigo` int(11) NOT NULL,
+  `tur_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `tur_ano` year(4) DEFAULT NULL,
   `tur_semestre` tinyint(1) DEFAULT NULL,
   `tur_descricao` varchar(150) DEFAULT NULL,
   `tur_data_proposta` date DEFAULT NULL,
   PRIMARY KEY (`tur_codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Extraindo dados da tabela `turma`
 --
 
 INSERT INTO `turma` (`tur_codigo`, `tur_ano`, `tur_semestre`, `tur_descricao`, `tur_data_proposta`) VALUES
-(1, 2015, 2, 'Turma 02/2015', '2015-12-16');
+(7, 2015, 1, 'wewrfwr', '2015-10-15'),
+(13, 2018, 2, 'hsuahsuha', '2015-10-08'),
+(14, 2015, 2, 'olaaaa!!', '2015-10-13'),
+(15, 2010, 2, 'Vivaaaa', '2015-10-22'),
+(16, 2010, 2, 'dfgdfg', '2015-10-08');
 
 -- --------------------------------------------------------
 
@@ -113,14 +107,7 @@ CREATE TABLE IF NOT EXISTS `turma_detalhe` (
   UNIQUE KEY `usu_aluno` (`usu_aluno`),
   UNIQUE KEY `usu_orientador` (`usu_orientador`),
   UNIQUE KEY `usu_coorientador` (`usu_coorientador`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `turma_detalhe`
---
-
-INSERT INTO `turma_detalhe` (`tud_codigo`, `tur_codigo`, `usu_aluno`, `usu_orientador`, `usu_coorientador`, `tud_titulo`) VALUES
-(1, 1, 1, 35, 36, 'Rastreabilidade na Indústria Alimentícia');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -137,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `USU_MATRICULA` varchar(100) NOT NULL,
   `USU_SITUACAO` tinyint(1) NOT NULL,
   PRIMARY KEY (`USU_CODIGO`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -154,7 +141,11 @@ INSERT INTO `usuario` (`USU_CODIGO`, `USU_LOGIN`, `USU_SENHA`, `USU_NOME`, `USU_
 (41, 'teste88', '1905973b7d78abc17b0c6b70fd111e1f92efa451', 'teste88', 'loja.anima.animus@gmail.com', 'teste88', 0),
 (42, 'teste99', '8f748a9293deeadc84ca2853548c85506ac19912', 'teste99', 'loja.anima.animus@gmail.com', 'teste99', 0),
 (43, 'teste99', '8f748a9293deeadc84ca2853548c85506ac19912', 'teste99', 'loja.anima.animus@gmail.com', 'teste99', 0),
-(44, 'teste66', '12178c4c05e5a3d7f8aed28fe54e0bbabb418151', 'teste66', 'loja.anima.animus@gmail.com', 'teste66', 0);
+(44, 'teste66', '12178c4c05e5a3d7f8aed28fe54e0bbabb418151', 'teste66', 'loja.anima.animus@gmail.com', 'teste66', 0),
+(45, 'julian', '2e6f9b0d5885b6010f9167787445617f553a735f', 'juliana', 'julianafatsil@hotmail.com', '2012222259', 0),
+(46, 'lodskfdsof', 'd0cb8342b48e321794f6627429bc30ca9746af58', 'dfdfdf', 'julianafatsil@hotmail.com', 'dfdfd', 0),
+(47, 'ju', '2e6f9b0d5885b6010f9167787445617f553a735f', 'Problemas Enfrentados pelos Sistemas Especialistas Atuais', 'josyinez@gmail.com', '2012222259', 0),
+(48, 'admin', '23a6a3cf06cfd8b1a6cda468e5756a6a6a1d21e7', 'Problemas Enfrentados pelos Sistemas Especialistas Atuais', 'julianafatsil@hotmail.com', '1278423', 0);
 
 -- --------------------------------------------------------
 

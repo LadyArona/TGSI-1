@@ -21,7 +21,7 @@
         printf("Falha ao se conectar: %s\n", mysqli_connect_error());
         exit();
         }
-        header("Location: turma.php?mensagem=A turma foi inserida com sucesso! ");     
+        echo "<script>location.href='turma.php?mensagem=A turma foi inserida com sucesso!';</script>";
         die();    
         
             

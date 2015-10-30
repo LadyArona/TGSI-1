@@ -30,14 +30,7 @@
                     </div> 
                 </div>
             </div>
-            <br>     
-            
-            <div class="box shadowed bordered rounded"> <div class="row large-margin-bottom"> <div class="span12"> <span class="label">Aluno</span>
-<br>
- <span class="margin-left"> JULIANA DE FATIMA DA SILVA </span> </div> </div> <div class="row large-margin-bottom"> <div class="span12"> <span class="label">Matrículas</span>
-<br>
- <ul>  <li>201222259 - Sistemas de Informação/CESNORS/FW</li>  </ul> </div> </div> </div>
-           
+            <br>                
             <?php
                 if(isset($_GET['mensagem'])){
                     echo "<div class='row'><div class='span8'><div class='box success'><button type='button' class='close' data-dismiss='box'>&times;</button>";
