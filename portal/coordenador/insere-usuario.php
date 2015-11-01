@@ -43,6 +43,6 @@
     
     $emailret = smtpmailer($email, 'gerenciador.tgsi@gmail.com', $nome, 'Cadastro Gerenciador TGSI', $emailmsg);
     
-    header("Location: cadastrar.php?mensagem=Usuário inserido com sucesso! $emailret");
+    echo "<script>location.href='cadastrar.php?mensagem=Usuário inserido com sucesso! $emailret';</script>";
     die();
 ?>

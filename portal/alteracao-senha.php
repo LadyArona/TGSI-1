@@ -19,7 +19,7 @@
         unset($_POST['nova2']);
         
         if (!isset($_SESSION['UsuarioCOD'])) {
-            header("Location: alterar-senha.php?mensagem=Erro, saia do sistema e faça login novamente.");
+            echo "<script>location.href='alterar-senha.php?mensagem=Erro, saia do sistema e faça login novamente.';</script>";
             die();
         }else{            
             $codigo = $_SESSION['UsuarioCOD'];
@@ -40,21 +40,21 @@
                 $senhaOld = $resultado['usu_senha'];
                 
                 if(strcmp($senhaOld,$senha) != 0){
-                    header("Location: alterar-senha.php?mensagem=Erro! Senha atual incorreta.");
+                    echo "<script>location.href='alterar-senha.php?mensagem=Erro! Senha atual incorreta.';</script>";
                     die();
                 }elseif(strcmp($nova1,$nova2) != 0){
-                     header("Location: alterar-senha.php?mensagem=Erro! Digite novamente a nova senha.");
-                     die();                 
+                    echo "<script>location.href='lterar-senha.php?mensagem=Erro! Digite novamente a nova senha.';</script>";
+                    die();                 
                 }else{ 
                     $update = "update usuario set usu_senha = '$nova1' where usu_codigo = '$codigo' ";
                     $mysqli->query($update);
 
-                    header("Location: alterar-senha.php?mensagem=Senha alterada com sucesso!");
+                    echo "<script>location.href='alterar-senha.php?mensagem=Senha alterada com sucesso!';</script>";
                 }
             }
         }
     }else{
-        header("Location: alterar-senha.php?mensagem=Preencha todos os campos.");
+        echo "<script>location.href='alterar-senha.php?mensagem=Preencha todos os campos.';</script>";
     }
 ?>
  

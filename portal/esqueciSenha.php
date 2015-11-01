@@ -47,11 +47,10 @@
                         <li><strong>Docentes:</strong> informar a matrícula SIAPE no campo 'Login';</li>
                         <li><strong>Demais usuários:</strong> informar o login normalmente utilizado nos sistemas;</li>
                     </ul>
-                    <p>Após, o sistema enviará uma nova senha, gerada automaticamente, para o e-mail cadastrado no gerenciador.</p>
-                    <p>Cada nova solicitação sobrescreve a senha anterior. Por isso, utilize sempre a senha do último e-mail recebido.</p>
+                    <p>Após, o sistema enviará UMA NOVA senha para o e-mail cadastrado no gerenciador.</p>
                 </div>
                 <br>
-                <form id="esqueciSenhaCommand" action="" method="post">
+                <form id="esqueciSenhaCommand" action="include/recuperar.php" method="post">
                     <div class="row">
                         <div class="span4">
                             <label for="usuario" class="label">Login<span class="required"></span>:</label>
@@ -60,7 +59,7 @@
                         </div>
                         <div class="span4">
                             <label for="email" class="label">E-mail<span class="required"></span>:</label>
-                            <input id="email" name="email" class="textfield block width-100" type="text" value=""/>
+                            <input id="email" name="email" class="textfield block width-100" type="email" value=""/>
                             
                         </div>
                     </div>
@@ -70,12 +69,26 @@
                         </div>
                     </div>
                 </form>
-
+                
                 <script type="text/javascript">
                     $(document).ready(function() {
+                        /* global passwordCheckerAjax */
                         $('#solicitar').lockOnClick();
                     });
-                </script>
+                </script>                
+
+                <?php
+                    if(isset($_GET['mensagem1'])){
+                        echo "<br><div class='row'><div class='span9'><div class='box success'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo $_GET['mensagem1'];
+                        echo "</div></div></div>";
+                    } else if(isset($_GET['mensagem2'])){
+                        echo "<br><div class='row'><div class='span8'><div class='box error'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo $_GET['mensagem2'];
+                        echo "</div></div></div>";
+                    }
+                ?>                   
+               
             </div>
             <?php include("rodape.php"); ?> 
         </div>

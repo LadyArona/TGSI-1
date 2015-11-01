@@ -4,7 +4,7 @@
 
         // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
         if (!empty($_POST) AND (empty($_POST['j_username']) OR empty($_POST['j_password']))) {
-            header("Location: index.php"); 
+            echo "<script>location.href='index.php';</script>";
             exit;
         }
 
@@ -22,19 +22,17 @@
         $rows = mysqli_num_rows($query);       
         if ($rows != 1) {
             // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
-            header("Location: index.php?mensagem=Login inválido!");
+            echo "<script>location.href='index.php?mensagem=Login inválido!';</script>";   
             exit;
         } else {
             // Salva os dados encontados na variável $resultado
-            $resultado = $query->fetch_assoc();
-            //$mysqli->close();
-            
+            $resultado = $query->fetch_assoc();            
             // Se a sessão não existir, inicia uma
             session_start();            
             // Salva os dados encontrados na sessão
                 $_SESSION['UsuarioCOD'] = $resultado['usu_codigo'];
                 $_SESSION['UsuarioNome'] = $resultado['usu_nome'];
-            
+                
             //$mysqli = $conexao;
             $sql2 = "SELECT c.`cat_codigo` FROM `usuario_categoria` as c WHERE (c.`usu_codigo` = '". $resultado['usu_codigo'] ."')";
             
@@ -42,7 +40,7 @@
             
             if (mysqli_num_rows($resposta) < 1) {
                 // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
-                echo "Categoria inválida! Entre em contato com o administrador do sistema.";
+                echo "<script>location.href='index.php?mensagem=Categoria inválida! Entre em contato com o administrador do sistema.';</script>";
                 session_destroy();
                 exit;
             }

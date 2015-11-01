@@ -74,7 +74,7 @@ if ($upload == true) {
     // Executa o insert    
     //$mysqli->query($sql);
     mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
-    header("Location: index.php?mensagem=Envio de arquivo efetuado com sucesso!!");
+    echo "<script>location.href='index.php?mensagem=Envio de arquivo efetuado com sucesso!';</script>";
     exit;
 
 /*    if ($query == true) {
