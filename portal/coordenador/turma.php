@@ -41,12 +41,10 @@
             
                 <?php //função recebe mensagem
                     if(isset($_GET['mensagem'])){
-                        echo "<div class='row'><div class='span8'><div class='box success'><button type='button' class='close' data-dismiss='box'>&times;</button>";
-                        echo 'A turma de ';
+                        echo "<div class='row'><div class='span8'><div class='box ";
                         echo $_GET['mensagem'];
-                        echo ' do ';                        
-                        echo $_GET['semestre'];                        
-                        echo 'º Semestre já está cadastrada!';
+                        echo "'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo $_GET['texto'];
                         echo "</div></div></div>";
                     }
                 ?>
