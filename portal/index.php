@@ -39,8 +39,17 @@
         <div class="band"> 
             <div class="band themed-band shadowed"> 
                 <div class="band transparent-subband"> 
-                    <div class="container">  
-                            <a class="no-link h1 pull-right no-margin-top uppercase humanist-font" href="index.html"><b>UFSM</b> | Gerenciamento de TGSI</a> 
+                    <div class="container">
+                        <div class="row">
+                            <div class="span3 align-left align-center-phone-tablet">
+                                <img class="no-link align-left no-margin-top" src="img/si_simbolo.png" width="187px" height="43px"> 
+                            </div>
+                            <div class="span9 align-right align-center-phone-tablet">
+                                <a class="no-link h1 align-right no-margin-top uppercase humanist-font" href="index.php">
+                                    <span class="bold">UFSM</span>  | Gerenciamento de TGSI
+                                </a>
+                            </div>
+                        </div>    
                     </div> 
                 </div> 
 
