@@ -33,7 +33,7 @@
                          <div class="span2">
                         <label class="label" for=""></label><br >
                         <button id="buscaTurma" type="submit" class="btn primary small">
-                            <i class="icon-search"></i> Buscar
+                            <i class="icon-edit"></i> Cadastrar
                         </button> 
                     </div>
                     </div>
