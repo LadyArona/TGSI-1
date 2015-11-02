@@ -15,7 +15,7 @@
                     <form id="insereUsuario" action="banca-seg.php" method="post">
                         <div class="box shadowed bordered rounded">
                             <div class="row">
-                                <h3 class="text-shadowed stroked-bottom">Buscar Turma</h3>
+                                <h3 class="text-shadowed stroked-bottom">Buscar Banca</h3>
                             </div>
                            <!--Caixa de busca-->
                             <div class="row"> 
@@ -32,15 +32,11 @@
                                             <option value="102">2. Semestre</option>
                                         </select>
                                 </div>
-                                <div class="span2"> 
-                                    <label class="label" for="ano">Matrícula do Aluno<span class="required"></span></label>
-                                        <br >
-                                    <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
-                                </div>  
+                                
                                  <div class="span2">
                                      <label class="label" for=""></label><br >
                                      <button id="buscaBanca" type="submit" class="btn primary small">
-                                        <i class="icon-search"></i> Buscar
+                                        <i class="icon-edit"></i> Cadastrar
                                      </button> 
                                  </div>
                             </div>
