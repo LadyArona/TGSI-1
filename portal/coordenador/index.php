@@ -1,4 +1,7 @@
 <?php
+    //Define a página como sendo do coordenador para uso restrito
+    session_start();
+    $_SESSION['categoriaPagina'] = 1;
     include("../restrito.php");
 ?>
 <!DOCTYPE html>

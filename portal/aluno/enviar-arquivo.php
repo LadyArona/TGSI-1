@@ -1,4 +1,9 @@
 <?php
+    //Define a página como sendo do coordenador para uso restrito
+    session_start();
+    $_SESSION['categoriaPagina'] = 4;
+    include("../restrito.php");    
+
     if (!isset($_POST['tipo'])) {
         header("Location: index.php");
         exit;
@@ -13,7 +18,6 @@
         }
     }
     
-    include("../restrito.php");
     include("cabecalho.php");
     include("../navbar.php");
     include("navbar-aluno.php");     

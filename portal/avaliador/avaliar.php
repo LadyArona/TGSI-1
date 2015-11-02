@@ -1,4 +1,7 @@
 <?php
+    //Define a página como sendo do coordenador para uso restrito
+    session_start();
+    $_SESSION['categoriaPagina'] = 3;
     include("../restrito.php");
     include("./cabecalho.php");
     include("../navbar.php");

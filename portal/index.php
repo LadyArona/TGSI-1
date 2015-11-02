@@ -36,9 +36,9 @@
 
     <body>
         <!-- main --> 
-        <div class="band"> 
-            <div class="band themed-band shadowed"> 
-                <div class="band transparent-subband"> 
+        <div class="band">
+            <div class="band themed-band shadowed">
+                <div class="band transparent-subband">
                     <div class="container">
                         <div class="row">
                             <div class="span3 align-left align-center-phone-tablet">
