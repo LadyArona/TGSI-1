@@ -14,10 +14,6 @@
             <!--Inicio Caixa de busca Banca-->   
                     <form id="insereUsuario" action="banca-seg.php" method="post">
                         <div class="box shadowed bordered rounded">
-                            <div class="row">
-                                <h3 class="text-shadowed stroked-bottom">Buscar Banca</h3>
-                            </div>
-                           <!--Caixa de busca-->
                             <div class="row"> 
                                 <div class="span2"> 
                                     <label class="label" for="ano">Ano<span class="required"></span></label>
