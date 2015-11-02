@@ -43,7 +43,7 @@
         <br>  
         <!--Formulário-->
         <!--envia dados para insere-turma.php ao clicar em Salvar-->
-        <form id="insereTurma" action="insere-turma.php" method="POST">      
+        <form id="insereTurma" action="insere-turma.php" method="POST" onsubmit="return validaAnoSemetre(<?php echo $ano; ?>, <?php echo $semestre; ?>)">      
             <div class="box shadowed bordered rounded">
                 <div class="row">
                     <div class="span4">
