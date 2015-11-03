@@ -44,10 +44,10 @@
         $emailret = smtpmailer($email, 'gerenciador.tgsi@gmail.com', 'naoresponder', '[Gerenciador TGSI] Esqueci minha senha', $emailmsg);        
         
         echo "<script>location.href='../esqueciSenha.php?mensagem1=Operação realizada com sucesso!<br>A nova senha foi enviada para o seguinte endereço: $email <br>A entrega do e-mail com a nova senha pode demorar alguns minutos. Caso não o encontre, verifique a caixa de Spam.';</script>";
-        die(); 
     } else {        
-        echo "<script>location.href='../esqueciSenha.php?mensagem2=Nenhum usuário encontrado.';</script>";
-        die();                
+        echo "<script>location.href='../esqueciSenha.php?mensagem2=Nenhum usuário encontrado.';</script>";                
     }
+    $mysqli->Close();
+    die(); 
 ?>    
   

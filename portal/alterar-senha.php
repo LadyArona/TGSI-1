@@ -103,6 +103,7 @@
         </div>
         <?php
             include("rodape.php");
+            $mysqli->Close();
         ?>
     </body>
 </html>

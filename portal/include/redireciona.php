@@ -20,4 +20,5 @@
                 header("Location: ../aluno"); 
                 exit; break;
     }
+    $mysqli->Close();     
 ?>

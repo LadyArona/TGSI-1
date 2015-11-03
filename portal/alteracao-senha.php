@@ -56,5 +56,7 @@
     }else{
         echo "<script>location.href='alterar-senha.php?mensagem=Preencha todos os campos.';</script>";
     }
+    
+    $mysqli->Close();    
 ?>
  

@@ -20,7 +20,7 @@
             $erro = 'Erro: '.$mail->ErrorInfo;
             return $erro;
         }else{
-            return 'Mensagem enviada!';
+            return 'Mensagem de email enviada!';
         }
     }
     
@@ -56,6 +56,8 @@
         if (mysqli_num_rows($query) > 0) {        
             return $resposta['tur_codigo'];
         }
+        
+        $mysqli->Close();
     }
 
     function pegaOrientador($idAluno){
@@ -71,6 +73,8 @@
         if (mysqli_num_rows($query) > 0) {        
             return $resposta['usu_orientador'];
         }
+        
+        $mysqli->Close();
     }  
     
 function geraSenha($tamanho = 8, $maiusculas = true, $numeros = true, $simbolos = false)

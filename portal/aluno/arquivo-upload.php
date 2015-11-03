@@ -86,4 +86,5 @@ if ($upload == true) {
         echo "Não foi possível enviar o arquivo, tente novamente.";
     }*/
 }
+$mysqli->Close();
 ?>

@@ -74,6 +74,7 @@
                 exit;
             }          
         } 
+    $mysqli->Close();        
 ?>
 
 

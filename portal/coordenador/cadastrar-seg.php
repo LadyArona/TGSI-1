@@ -82,7 +82,7 @@
                             <span class="label">Situação<span class="required"></span></span><br>
                             <select class="textfield width-100" id="situacao" name="situacao" required>
                                 <?php
-                                    if ($situacao = 0){
+                                    if ($situacao == 0){
                                         echo "<option value='0' selected='selected'>Ativo</option>";
                                         echo "<option value='1'>Inativo</option>";    
                                     } else {
@@ -108,58 +108,49 @@
 
                                     /*se quantidade de linhas maior que zero então já existe usuario cadastrado*/
                                     if(mysqli_num_rows($queryCat) > 0){
-                                        $resultado = $queryCat->fetch_assoc();
-                                        
-                                        
-                                            if ($resultado['cat_codigo'] == 1) {
-                                                echo "<input id='categoria1' name='categoria[]' type='checkbox' value='1' checked>";
-                                                echo "<label for='categoria1'>Coordenador</label>";                                                
-                                            } else
-                                            
-                                            if ($resultado['cat_codigo'] == 2) {
-                                                echo "<br><input id='categoria2' name='categoria[]' type='checkbox' value='2' checked>";
-                                                echo "<label for='categoria2'>Professor(Orientador)</label>";                                                
-                                            } else
-                                            
-                                            if ($resultado['cat_codigo'] == 3) {
-                                                echo "<br><input id='categoria3' name='categoria[]' type='checkbox' value='3' checked>";
-                                                echo "<label for='categoria3'>Professor(Avaliador)</label>";                                                
-                                            } else
-                                            
-                                            if ($resultado['cat_codigo'] == 4) {
-                                                echo "<br><input id='categoria4' name='categoria[]' type='checkbox' value='4' checked>";
-                                                echo "<label for='categoria4'>Aluno</label></span>";                                                
-                                            }
-                                                                              
-                                    } else {
-                                        echo "<input id='categoria1' name='categoria[]' type='checkbox' value='1' >";
-                                        echo "<label for='categoria1'>Coordenador</label>";
-                                        echo "<br><input id='categoria2' name='categoria[]' type='checkbox' value='2'>";
-                                        echo "<label for='categoria2'>Professor(Orientador)</label>";
-                                        echo "<br><input id='categoria3' name='categoria[]' type='checkbox' value='3'>";
-                                        echo "<label for='categoria3'>Professor(Avaliador)</label>";
-                                        echo "<br><input id='categoria4' name='categoria[]' type='checkbox' value='4'>";
-                                        echo "<label for='categoria4'>Aluno</label></span>";
+                                        while ($registro = $queryCat->fetch_assoc()) {
+                                            $categoria[$registro['cat_codigo']] = $registro['cat_codigo'];
+                                        }
                                     }
                                 }
+                                for ($i = 1; $i <= 4; $i++) {
+                                    if (isset($categoria[$i])) {
+                                        if ((int)$categoria[$i] == $i) {
+                                            $categoriaFinal[$i] = 'checked';
+                                        } else {
+                                            $categoriaFinal[$i] = '';
+                                        }
+                                    } else {
+                                        $categoriaFinal[$i] = '';
+                                    }
+                                }                                 
                             ?>
-
+                            <input id='categoria' name='categoria[]' type='checkbox' value='1' <?php if($categoriaFinal[1] == 'checked'){ echo "checked"; } ?>>
+                            <label for='categoria1'>Coordenador</label>
+                            <br><input id='categoria' name='categoria[]' type='checkbox' value='2' <?php if($categoriaFinal[2] == 'checked'){ echo "checked"; } ?>>
+                            <label for='categoria2'>Professor(Orientador)</label>
+                            <br><input id='categoria' name='categoria[]' type='checkbox' value='3' <?php if($categoriaFinal[3] == 'checked'){ echo "checked"; } ?>>
+                            <label for='categoria3'>Professor(Avaliador)</label>
+                            <br><input id='categoria' name='categoria[]' type='checkbox' value='4' <?php if($categoriaFinal[4] == 'checked'){ echo "checked"; } ?>>
+                             <label for='categoria4'>Aluno</label></span>                           
                         </div>
                     </div>
                 </div>
-
+                 
+                <input id="codigo" name="codigo" class="hidden" type="hidden" value="<?php echo $codigo ?>">
                 <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                         <i class="icon-eraser"></i> Limpar</button>
-                    <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
+                    <button class="btn primary saveBtn" id="salvar" name="salvar" type="submit">
                         <i class="icon-save"></i> Salvar</button>
                 </div>
             </form>            
         </div>
-    </div>
+    </div>  
 
 <?php
-	include("../rodape.php");
+    include("../rodape.php");
+    $mysqli->Close();
 ?>
