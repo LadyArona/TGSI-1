@@ -1,7 +1,4 @@
-    <?php
-        //Define a página como sendo do coordenador para uso restrito
-        session_start();
-        $_SESSION['categoriaPagina'] = 1;    
+    <?php  
         include("../include/conexao.php");
         
         //as variaveis recebem os dados do formulário
@@ -35,10 +32,10 @@
                     VALUES ('$ano','$semestre','$descricao', '$data_proposta')";        
         }
         
+        
+        
+        echo "<script>location.href='turma.php?mensagem=success&texto=A turma foi inserida/alterada com sucesso!';</script>";
         $mysqli->query($sql);
-        
-        header("Location: turma.php?mensagem=sucess&texto=A turma foi inserida/alterada com sucesso!");     
-        die();
-        
+        die();        
     //Se não, se o códio tiver valor, faz um UPDATE where codigo = $codigo;            
 ?>     
