@@ -7,10 +7,18 @@
     include("../navbar.php");
      include("../include/funcoes.php");
     include("navbar-coordenador.php");
-?>
 
-         
-            <!--Formulário-->
+
+    $ano       = $mysqli->real_escape_string($_POST['ano']); /*pegando os valores do formulario*/
+    $semestre  = $mysqli->real_escape_string($_POST['semestre']);
+    
+    /*Pega do Banco de dados se turma e semestre = turma e semestre digitados e usuario com categoria = 4*/
+    $query = "SELECT  ban_codigo,tur_ano ,tur_semestre,ban_descricao, ban_data from turma, banca, usuario, categoria where tur_ano = '$ano' and tur_semestre = '$semestre'and categoria='$categoria'";
+    /*retorna a quantidade registros encontrados na consulta acima */
+    $queryTurma = $mysqli->query($query);
+  ?>
+
+<!--Formulário-->
     <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Banca</h2>
@@ -50,7 +58,7 @@
                                 <option value="2">3. TGSI 2</option>
                               </select>
                         </div>
-                       
+                        
                         <div class="span2">
                             <span class="label">Data<span class="required"></span></span><br>
                             <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
