@@ -7,16 +7,7 @@
     include("../navbar.php");
      include("../include/funcoes.php");
     include("navbar-coordenador.php");
-
-
-    $ano       = $mysqli->real_escape_string($_POST['ano']); /*pegando os valores do formulario*/
-    $semestre  = $mysqli->real_escape_string($_POST['semestre']);
-    
-    /*Pega do Banco de dados se turma e semestre = turma e semestre digitados e usuario com categoria = 4*/
-    $query = "SELECT  ban_codigo,tur_ano ,tur_semestre,ban_descricao, ban_data from turma, banca, usuario, categoria where tur_ano = '$ano' and tur_semestre = '$semestre'and categoria='$categoria'";
-    /*retorna a quantidade registros encontrados na consulta acima */
-    $queryTurma = $mysqli->query($query);
-  ?>
+   ?>
 
 <!--Formulário-->
     <div class="band">
