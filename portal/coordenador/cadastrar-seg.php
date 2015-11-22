@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="span4">
                             <span class="label">Login<span class="required"></span></span><br>
-                            <input id="login" value= "<?php echo $login ?>" name="login" class="textfield width-100" type="text" maxlength="150" required>
+                            <input id="login" value= "<?php if ($login == '') { echo $matricula; } else { echo $login; } ?>" name="login" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
                         <div class="span4">
                             <span class="label">Senha<span class="required"></span></span><br>
