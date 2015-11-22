@@ -106,5 +106,19 @@ function geraSenha($tamanho = 8, $maiusculas = true, $numeros = true, $simbolos 
     }
     
     return $retorno;
-}    
+} 
 
+function BuscaDado($NomedoCampo, $NomeDaTabela, $Condicao) {
+    include("conexao.php");
+    
+    $sql = 'select '.$NomedoCampo.' from '.$NomeDaTabela;
+    if (!empty($Condicao)){
+        $sql = $sql.' where '.$Condicao;
+    }
+    
+    $query = $mysqli->query($sql); 
+    if(mysqli_num_rows($query) > 0){
+        $retorno = mysqli_fetch_assoc($query);
+        return $retorno[$NomedoCampo];
+    }    
+}
