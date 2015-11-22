@@ -27,11 +27,6 @@
                                         Banca
                                     </a>
                                 </li> 
-                                 <li class="">
-                                    <a href="aluno-turma.php" target="">
-                                        Aluno na turma
-                                    </a>
-                                </li> 
                             </ul>
                         </div>
                         </li>
