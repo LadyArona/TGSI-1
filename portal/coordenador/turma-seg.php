@@ -87,11 +87,18 @@
                 <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                     <i class="icon-eraser"></i> Limpar</button>
                 <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
-                    <i class="icon-save"></i> Salvar</button>
+                    <i class="icon-save"></i> Salvar e Continuar</button>
             </div>
         </form>
+        
+        <?php
+            
+        ?>
     </div>
 </div>
-<?php include("../rodape.php");?>
+<?php 
+    include("../rodape.php");
+    $mysqli->Close();
+?>
 
 
