@@ -5,9 +5,10 @@
     include("../restrito.php");
     include("cabecalho.php");
     include("../navbar.php");
-     include("../include/funcoes.php");
     include("navbar-coordenador.php");
-   ?>
+    include("../include/funcoes.php");
+    include("../include/conexao.php"); 
+?>
 
 <!--Formulário-->
     <div class="band">
@@ -25,8 +26,8 @@
                                 <span class="label">Período<span class="required"></span></span>
                                      <br >
                                 <select id="periodo" name="periodo" class="textfield width-100"> 
-                                    <option value="101">1. Semestre</option>
-                                    <option value="102">2. Semestre</option>
+                                    <option value="1">1. Semestre</option>
+                                    <option value="2">2. Semestre</option>
                                 </select>
                             </div>
                             
@@ -36,7 +37,7 @@
                                 <option value=""></option>
                                 <option value="1">Aluno 1</option>
                                 <option value="2">Aluno 2</option>
-                                <option value="2">Aluno 3</option>
+                                <option value="3">Aluno 3</option>
                             </select>
                             </div>
                         </div>
@@ -55,19 +56,49 @@
                             <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
                         </div>
                          <div class="span7">
-                            <span class="label">Descrição<span class="required"></span></span><br>
-                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150" required>
+                            <span class="label">Título do Trabalho<span class="required"></span></span><br>
+                            <input id="titulo" name="titulo" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
-                        
+                                                                    
                     </div>
                     <div class="row">
-                        <div class="span12">
-                            <span class="label">Local<span class="required"></span></span><br>
-                            <input id="nome" name="nome" class="textfield width-100" type="text" maxlength="150" required>
+                        <div class="span4">
+                            <span class="label">Professor Orientador<span class="required"></span></span><br>
+                            <input id="orientador" name="orientador" class="textfield width-100" type="text" maxlength="150" required>
                         </div>
+                          <div class="span4">
+                            <span class="label">Professor Avaliador 1<span class="required"></span></span><br>
+                            <select class="textfield width-100" id="avaliador1" name="situacao" required>
+                                <option value=""></option>
+                                <option value="1">Professor 1</option>
+                                <option value="2">Professor 2</option>
+                                <option value="3">Professor 3</option>
+                            </select>
+                            </div>
+                        
+                        <div class="span4">
+                            <span class="label">Professor Avaliador 2<span class="required"></span></span><br>
+                            <select class="textfield width-100" id="avaliador2" name="situacao" required>
+                                <option value=""></option>
+                                <option value="1">Professor 1</option>
+                                <option value="2">Professor 2</option>
+                                <option value="3">Professor 3</option>
+                            </select>
+                        </div>   
+                        </div>
+                    <div class="row">
+                        <div class="span6">
+                        <span class="label">Descrição<span class="required"></span></span><br>
+                        <input id="descricao" name="descricao" value="" class="textfield width-100" type="text" maxlength="150" required>
+                        </div>
+                        <div class="span6">
+                                <span class="label">Local da Defesa<span class="required"></span></span><br>
+                                <input id="local" name="local" class="textfield width-100" type="text" maxlength="150" required>
+                        </div>
+                    </div>    
                     </div>
-                </div>
-              
+        
+          
                 <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
@@ -79,7 +110,7 @@
             </form>
         </div>
     </div>
-
+</div>
 <?php
 	include("../rodape.php");
 ?>
