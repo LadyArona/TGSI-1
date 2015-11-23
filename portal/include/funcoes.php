@@ -1,28 +1,49 @@
 <?php
     function smtpmailer($para, $de, $de_nome, $assunto, $corpo){
-        require_once ("../phpmailer/class.phpmailer.php");
+        include ("../phpmailer/class.phpmailer.php");
         $mail = new PHPMailer();
         $mail->IsSMTP();
         $mail->IsHTML(true);
         $mail->SMTPDebug = 1;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = "smtp.gmail.com";
         $mail->Port = 465;
-        $mail->Username = 'gerenciador.tgsi@gmail.com';
-        $mail->Password = 'testegerenciador';
+        $mail->Username = "gerenciador.tgsi@gmail.com";
+        $mail->Password = "testegerenciador";
         $mail->SetFrom($de, $de_nome);
         $mail->Subject = $assunto;
         $mail->Body = $corpo;
         $mail->AddAddress($para);
-        
         if(!$mail->Send()){
             $erro = 'Erro: '.$mail->ErrorInfo;
             return $erro;
-        }else{
-            return 'Mensagem de email enviada!';
-        }
+        }else{ return 'Mensagem de email enviada!'; }
     }
+    
+    function emailAnexo($para, $de, $de_nome, $assunto, $corpo, $file){
+        include ("../phpmailer/class.phpmailer.php");
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->IsHTML(true);
+        $mail->SMTPDebug = 1;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465;
+        $mail->Username = "gerenciador.tgsi@gmail.com";
+        $mail->Password = "testegerenciador";
+        $mail->SetFrom($de, $de_nome);
+        $mail->Subject = $assunto;
+        //$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
+        $mail->Body = $corpo;
+        $mail->AddAddress($para);
+        $mail->addAttachment($file);
+        if(!$mail->Send()){
+            $erro = 'Erro: '.$mail->ErrorInfo;
+            return $erro;
+        }else{ return 'Mensagem de email enviada!'; }
+    }    
     
     function montaMensagem ($login,$senha){
         include ("config.php");

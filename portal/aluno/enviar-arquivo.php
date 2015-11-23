@@ -14,7 +14,6 @@
             case 1: $tipoNome = 'Proposta'; Break; 
             case 2: $tipoNome = 'TGSI1'; Break; 
             case 3: $tipoNome = 'TGSI2'; Break; 
-            case 4: $tipoNome = 'Re-Proposta'; Break;         
         }
     }
     

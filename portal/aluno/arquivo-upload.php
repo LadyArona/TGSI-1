@@ -1,9 +1,10 @@
 <?php
 include("../include/conexao.php"); 
 include("../include/funcoes.php");
+$pasta = 'uploads/';
 
 // Pasta onde o arquivo vai ser salvo
-$_UP['pasta'] = 'uploads/';
+$_UP['pasta'] = $pasta;
 
 // Tamanho máximo do arquivo (em Bytes)
 $_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
@@ -50,6 +51,7 @@ if ($_UP['renomeia'] == true) {
   // Mantém o nome original do arquivo
   $nome_final = $_FILES['arquivo']['name'];
 }
+  $nome_original = $_FILES['arquivo']['name'];
 
 $upload = move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_final);
 
@@ -63,18 +65,37 @@ $hora = date('H:i:s');
 $obs  = $mysqli->real_escape_string($_POST['texto']);
 $arqNome = $nome_final;
 $arqSituacao = 'N'; // A - Aprovado ou N  - Não aprovado, aqui no cadastro sempre passa N
- $arqTipo = $mysqli->real_escape_string($_POST['tipo']);
+$arqTipo = $mysqli->real_escape_string($_POST['tipo']);
 
 if ($upload == true) {
     // Cria uma query MySQL
     $sql = "INSERT INTO 
-           `arquivo`(`usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`) 
-             VALUES ('$aluno', '$turma','$data','$hora','$obs','$arqNome','$arqSituacao','$arqTipo')";
+           `arquivo`(`usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`, `arq_nome_original`) 
+             VALUES ('$aluno', '$turma','$data','$hora','$obs','$arqNome','$arqSituacao','$arqTipo', '$nome_original')";
     
     // Executa o insert    
-    //$mysqli->query($sql);
     mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
-    echo "<script>location.href='index.php?mensagem=Envio de arquivo efetuado com sucesso!';</script>";
+    //Envia e-mail
+    $Orientador = $_SESSION['AlunoOrientador'];
+    $email = BuscaDado('usu_email', 'usuario', 'usu_codigo = '.$Orientador);
+    $nome  = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$Orientador);
+    
+    $emailmsg = "<html>
+                <body>
+                    Olá!<p>
+                    Você recebeu um arquivo do TGSI!<br>
+                    </p> 
+                    <p>Para efetuar login acesse: <a href='".$URL_PADRAO."'>Gerenciador TGSI</a></p>
+
+                    <p>---------------------------------------------------------------<br>
+                    <em>Não Responder! Mensagem gerada automaticamente pelo servidor.<br></em></p>
+                </body>
+            </html>";
+    
+    //$msg = emailAnexo($email, 'gerenciador.tgsi@gmail.com', $nome, 'Arquivo TGSI', $emailmsg, '../aluno/uploads/'.$nome_final);
+    
+    //Volta ara a página anterior
+    echo "<script>location.href='index.php?mensagem=Envio de arquivo efetuado com sucesso! $msg';</script>";
     exit;
 
 /*    if ($query == true) {
