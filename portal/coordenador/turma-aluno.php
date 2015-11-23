@@ -16,8 +16,14 @@
         $descricao = '';
     }     
     
-    $codigoTurma = $_SESSION['CodigoTurma'];
-    unset($_SESSION['CodigoTurma']);
+    if (isset($_SESSION['CodigoTurma'])) {
+        $codigoTurma = $_SESSION['CodigoTurma'];
+        unset($_SESSION['CodigoTurma']);
+    } else {
+        echo "<script>location.href='turma.php';</script>";
+        $mysqli->Close();
+        die();
+    } 
 ?>
 
 <div class="band">
@@ -123,7 +129,6 @@
             </div>
         </form>
         <?php
-
             /*pega no banco de dados da turma */
             $sqlTurma = "SELECT `tud_codigo`, `usu_aluno`, `usu_orientador`, `usu_coorientador`, `tud_titulo`
                       FROM `turma_detalhe` WHERE `tur_codigo` = $codigoTurma";
@@ -141,10 +146,10 @@
                 echo '                <th WIDTH="150">Orientador</th>'; 
                 echo '                <th WIDTH="150">Coorientador</th>'; 
                 echo '                <th>Título TGSI</th>';
+                echo '                <th WIDTH="90"></th>';
                 echo '            </tr>'; 
                 echo '        </thead>';                     
-                echo '        <tbody>';
-                
+                echo '        <tbody>';                
                 while ($Linha = $queryTurma->fetch_assoc()) { 
                     echo '        <tr data-role="tableRow" data-id="">'; 
                     echo '            <td WIDTH="150">';
@@ -157,13 +162,14 @@
                     echo BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$Linha['usu_coorientador']); 
                     echo              '</td>'; 
                     echo '            <td>'.$Linha['tud_titulo'].'</td>';
-                    echo              '</td>'; 
+                    echo              '</td>';
+                    echo              '<td WIDTH="90"><div class="btn-group mini">';
+                    echo              '<button type="button" class="btn error" onclick="excluir('.$Linha['usu_aluno'].','.$codigoTurma.',\''.$descricao.'\')"><i class="icon-minus-sign-alt"></i> Excluir</button></div></td>';
                     echo '        </tr>';
-                    }            
+                }            
                 echo '        </tbody>'; 
                 echo '    </table>'; 
                 echo '</div>';                        
-
             } else {
                     echo "<br><div class='row'><div class='span8'><div class='box warning";
                     echo "'><button type='button' class='close' data-dismiss='box'>&times;</button>";
@@ -173,7 +179,16 @@
         ?>      
     </div>
 </div>
-        <?php 
+
+<script>
+    function excluir(CodAluno, CodTurma, DescTurma){
+        var resposta = confirm("Tem certeza que deseja remover esse registro?");
+        if (resposta == true) {
+            window.location.href = "turma-aluno-remover.php?id="+CodAluno+"&cod="+CodTurma+"&desc="+DescTurma;
+        }        
+    }
+</script>
+<?php
     include("../rodape.php");
     $mysqli->Close();
 ?>

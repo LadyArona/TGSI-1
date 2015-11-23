@@ -10,9 +10,15 @@
     include("../include/funcoes.php");
     include("../include/conexao.php"); 
    
-    $ano      = $mysqli->real_escape_string($_POST['ano']); /*pegando os valores do formulario*/
-    $semestre = $mysqli->real_escape_string($_POST['semestre']);
-     
+    if (isset($_POST['ano'])) {
+        $ano      = $mysqli->real_escape_string($_POST['ano']); /*pegando os valores do formulario*/
+        $semestre = $mysqli->real_escape_string($_POST['semestre']);
+    } else {
+        echo "<script>location.href='turma.php';</script>";
+        $mysqli->Close();
+        die();
+    }   
+    
     /*pega no banco de dados da turma */
     $query = "SELECT  tur_codigo,tur_ano ,tur_semestre,tur_descricao, tur_data_proposta from turma where tur_ano = '$ano' and tur_semestre = '$semestre'";
     /*retorna a quantidade registros encontrados na consulta acima */
