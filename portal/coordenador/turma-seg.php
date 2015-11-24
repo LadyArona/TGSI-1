@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="span4">
-                        <span class="label">Data de entrega<span class="required"></span></span><br>
+                        <span class="label">Data de entrega da Proposta<span class="required"></span></span><br>
                         <input id="data" value="<?php echo $proposta ?>" name="data_proposta" value="" class="textfield width-100" type="date" maxlength="150" required>
                     </div>
                 </div>
