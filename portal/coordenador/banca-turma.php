@@ -3,7 +3,6 @@
     session_start();
     $_SESSION['categoriaPagina'] = 1;
     include("../restrito.php");
-    
     include("cabecalho.php");
     include("../navbar.php");
     include("navbar-coordenador.php");
@@ -35,13 +34,13 @@
         $proposta = '';
         $codigo = '';            
     }
-     
-    ?>  
+    
+?>  
  <div class="band">
     <div class="container">
         <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Banca - Busca de alunos</h2>
         <!--envia dados para turma-aluno-insere.php ao clicar em Inserir-->
-        <form id="BuscaTurma" action="turma-seg.php" method="post">
+        <form id="BuscaTurma" action="banca-aluno.php" method="post">
             <div class="box shadowed bordered rounded">
                 <div class="row">
                     <div class="span12">
@@ -103,13 +102,16 @@
                 echo '    <i class="icon-arrow-left"></i> Voltar</button>';                  
             }
         ?>      
+                 </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
     function Cadastrar()
     {
-        location.href="banca-seg.php";
+        location.href="banca-aluno.php";
     }
 </script>
 <br>
