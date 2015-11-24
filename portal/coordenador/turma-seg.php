@@ -60,7 +60,7 @@
                         <span class="label">Período<span class="required"></span></span><br>
                         <select class="selectfield" id="semestre" name="semestre">
                             <?php
-                                if ($semestre = 1){
+                                if ($semestre == 1){
                                     echo "<option value='1' selected='selected'>1. Semestre</option>";
                                     echo "<option value='2'>2. Semestre</option>";    
                                 } else {

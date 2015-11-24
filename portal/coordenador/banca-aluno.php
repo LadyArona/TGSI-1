@@ -58,30 +58,6 @@
                             </div>                                 
                         </div>
                         <div class="row">
-                            <div class="span4">
-                                <span class="label">Professor Orientador<span class="required"></span></span><br>
-                                <input id="orientador" name="orientador" class="textfield width-100" type="text" maxlength="150" required>
-                            </div>
-                            <div class="span4">
-                                <span class="label">Professor Avaliador 1<span class="required"></span></span><br>
-                                <select class="textfield width-100" id="avaliador1" name="situacao" required>
-                                    <option value=""></option>
-                                    <option value="1">Professor 1</option>
-                                    <option value="2">Professor 2</option>
-                                    <option value="3">Professor 3</option>
-                                </select>
-                            </div>
-                            <div class="span4">
-                                <span class="label">Professor Avaliador 2<span class="required"></span></span><br>
-                                <select class="textfield width-100" id="avaliador2" name="situacao" required>
-                                    <option value=""></option>
-                                    <option value="1">Professor 1</option>
-                                    <option value="2">Professor 2</option>
-                                    <option value="3">Professor 3</option>
-                                </select>
-                            </div>   
-                        </div>
-                        <div class="row">
                             <div class="span6">
                                 <span class="label">Descrição<span class="required"></span></span><br>
                                 <input id="descricao" name="descricao" value="" class="textfield width-100" type="text" maxlength="150" required>

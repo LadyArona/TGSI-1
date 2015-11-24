@@ -16,22 +16,15 @@
                 <div class="row"> 
                     <div class="span4"> 
                         <label class="label" for="ano">Ano<span class="required"></span></label>
-                            <br>
-                            <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
+                        <br>
+                        <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
                     </div> 
                     <div class="span4"> 
                         <span class="label">Período<span class="required"></span></span>
                         <br>
                         <select id="periodo" name="semestre" class="textfield width-100"> 
-                            <?php
-                                if ($semestre = 1){
-                                    echo "<option value='1' selected='selected'>1. Semestre</option>";
-                                    echo "<option value='2'>2. Semestre</option>";    
-                                } else {
-                                    echo "<option value='1'>1. Semestre</option>";
-                                    echo "<option value='2' selected='selected'>2. Semestre</option>";                                        
-                                }
-                            ?>
+                            <option value='1'>1. Semestre</option>
+                            <option value='2'>2. Semestre</option>                                      
                         </select>
                     </div>
 
