@@ -39,8 +39,8 @@
             <div class="container"> 
                 <?php
                     if(isset($_GET['mensagem'])){
-                        echo "<div class='row'><div class='span8'><div class='box warning'><button type='button' class='close' data-dismiss='box'>&times;</button>";
-                        echo $_GET['mensagem'];
+                        echo "<div class='row'><div class='span8'><div class='box ".$_GET['mensagem']."'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo $_GET['texto'];
                         echo "</div></div></div>";
                     }
                     
@@ -61,7 +61,7 @@
                         
                         //Se o arquivo já foi aprovado mostra em verde
                         $PropostaPossuiNota = True;
-                        $PropostaAceita     = True;
+                        $PropostaAceita     = False;
                         
                         if ($PropostaPossuiNota && $PropostaAceita) {
                             //Proposta aceita
