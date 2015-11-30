@@ -114,9 +114,14 @@
                             echo '</div>';
                             $contaLinhas = 0;
                         }
-
-                        
                     }
+                } else {
+                    echo '  <div class="box bordered rounded shadowed info">';
+                    echo '      <div class="box-content">';
+                    echo '          Você não possui nenhuma banca para participar/avaliar.';
+                    echo '          <br>Escolha uma das opções acima.'; 
+                    echo '      </div>';
+                    echo '  </div>';                       
                 }
                 ?>    
             </div>
