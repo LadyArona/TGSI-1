@@ -42,6 +42,14 @@ function blocTexto(valor)
 <!-- main -->
 <div class="band">
     <div class="container">
+        
+        <?php
+            if(isset($_GET['mensagem'])){
+                echo "<div class='row'><div class='span8'><div class='box ".$_GET['mensagem']."'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                echo $_GET['texto'];
+                echo "</div></div></div>";
+            }  
+        ?>
         <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Envio de arquivo <?php echo $tipoNome; ?> para orientador</h2>
         <form id="formOcorrencia" action="arquivo-upload.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="tipo" value='<?php echo $tipo; ?>'>
