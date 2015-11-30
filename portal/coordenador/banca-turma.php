@@ -1,6 +1,7 @@
 <?php
     //Define a página como sendo do coordenador para uso restrito
     session_start();
+
     $_SESSION['categoriaPagina'] = 1;
     include("../restrito.php");
     include("cabecalho.php");
@@ -55,6 +56,7 @@
                         while ($Linha = $queryTurmaAluno->fetch_assoc()) { 
                             echo '        <tr data-role="tableRow" data-id="">'; 
                             echo '            <td WIDTH="20%">';
+                            //seleciona o nome do aluno da tabela usuario que veio dos campos da query usu aluno
                             echo BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$Linha['usu_aluno']);
                             echo              '</td>'; 
                             echo '            <td WIDTH="20%">';
@@ -63,11 +65,14 @@
                             echo '            <td>'.$Linha['tud_titulo'].'</td>';
                             echo              '</td>';
                             echo              '<td WIDTH="155">';
-                            echo '                <div class="align-center align-center-phone">';                         
+                            echo '                <div class="align-center align-center-phone">';                       
                             echo '                    <form name="verbanca" method="POST" action="banca-lista.php">';                              
                             echo '                        <input type="hidden" name="aluno" value="'.$Linha['usu_aluno'].'">';
                             echo '                        <input type="hidden" name="ano" value="'.$ano.'">';
                             echo '                        <input type="hidden" name="semestre" value="'.$semestre.'">';
+                            echo '                        <input type="hidden" name="orientador" value="'.$Linha['usu_orientador'].'">';
+                            echo '                        <input type="hidden" name="turma" value="'.$ResultadoTurma['tur_codigo'].'">';
+                            
                             echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
                             echo '                            <i class="icon-search"></i> Ver bancas';
                             echo '                        </button>';                                         

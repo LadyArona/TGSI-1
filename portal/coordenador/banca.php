@@ -27,7 +27,6 @@
                             <option value='2'>2. Semestre</option>                                      
                         </select>
                     </div>
-
                     <div class="span2">
                          <label class="label" for=""></label><br >
                          <button id="buscaDados" type="submit" class="btn primary small">

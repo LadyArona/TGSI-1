@@ -13,6 +13,8 @@
         $ano      = $mysqli->real_escape_string($_POST['ano']);
         $semestre = $mysqli->real_escape_string($_POST['semestre']);
         $aluno    = $mysqli->real_escape_string($_POST['aluno']); /*pegando os valores do formulario*/
+        $turma    = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
+        
         $nome     = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
     } else {
         echo "<script>location.href='banca.php';</script>";
@@ -70,6 +72,7 @@
                         echo '                        <input type="hidden" name="aluno" value="'.$Linha['usu_aluno'].'">';
                         echo '                        <input type="hidden" name="ano" value="'.$ano.'">';
                         echo '                        <input type="hidden" name="semestre" value="'.$semestre.'">';
+                        
                         echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
                         echo '                            <i class="icon-search"></i> Ver bancas';
                         echo '                        </button>';                                         
@@ -106,6 +109,9 @@
                     <form name="voltar" method="POST" action="banca-aluno.php">                              
                         <input type="hidden" name="ano" value="<?php echo $ano; ?>">
                         <input type="hidden" name="semestre" value="<?php echo $semestre; ?>">
+                        <input type="hidden" name="turma" value="<?php echo $semestre; ?>">
+                        <input type="hidden" name="aluno" value="<?php echo $aluno; ?>">
+                     
                         <button class="btn primary gerarBtn" id="novaBanca" name="novaBanca" type="submit">
                         <i class="icon-save"></i> Cadastrar Nova Banca</button>                        
                     </form>                     
@@ -116,7 +122,8 @@
 </div>
 <br>
 
+
 <?php
-    include("../rodape.php");
+   include("../rodape.php");
     $mysqli->Close();
 ?>            
