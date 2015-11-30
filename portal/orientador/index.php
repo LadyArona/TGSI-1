@@ -3,6 +3,10 @@
     session_start();
     $_SESSION['categoriaPagina'] = 2;
     include("../restrito.php");
+    
+    include("../include/conexao.php");    
+    
+    $Orientador = $_SESSION['UsuarioCOD'];    
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +29,27 @@
         <div class="band"> 
             <div class="container">
                 <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Orientandos</h2>
-                 <div class="row">
+                
+                <?php                    
+                    $sqlAluno = "select u.`USU_CODIGO`, u.`USU_NOME`, u.`USU_EMAIL`, u.`USU_MATRICULA`, u.`USU_SITUACAO`	
+                                from `usuario` as u
+                                    inner join `turma_detalhe` as td
+                                        on u.`USU_CODIGO` = td.`usu_aluno`
+                                where u.`USU_SITUACAO` = 0
+                                    and td.`usu_orientador` = ".$Orientador;
+                                                              
+                    /*retorna a quantidade registros encontrados na consulta acima */
+                    $queryAluno = $mysqli->query($sqlAluno);
+                    
+                    /*se quantidade de linhas maior que zero*/
+                    if(mysqli_num_rows($queryAluno) > 0){
+                        $Resultado = $queryAluno->fetch_assoc();
+                        $NomeArquivo = $Resultado['USU_CODIGO'];
+                    }
+                ?>
+                <div class="row">
+                     
+                     
                     <div class="span6">
                         <div class="box info bordered tip shadowed rounded">
                             <br>
