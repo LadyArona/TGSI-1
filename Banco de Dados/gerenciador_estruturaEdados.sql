@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Nov-2015 às 19:53
+-- Generation Time: 30-Nov-2015 às 16:25
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `gerenciador`
 --
+CREATE DATABASE IF NOT EXISTS `gerenciador` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gerenciador`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `arquivo`
 --
 
+DROP TABLE IF EXISTS `arquivo`;
 CREATE TABLE IF NOT EXISTS `arquivo` (
   `arq_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `usu_aluno` int(11) DEFAULT NULL,
@@ -40,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `arquivo` (
   PRIMARY KEY (`arq_codigo`),
   KEY `usu_aluno` (`usu_aluno`),
   KEY `tur_codigo` (`tur_codigo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Extraindo dados da tabela `arquivo`
@@ -48,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `arquivo` (
 
 INSERT INTO `arquivo` (`arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`, `arq_nome_original`) VALUES
 (7, 35, 9, '2015-11-23', '21:31:43', 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ', '3687b2c283d369221a610739389d4464.pdf', 'N', '1', '000726075.pdf'),
-(8, 35, 9, '2015-11-23', '21:43:25', 'sssvsvsv', '40754337e3614bcab54aef6502dd3797.pdf', 'N', '2', 'Trabalho 1.pdf');
+(8, 35, 9, '2015-11-23', '21:43:25', 'sssvsvsv', '40754337e3614bcab54aef6502dd3797.pdf', 'N', '2', 'Trabalho 1.pdf'),
+(9, 47, 9, '2015-11-29', '19:22:01', '', '40dbe0262bc3b9dc4c82e2419f8ccdce.pdf', 'N', '1', 'Slides Aula 06.pdf');
 
 -- --------------------------------------------------------
 
@@ -56,6 +60,7 @@ INSERT INTO `arquivo` (`arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq
 -- Estrutura da tabela `banca`
 --
 
+DROP TABLE IF EXISTS `banca`;
 CREATE TABLE IF NOT EXISTS `banca` (
   `ban_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `ban_tipo` int(11) NOT NULL,
@@ -64,11 +69,21 @@ CREATE TABLE IF NOT EXISTS `banca` (
   `ban_local` varchar(1000) NOT NULL,
   `usu_codigo` int(11) NOT NULL,
   `tur_codigo` int(11) NOT NULL,
+  `ban_hora` time NOT NULL,
   PRIMARY KEY (`ban_codigo`),
   UNIQUE KEY `usu_codigo` (`usu_codigo`),
   KEY `usu_codigo_2` (`usu_codigo`),
   KEY `tur_codigo` (`tur_codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Extraindo dados da tabela `banca`
+--
+
+INSERT INTO `banca` (`ban_codigo`, `ban_tipo`, `ban_data`, `ban_descricao`, `ban_local`, `usu_codigo`, `tur_codigo`, `ban_hora`) VALUES
+(1, 1, '2015-11-29', 'Perfil dos Profissionais e das Empresas de Tecnologia da Informação (TI) da Cidade de Frederico Westphalen - RS', ' Linha 7 de Setembro, S/N - Interior, Frederico Westphalen', 47, 9, '23:55:00'),
+(2, 2, '2015-11-25', 'Modelo de Aplicabilidade de Sistema RFID para Rastreabilidade na Indústria Alimentícia', ' Linha 7 de Setembro, S/N - Interior, Frederico Westphalen', 35, 9, '20:00:00'),
+(3, 3, '2016-01-01', 'Uma Proposta de um Processo de Teste em uma Empresa de Pequeno Porte', 'Linha 7 de Setembro, S/N - Interior, Frederico Westphalen', 49, 9, '19:00:00');
 
 -- --------------------------------------------------------
 
@@ -76,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `banca` (
 -- Estrutura da tabela `banca_detalhe`
 --
 
+DROP TABLE IF EXISTS `banca_detalhe`;
 CREATE TABLE IF NOT EXISTS `banca_detalhe` (
   `band_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `ban_codigo` int(11) NOT NULL,
@@ -83,7 +99,49 @@ CREATE TABLE IF NOT EXISTS `banca_detalhe` (
   PRIMARY KEY (`band_codigo`),
   KEY `ban_codigo` (`ban_codigo`),
   KEY `usu_codigo` (`usu_codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Extraindo dados da tabela `banca_detalhe`
+--
+
+INSERT INTO `banca_detalhe` (`band_codigo`, `ban_codigo`, `usu_codigo`) VALUES
+(1, 1, 1),
+(2, 1, 50),
+(3, 2, 50),
+(4, 2, 1),
+(5, 3, 1),
+(6, 3, 50);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `banca_detalhe_avaliacao`
+--
+
+DROP TABLE IF EXISTS `banca_detalhe_avaliacao`;
+CREATE TABLE IF NOT EXISTS `banca_detalhe_avaliacao` (
+  `bav_codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `bav_nota1` decimal(18,2) NOT NULL,
+  `bav_nota2` decimal(18,2) NOT NULL,
+  `bav_nota3` decimal(18,2) NOT NULL,
+  `bav_nota4` decimal(18,2) NOT NULL,
+  `bav_nota5` decimal(18,2) NOT NULL,
+  `bav_nota6` decimal(18,2) NOT NULL,
+  `bav_nota7` decimal(18,2) NOT NULL,
+  `bav_nota_soma` decimal(18,2) NOT NULL,
+  `bav_obs` varchar(5000) NOT NULL,
+  `band_codigo` int(11) NOT NULL,
+  PRIMARY KEY (`bav_codigo`),
+  KEY `band_codigo` (`band_codigo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `banca_detalhe_avaliacao`
+--
+
+INSERT INTO `banca_detalhe_avaliacao` (`bav_codigo`, `bav_nota1`, `bav_nota2`, `bav_nota3`, `bav_nota4`, `bav_nota5`, `bav_nota6`, `bav_nota7`, `bav_nota_soma`, `bav_obs`, `band_codigo`) VALUES
+(1, '1.10', '1.10', '1.10', '1.10', '1.10', '1.10', '1.10', '7.70', 'iuhdiaudh aiud aiudhai d', 5);
 
 -- --------------------------------------------------------
 
@@ -91,6 +149,7 @@ CREATE TABLE IF NOT EXISTS `banca_detalhe` (
 -- Estrutura da tabela `categoria`
 --
 
+DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
   `CAT_CODIGO` int(11) NOT NULL AUTO_INCREMENT,
   `CAT_DESCRICAO` varchar(150) NOT NULL,
@@ -113,6 +172,7 @@ INSERT INTO `categoria` (`CAT_CODIGO`, `CAT_DESCRICAO`) VALUES
 -- Estrutura da tabela `turma`
 --
 
+DROP TABLE IF EXISTS `turma`;
 CREATE TABLE IF NOT EXISTS `turma` (
   `tur_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `tur_ano` year(4) DEFAULT NULL,
@@ -135,6 +195,7 @@ INSERT INTO `turma` (`tur_codigo`, `tur_ano`, `tur_semestre`, `tur_descricao`, `
 -- Estrutura da tabela `turma_detalhe`
 --
 
+DROP TABLE IF EXISTS `turma_detalhe`;
 CREATE TABLE IF NOT EXISTS `turma_detalhe` (
   `tud_codigo` int(11) NOT NULL AUTO_INCREMENT,
   `tur_codigo` int(11) NOT NULL,
@@ -163,6 +224,7 @@ INSERT INTO `turma_detalhe` (`tud_codigo`, `tur_codigo`, `usu_aluno`, `usu_orien
 -- Estrutura da tabela `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `USU_CODIGO` int(11) NOT NULL AUTO_INCREMENT,
   `USU_LOGIN` varchar(100) NOT NULL,
@@ -203,6 +265,7 @@ INSERT INTO `usuario` (`USU_CODIGO`, `USU_LOGIN`, `USU_SENHA`, `USU_NOME`, `USU_
 -- Estrutura da tabela `usuario_categoria`
 --
 
+DROP TABLE IF EXISTS `usuario_categoria`;
 CREATE TABLE IF NOT EXISTS `usuario_categoria` (
   `USU_CODIGO` int(11) NOT NULL DEFAULT '0',
   `CAT_CODIGO` int(11) NOT NULL DEFAULT '0',
@@ -255,6 +318,12 @@ ALTER TABLE `banca`
 ALTER TABLE `banca_detalhe`
   ADD CONSTRAINT `band_ban_codigo` FOREIGN KEY (`ban_codigo`) REFERENCES `banca` (`ban_codigo`),
   ADD CONSTRAINT `band_usu_codigo` FOREIGN KEY (`usu_codigo`) REFERENCES `usuario` (`USU_CODIGO`);
+
+--
+-- Limitadores para a tabela `banca_detalhe_avaliacao`
+--
+ALTER TABLE `banca_detalhe_avaliacao`
+  ADD CONSTRAINT `bav_band_codigo` FOREIGN KEY (`band_codigo`) REFERENCES `banca_detalhe` (`band_codigo`);
 
 --
 -- Limitadores para a tabela `turma_detalhe`
