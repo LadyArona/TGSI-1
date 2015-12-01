@@ -111,20 +111,20 @@
                         } else {
                             echo '                  <button type="button" class="btn primary align-center" onclick="window.open(\'../aluno/uploads/'.$Resultado['arq_nome'].'\', \'_blank\')"><i class="icon-download-alt"></i> Download do Arquivo</button>';
                         }
-                        if ((strtotime($Resultado['ban_data']) <= strtotime($hoje))){                        
-                            echo '                    <form name="avaliar" method="POST" action="avalia-aluno.php">';                              
-                            echo '                        <input type="hidden" name="aluno" value="'.$Resultado['usu_codigo'].'">';
-                            echo '                        <input type="hidden" name="banca" value="'.$Resultado['ban_codigo'].'">';
-                            echo '                        <input type="hidden" name="detalhe" value="'.$Resultado['band_codigo'].'">';
-                            echo '                        <input type="hidden" name="tipo" value="'.$Resultado['ban_tipo'].'">';
-                            echo '                        <input type="hidden" name="data" value="'.$Resultado['ban_data'].'">';
-                            echo '                        <input type="hidden" name="hora" value="'.$Resultado['ban_hora'].'">';
-                            echo '                        <input type="hidden" name="local" value="'.$Resultado['ban_local'].'">';
-                            echo '                        <input type="hidden" name="descricao" value="'.$Resultado['ban_descricao'].'">';
-                            echo '                        <button type="button" class="btn primary align-center" id="gerar" name="gerar" type="Submit">';
-                            echo '                            <i class=" icon-edit"></i> Avaliar Aluno';
-                            echo '                        </button>';                                         
-                            echo '                    </form>';                             
+                        if ((strtotime($Resultado['ban_data']) <= strtotime($hoje))){
+                            echo '    <form id="avaliar" action="avalia-aluno.php" method="post">';
+                            echo '        <input name="aluno"     class="textfield" type="hidden" value="'.$Resultado['usu_codigo'].'">';
+                            echo '        <input name="banca"     class="textfield" type="hidden" value="'.$Resultado['ban_codigo'].'">';
+                            echo '        <input name="detalhe"   class="textfield" type="hidden" value="'.$Resultado['band_codigo'].'">';
+                            echo '        <input name="tipo"      class="textfield" type="hidden" value="'.$Resultado['ban_tipo'].'">';
+                            echo '        <input name="data"      class="textfield" type="hidden" value="'.$Resultado['ban_data'].'">';
+                            echo '        <input name="hora"      class="textfield" type="hidden" value="'.$Resultado['ban_hora'].'">';
+                            echo '        <input name="local"     class="textfield" type="hidden" value="'.$Resultado['ban_local'].'">';
+                            echo '        <input name="descricao" class="textfield" type="hidden" value="'.$Resultado['ban_descricao'].'">';
+                            echo '        <button id="gerar" type="submit" class="btn primary align-center">';
+                            echo '            <i class="icon-edit"></i> Avaliar Aluno';
+                            echo '        </button>';
+                            echo '    </form>';
                         } else {
                             echo '                  <br><button type="button" class="btn primary align-center disabled" disabled onclick=""><i class=" icon-edit"></i> Avaliar Aluno</button>';
                         }

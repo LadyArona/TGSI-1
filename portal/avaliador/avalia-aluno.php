@@ -11,8 +11,8 @@
     include("../include/funcoes.php");    
     
     if (!isset($_POST['tipo'])) {
-        echo "<script>location.href='index.php';</script>";
-        die();
+        //echo "<script>location.href='index.php';</script>";
+        //die();
     } else {
         $tipo = $mysqli->real_escape_string($_POST['tipo']);;
         
