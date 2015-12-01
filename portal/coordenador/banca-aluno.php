@@ -9,18 +9,17 @@
     include("../include/funcoes.php");
     include("../include/conexao.php"); 
 
-    if (isset($_POST['turma'])){
-        $turma = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
-        $ano = $mysqli->real_escape_string($_POST['ano']);
-        $semestre = $mysqli->real_escape_string($_POST['semestre']);
-        $aluno = $mysqli->real_escape_string($_POST['aluno']);
-        
-        $nome = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
-    } else {
-        echo "<script>location.href='banca.php';</script>";
-        $mysqli->Close();
-        die();
-    }    
+  if (isset($_POST['turma'])){
+    $turma = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
+    $ano = $mysqli->real_escape_string($_POST['ano']);
+    $semestre = $mysqli->real_escape_string($_POST['semestre']);
+    $aluno = $mysqli->real_escape_string($_POST['aluno']);
+
+      } else {
+            echo "<script>location.href='banca.php';</script>";
+          $mysqli->Close();
+            die();
+        }    
  ?>
 <!--Formulário Fazer igual ao avalia aluno.php-->
     <div class="band">
@@ -29,21 +28,17 @@
             <fieldset class="bordered rounded shadowed margin-bottom"> 
                 <legend class="h3 primary text-shadowed no-margin-bottom">Dados do aluno</legend> 
                 <div class="row"> 
-                    <div class="span12"> 
+                    <div class="span4"> 
                         <span class="label" id="nome">Nome do aluno:</span><?php echo $nome?></div>
-                </div>
-                <div class="row"> 
-                    <div class="span12"> 
+                       <div class="span4"> 
                         <span class="label" id="tipo">Tipo de avaliação:</span><?php echo $nome?></div> 
-                </div> 
-                <div class="row"> 
-                    <div class="span12"> 
+                    <div class="span4"> 
                         <span class="label" id="descricao">Título do TGSI:</span><?php echo $nome?></div> 
-                </div> 
+              </div>
             </fieldset>
-                
-        <form id="insereBanca" action="insere-banca.php" method="post">
-            <div class="box shadowed bordered rounded">
+        <form id="insereBanca" action="banca-avaliadores.php" method="post"> <!--depois colocar insere-banca.php-->
+           <fieldset class="bordered rounded shadowed margin-bottom"> 
+                <legend class="h3 primary text-shadowed no-margin-bottom">Dados da Banca</legend> 
                 <div class='row'>  
                     <div class="span2">
                         <span class="label">Data<span class="required"></span></span><br>
@@ -58,7 +53,7 @@
                         <input id="local" name="local" class="textfield width-100" type="text" maxlength="150" required>
                     </div>
                 </div>
-            </div>
+             </fieldset>
                  <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
