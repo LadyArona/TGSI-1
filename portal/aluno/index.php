@@ -475,6 +475,13 @@
                         echo '    </div>';
                         echo '</div>';
                     } 
+                } else {
+                    echo '  <div class="box bordered rounded shadowed info">';
+                    echo '      <div class="box-content">';
+                    echo '          Você não está cadastrado em uma turma.';
+                    echo '          <br>Entre em contato com o coordenador do curso para que ele efetue o cadastro.'; 
+                    echo '      </div>';
+                    echo '  </div>';  
                 }                     
                 ?>                
                  
