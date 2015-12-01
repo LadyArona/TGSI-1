@@ -38,6 +38,11 @@
         <div class="band align-center-phone">
             <div class="container"> 
                 <?php
+                $sqlValida = "SELECT `usu_aluno` FROM `turma_detalhe` WHERE `usu_aluno` = $codigoAluno";
+                
+                $queryValida = $mysqli->query($sqlValida);
+                
+                if (mysqli_num_rows($queryValida) > 0){
                     if(isset($_GET['mensagem'])){
                         echo "<div class='row'><div class='span8'><div class='box ".$_GET['mensagem']."'><button type='button' class='close' data-dismiss='box'>&times;</button>";
                         echo $_GET['texto'];
@@ -173,13 +178,11 @@
                         echo '    </div>';
                         echo '</div>';                        
                     }
-                ?> 
-               
-                <p>
-                <h1 id='iconMed' class="align-center"><i class="icon-arrow-down"></i></h1>
-                </p>
+                    
+                    echo '<p>';
+                    echo '<h1 id="iconMed" class="align-center"><i class="icon-arrow-down"></i></h1>';
+                    echo '</p>';
                 
-                <?php
                     if ($PropostaAceita) {
                         $sqlTGSI = "SELECT `arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`
                                      FROM `arquivo` 
@@ -327,13 +330,11 @@
                         echo '    </div>';
                         echo '</div>';
                     }                
-                ?>
                 
-                <p>
-                <h1 id='iconMed' class="align-center"><i class="icon-arrow-down"></i></h1>
-                </p>
+                    echo '<p>';
+                    echo '<h1 id="iconMed" class="align-center"><i class="icon-arrow-down"></i></h1>';
+                    echo '</p>';
                 
-                <?php
                     if ($PropostaAceita && $TGSIAceita) {
                         $sqlTGSI2 = "SELECT `arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`
                                      FROM `arquivo` 
@@ -473,7 +474,8 @@
                         echo '        </div>';
                         echo '    </div>';
                         echo '</div>';
-                    }                
+                    } 
+                }                     
                 ?>                
                  
             </div>
