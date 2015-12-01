@@ -10,6 +10,8 @@
     include("../include/conexao.php");
     include("../include/funcoes.php"); 
     
+    date_default_timezone_set('America/Sao_Paulo');    
+    
     if (!empty($_POST)){
         $ano = $mysqli->real_escape_string($_POST['ano']);
         
@@ -114,21 +116,27 @@
                         echo '        <td>'.$Resultado['ban_descricao'].'</td>';
                         echo '        <td>'.$Resultado['ban_local'].'</td>';
                         echo              '<td WIDTH="125">';
-                        echo '                <div class="align-center align-center-phone">';                         
-                        echo '                    <form name="avaliar" method="POST" action="avalia-aluno.php">';                              
-                        echo '                        <input type="hidden" name="aluno" value="'.$Resultado['usu_codigo'].'">';
-                        echo '                        <input type="hidden" name="banca" value="'.$Resultado['ban_codigo'].'">';
-                        echo '                        <input type="hidden" name="detalhe" value="'.$Resultado['band_codigo'].'">';
-                        echo '                        <input type="hidden" name="tipo" value="'.$Resultado['ban_tipo'].'">';
-                        echo '                        <input type="hidden" name="data" value="'.$Resultado['ban_data'].'">';
-                        echo '                        <input type="hidden" name="hora" value="'.$Resultado['ban_hora'].'">';
-                        echo '                        <input type="hidden" name="local" value="'.$Resultado['ban_local'].'">';
-                        echo '                        <input type="hidden" name="descricao" value="'.$Resultado['ban_descricao'].'">';
-                        echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
-                        echo '                            <i class="icon-search"></i> Avaliar';
-                        echo '                        </button>';                                         
-                        echo '                    </form>';
-                        echo '                </div>';
+                        $hoje = date('Y-m-d H:i');
+                        if ((strtotime($Resultado['ban_data']) <= strtotime($hoje))){
+                            echo '                <div class="align-center align-center-phone">';                         
+                            echo '                    <form name="avaliar" method="POST" action="avalia-aluno.php">';                              
+                            echo '                        <input type="hidden" name="aluno" value="'.$Resultado['usu_codigo'].'">';
+                            echo '                        <input type="hidden" name="banca" value="'.$Resultado['ban_codigo'].'">';
+                            echo '                        <input type="hidden" name="detalhe" value="'.$Resultado['band_codigo'].'">';
+                            echo '                        <input type="hidden" name="tipo" value="'.$Resultado['ban_tipo'].'">';
+                            echo '                        <input type="hidden" name="data" value="'.$Resultado['ban_data'].'">';
+                            echo '                        <input type="hidden" name="hora" value="'.$Resultado['ban_hora'].'">';
+                            echo '                        <input type="hidden" name="local" value="'.$Resultado['ban_local'].'">';
+                            echo '                        <input type="hidden" name="descricao" value="'.$Resultado['ban_descricao'].'">';
+                            echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
+                            echo '                            <i class="icon-search"></i> Avaliar';
+                            echo '                        </button>';                                         
+                            echo '                    </form>';
+                            echo '                </div>';
+                        } else {
+                            echo '               <button type="button" class="btn primary gerarBtn small" disabled onclick=""><i class="icon-search"></i> Avaliar</button>';
+                        }                        
+                        
                         echo              '</td>';                        
                         echo '    </tr>'; 
                     }

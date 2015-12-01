@@ -13,7 +13,7 @@
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Pesquisa de alunos a serem avaliados</h2>
             <!--Formulário de busca-->
-            <form id="busca-usuario" action="pesquisa-AlunoAvaliar-busca.php" method="post">            
+            <form id="busca-usuario" action="pesquisa-alunoAvaliar-busca.php" method="post">            
                 <div class="row"> 
                     <div class="span2"> 
                         <label class="label" for="ano">Ano</label>
