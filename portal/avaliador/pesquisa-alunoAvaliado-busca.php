@@ -91,7 +91,7 @@
                     echo '                <th WIDTH="200">Aluno</th>'; 
                     echo '                <th>Descrição</th>'; 
                     echo '                <th>Local</th>'; 
-                    echo '                <th WIDTH="125"></th>'; 
+                    echo '                <th WIDTH="140"></th>'; 
                     echo '            </tr>'; 
                     echo '        </thead>';
                     echo '        <tbody>'; 
@@ -104,8 +104,22 @@
                         echo '            </td>';
                         echo '            <td>'.$Resultado['ban_descricao'].'</td>';
                         echo '            <td>'.$Resultado['ban_local'].'</td>';
-                        echo '            <td WIDTH="125';
-                        echo '                <button type="button" class="btn primary gerarBtn small" disabled onclick=""><i class="icon-search"></i>Visualizar</button>';
+                        echo '            <td WIDTH="140">';
+                        echo '                <div class="align-center align-center-phone">';                         
+                        echo '                    <form name="avaliar" method="POST" action="avalia-aluno-busca.php">';                              
+                        echo '                        <input type="hidden" name="aluno" value="'.$Resultado['usu_codigo'].'">';
+                        echo '                        <input type="hidden" name="banca" value="'.$Resultado['ban_codigo'].'">';
+                        echo '                        <input type="hidden" name="detalhe" value="'.$Resultado['band_codigo'].'">';
+                        echo '                        <input type="hidden" name="tipo" value="'.$Resultado['ban_tipo'].'">';
+                        echo '                        <input type="hidden" name="data" value="'.$Resultado['ban_data'].'">';
+                        echo '                        <input type="hidden" name="hora" value="'.$Resultado['ban_hora'].'">';
+                        echo '                        <input type="hidden" name="local" value="'.$Resultado['ban_local'].'">';
+                        echo '                        <input type="hidden" name="descricao" value="'.$Resultado['ban_descricao'].'">';
+                        echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
+                        echo '                            <i class="icon-search"></i> Visualizar';
+                        echo '                        </button>';                                         
+                        echo '                    </form>';
+                        echo '                </div>';
                         echo '            </td>'; 
                         echo '        </tr>';
                     }

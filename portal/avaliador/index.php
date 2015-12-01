@@ -40,7 +40,6 @@
                         echo "</div></div></div>";
                     }
                 
-                
                 $sqlAvaliador = "SELECT b.`ban_data`, 
                                         b.`ban_hora`,
                                         b.`ban_descricao`, 
