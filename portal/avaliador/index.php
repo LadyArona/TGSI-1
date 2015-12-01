@@ -34,6 +34,13 @@
             <div class="container">
                 
                 <?php
+                    if(isset($_GET['mensagem'])){
+                        echo "<div class='row'><div class='span8'><div class='box ".$_GET['mensagem']."'><button type='button' class='close' data-dismiss='box'>&times;</button>";
+                        echo $_GET['texto'];
+                        echo "</div></div></div>";
+                    }
+                
+                
                 $sqlAvaliador = "SELECT b.`ban_data`, 
                                         b.`ban_hora`,
                                         b.`ban_descricao`, 
@@ -41,7 +48,8 @@
                                         b.`ban_tipo`,
                                         b.`usu_codigo`,
                                         b.`ban_tipo`,
-                                            case 
+                                        b.`ban_codigo`,                                        
+                                        case 
                                           when b.`ban_tipo` = 1 then
                                                  'Proposta'
                                           when b.`ban_tipo` = 2 then
@@ -51,7 +59,8 @@
                                         end as `ban_tipo_nome`,
                                             u.`usu_nome`,
                                         u.`usu_matricula`,
-                                        ar.`arq_nome`
+                                        ar.`arq_nome`,
+                                        bd.`band_codigo`
 
                                  FROM `banca` as b 
                                          INNER JOIN `banca_detalhe` as bd
@@ -62,6 +71,7 @@
                                          ON ar.`usu_aluno` = b.`usu_codigo`
                                          AND ar.`arq_tipo` = b.`ban_tipo`
                                  WHERE bd.`usu_codigo` = ".$Avaliador."
+                                   AND bd.`band_codigo` NOT IN (SELECT bav.`band_codigo` FROM `banca_detalhe_avaliacao` as bav)
                                  ORDER BY b.`ban_data`, b.`ban_hora`, b.`ban_tipo`";
 
                 /*retorna a quantidade registros encontrados na consulta acima */
@@ -101,10 +111,22 @@
                         } else {
                             echo '                  <button type="button" class="btn primary align-center" onclick="window.open(\'../aluno/uploads/'.$Resultado['arq_nome'].'\', \'_blank\')"><i class="icon-download-alt"></i> Download do Arquivo</button>';
                         }
-                        if ((strtotime($Resultado['ban_data']) <= strtotime($hoje))){
-                            echo '                  <button type="button" class="btn primary align-center" onclick=""><i class=" icon-edit"></i> Avaliar Aluno</button>';                            
+                        if ((strtotime($Resultado['ban_data']) <= strtotime($hoje))){                        
+                            echo '                    <form name="avaliar" method="POST" action="avalia-aluno.php">';                              
+                            echo '                        <input type="hidden" name="aluno" value="'.$Resultado['usu_codigo'].'">';
+                            echo '                        <input type="hidden" name="banca" value="'.$Resultado['ban_codigo'].'">';
+                            echo '                        <input type="hidden" name="detalhe" value="'.$Resultado['band_codigo'].'">';
+                            echo '                        <input type="hidden" name="tipo" value="'.$Resultado['ban_tipo'].'">';
+                            echo '                        <input type="hidden" name="data" value="'.$Resultado['ban_data'].'">';
+                            echo '                        <input type="hidden" name="hora" value="'.$Resultado['ban_hora'].'">';
+                            echo '                        <input type="hidden" name="local" value="'.$Resultado['ban_local'].'">';
+                            echo '                        <input type="hidden" name="descricao" value="'.$Resultado['ban_descricao'].'">';
+                            echo '                        <button type="button" class="btn primary align-center" id="gerar" name="gerar" type="Submit">';
+                            echo '                            <i class=" icon-edit"></i> Avaliar Aluno';
+                            echo '                        </button>';                                         
+                            echo '                    </form>';                             
                         } else {
-                            echo '                  <button type="button" class="btn primary align-center disabled" disabled onclick=""><i class=" icon-edit"></i> Avaliar Aluno</button>';
+                            echo '                  <br><button type="button" class="btn primary align-center disabled" disabled onclick=""><i class=" icon-edit"></i> Avaliar Aluno</button>';
                         }
                         echo '          </div>';
                         echo '      </div>';

@@ -33,7 +33,22 @@
         $local     = $mysqli->real_escape_string($_POST['local']);
         $descricao = $mysqli->real_escape_string($_POST['descricao']);
         $orientadorNome = $alunoNome = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
-        $arquivo = '6dba7af0f7dd491f100265c4b5fc8484.pdf';
+        
+        $sqlArquivo = "SELECT `arq_codigo`, `arq_nome` 
+                        FROM `arquivo` 
+                        WHERE `usu_aluno` = $aluno
+                          AND `arq_tipo` = $tipo    
+                        ORDER BY `arq_data` DESC, `arq_hora` DESC 
+                        lIMIT 1";
+        $queryArquivo = $mysqli->query($sqlArquivo);
+        if(mysqli_num_rows($queryArquivo) > 0){
+            $ResultArquivo = $queryArquivo->fetch_assoc();
+            $arquivo   = $ResultArquivo['arq_nome'];
+            $arqCodigo = $ResultArquivo['arq_codigo'];
+        } else {
+            $arquivo   = '';
+            $arqCodigo = 0;
+        }
     }
 ?>
 
@@ -81,11 +96,15 @@ function blocTexto(valor)
             <div class="row">
                 <div class="span9">
                     <span class="label">Título do TGSI</span><br>
-                    <label for="tipo_avaliacao"><?php echo $descricao; ?></label> 
-                    <br><br>
-                    <button class="btn small" id="baixar" name="baixar"  type="button" onclick="window.open('../aluno/uploads/<?php echo $arquivo; ?>', '_blank')">
-                        <i class="icon-download-alt"></i> Download do arquivo
-                    </button>
+                    <label for="tipo_avaliacao"><?php echo $descricao; ?></label>
+                    <?php
+                        if ($arqCodigo > 0){
+                            echo '<br><br>';
+                            echo '<button class="btn small" id="baixar" name="baixar"  type="button" onclick="window.open(\'../aluno/uploads/'.$arquivo.'\', \'_blank\')">';
+                            echo '    <i class="icon-download-alt"></i> Download do arquivo';
+                            echo '</button>';
+                        }
+                    ?>
                 </div>
 
                 <div class="span3">
@@ -96,7 +115,7 @@ function blocTexto(valor)
         </fieldset> 
         <br>
         <!-- tabela de Avaliacao -->
-        <form id="buscaUsuario" action="busca-usuario.php" method="post">               
+        <form id="buscaUsuario" action="avalia-aluno-insere.php" method="post">               
             <table class="bordered rounded diced striped hovered shadowed narrow table">
                 <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Avaliação de <?php echo $tipoNome; ?></h2>
                 <thead class="header"> 
@@ -166,6 +185,7 @@ function blocTexto(valor)
             </div>
             <br><br>
             <hr>
+            <input type="hidden" name="bancaDet" value="<?php echo $detalhe; ?>">
             <div class="form-actions">
                 <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                     <i class="icon-ban-circle"></i> Cancelar</button>
