@@ -9,7 +9,6 @@
     include("../include/funcoes.php");
     include("../include/conexao.php"); 
 
-
     if (isset($_POST['turma'])){
         $turma = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
         $ano = $mysqli->real_escape_string($_POST['ano']);
@@ -22,79 +21,54 @@
         $mysqli->Close();
         die();
     }    
-        
-?>
-
+ ?>
 <!--Formulário Fazer igual ao avalia aluno.php-->
-
     <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Banca</h2>
-            <form id="insereBanca" action="insere-banca.php" method="post">
-                    <div class="box shadowed bordered rounded">
-                        <div class="row">
-                            <div class="span5">
-                                <span class="label">Aluno<span class="required"></span></span><br>
-                                <input id="aluno" name="aluno" value="<?php echo $nome?>" class="textfield width-100" type="text" maxlength="150" required>  
-                            </div>
-                            <div class="span3">
-                                <span class="label">Tipo<span class="required"></span></span><br>
-                                <input id="tipo" name="tipo" value="" class="textfield width-100" type="text" maxlength="150" required>     
-                              </div>
-                            <div class="span2">
-                                <span class="label">Data<span class="required"></span></span><br>
-                                <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
-                            </div>
-                            <div class="span2">
-                                <span class="label">Hora<span class="required"></span></span><br>
-                                <input id="hora" name="hora" class="textfield width-100" type="hora" maxlength="150" required>
-                            </div>
-                        <div class="row">
-                            <div class="span6">
-                                <span class="label">Título do Trabalho<span class="required"></span></span><br>
-                                <input id="titulo" name="titulo" class="textfield width-100" type="text" maxlength="150" required>
-                            </div>                                 
-                            <div class="span3">
-                                <span class="label">Descrição<span class="required"></span></span><br>
-                                <input id="descricao" name="descricao" value="" class="textfield width-100" type="text" maxlength="150" required>
-                            </div>
-                            <div class="span3">
-                                <span class="label">Professor Orientador<span class="required"></span></span><br>
-                                <input id="professorOrientador" name="professorOrientador" value="" class="textfield width-100" type="text" maxlength="150" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="span3"> 
-                                <span class="label">Professor Avaliador 1<span class="required"></span></span>
-                                <br>
-                                    <select id="avaliador" name="avaliador" class="textfield width-100"> 
-                                    <option value='1'>1. Avaliador 1</option>
-                                    <option value='2'>2. Avaliador 2</option>                                      
-                                    </select>
-                            </div>
-                            <div class="span3"> 
-                                <span class="label">Professor Avaliador 1<span class="required"></span></span>
-                                <br>
-                                    <select id="avaliador" name="avaliador" class="textfield width-100"> 
-                                    <option value='1'>1. Avaliador 1</option>
-                                    <option value='2'>2. Avaliador 2</option>                                      
-                                    </select>
-                            </div>
-                            <div class="span6">
-                                <span class="label">Local da Defesa<span class="required"></span></span><br>
-                                <input id="local" name="local" class="textfield width-100" type="text" maxlength="150" required>
-                            </div>
-                        </div>    
+            <fieldset class="bordered rounded shadowed margin-bottom"> 
+                <legend class="h3 primary text-shadowed no-margin-bottom">Dados do aluno</legend> 
+                <div class="row"> 
+                    <div class="span12"> 
+                        <span class="label" id="nome">Nome do aluno:</span><?php echo $nome?></div>
+                </div>
+                <div class="row"> 
+                    <div class="span12"> 
+                        <span class="label" id="tipo">Tipo de avaliação:</span><?php echo $nome?></div> 
+                </div> 
+                <div class="row"> 
+                    <div class="span12"> 
+                        <span class="label" id="descricao">Título do TGSI:</span><?php echo $nome?></div> 
+                </div> 
+            </fieldset>
+                
+        <form id="insereBanca" action="insere-banca.php" method="post">
+            <div class="box shadowed bordered rounded">
+                <div class='row'>  
+                    <div class="span2">
+                        <span class="label">Data<span class="required"></span></span><br>
+                        <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
                     </div>
-                        <div class="form-actions">
-                            <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
-                                <i class="icon-ban-circle"></i> Cancelar</button>
-                            <button class="btn left Reset" id="limpar" name="limpar" type="reset">
-                                <i class="icon-eraser"></i> Limpar</button>
-                            <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
-                                <i class="icon-save"></i> Salvar</button>
-                        </div>
-                </form>
+                    <div class="span2">
+                        <span class="label">Hora<span class="required"></span></span><br>
+                        <input id="hora" name="hora" class="textfield width-100" type="hora" maxlength="150" required>
+                    </div>
+                   <div class="span8">
+                        <span class="label">Local da Defesa<span class="required"></span></span><br>
+                        <input id="local" name="local" class="textfield width-100" type="text" maxlength="150" required>
+                    </div>
+                </div>
+            </div>
+                 <div class="form-actions">
+                    <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
+                        <i class="icon-ban-circle"></i> Cancelar</button>
+                    <button class="btn left Reset" id="limpar" name="limpar" type="reset">
+                        <i class="icon-eraser"></i> Limpar</button>
+                    <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
+                        <i class="icon-save"></i> Salvar</button>
+                </div>
+        </form>
+           
         </div>
     </div>
 
