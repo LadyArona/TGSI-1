@@ -32,11 +32,13 @@
                 $sqlBanca = "SELECT `ban_codigo`, `ban_hora`, `ban_tipo`, `ban_data`, `ban_descricao`, `ban_local`, `usu_codigo`, `tur_codigo`, 
                              case 
                                  when `ban_tipo` = 1 then
-                                     'Proposta'
+                                     'Proposta Final'
                                  when `ban_tipo` = 2 then
                                      'TGSI 1'
                                  when `ban_tipo` = 3 then
-                                     'TGSI 2'        
+                                     'TGSI 2'
+                                 when `ban_tipo` = 4 then
+                                     'Proposta Inicial'
                              end as `ban_tipo_nome`                              
                              FROM `banca` 
                              WHERE `usu_codigo` = ".$aluno;

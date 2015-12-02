@@ -50,11 +50,13 @@
                                         b.`ban_codigo`,                                        
                                         case 
                                           when b.`ban_tipo` = 1 then
-                                                 'Proposta'
+                                             'Proposta Final'
                                           when b.`ban_tipo` = 2 then
                                              'TGSI 1'
                                           when b.`ban_tipo` = 3 then
-                                             'TGSI 2'        
+                                             'TGSI 2'
+                                          when b.`ban_tipo` = 4 then
+                                             'Proposta Inicial' 
                                         end as `ban_tipo_nome`,
                                             u.`usu_nome`,
                                         u.`usu_matricula`,

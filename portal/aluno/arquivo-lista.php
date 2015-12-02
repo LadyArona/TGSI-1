@@ -21,11 +21,13 @@
             $sqlArquivo = "SELECT `arq_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_nome_original`, `arq_situacao`, 
                             case 
                                 when `arq_tipo` = 1 then
-                                    'Proposta'
+                                    'Proposta Final'
                                 when `arq_tipo` = 2 then
                                     'TGSI 1'
                                 when `arq_tipo` = 3 then
-                                    'TGSI 2'        
+                                    'TGSI 2'
+                                when `arq_tipo` = 4 then
+                                    'Proposta Inicial'
                             end as `arq_tipo` 
                             FROM `arquivo`
                             WHERE `usu_aluno` = ".$codigoAluno."

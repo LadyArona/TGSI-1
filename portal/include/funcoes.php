@@ -143,3 +143,77 @@ function BuscaDado($NomedoCampo, $NomeDaTabela, $Condicao) {
         return $retorno[$NomedoCampo];
     }    
 }
+
+function BancaPossuiNota($codluno, $tipo){
+    //Ve se existe as 3 avaliações desse aluno desse tipo
+    include("conexao.php");       
+
+    $sql = "SELECT bav.`bav_codigo` 
+            FROM `banca_detalhe_avaliacao` as bav
+                RIGHT JOIN `banca_detalhe` as bd 
+                    ON bd.`band_codigo` = bav.`band_codigo` 
+                RIGHT JOIN `banca` as b 
+                    ON bd.`ban_codigo` = b.`ban_codigo` 
+            WHERE b.`usu_codigo` = $codluno 
+              AND b.`ban_tipo`= $tipo";
+
+    $query = $mysqli->query($sql);
+    if ($tipo == 4) {
+        if (mysqli_num_rows($query) > 0) {        
+            return True;
+        } else {
+            return False;
+        }     
+    } else {
+        if (mysqli_num_rows($query) >= 3) {        
+            return True;
+        } else {
+            return False;
+        }
+    }
+
+    $mysqli->Close();
+}
+
+function BancaResultado($codluno, $tipo){
+    //Ve se existe as 3 avaliações desse aluno desse tipo
+    include("conexao.php");       
+
+    $sql = "SELECT bav.`bav_codigo`, `bav_nota_soma` 
+            FROM `banca_detalhe_avaliacao` as bav
+                RIGHT JOIN `banca_detalhe` as bd 
+                    ON bd.`band_codigo` = bav.`band_codigo` 
+                RIGHT JOIN `banca` as b 
+                    ON bd.`ban_codigo` = b.`ban_codigo` 
+            WHERE b.`usu_codigo` = $codluno 
+              AND b.`ban_tipo`= $tipo";
+
+    $query = $mysqli->query($sql);
+    $nota  = 0;
+    $soma  = 0;
+    
+    if ($tipo == 4) {
+        if (mysqli_num_rows($query) > 0) {
+            $Resultado = $query->fetch_assoc();      
+            $nota = $Resultado['bav_nota_soma'];
+            if ($nota >=7){    
+                return True;
+            } else {
+                return False;
+            }
+        }   
+    } else {
+        if (mysqli_num_rows($query) >= 3) {
+            while ($Resultado = $query->fetch_assoc()) {
+                $soma = $soma + $Resultado['bav_nota_soma'];
+            }        
+            $nota = $soma/3;
+            if ($nota >=7){    
+                return True;
+            } else {
+                return False;
+            }
+        }
+    }
+    $mysqli->Close();
+}
