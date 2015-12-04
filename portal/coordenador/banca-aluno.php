@@ -10,21 +10,21 @@
     include("../include/conexao.php"); 
 
   if (isset($_POST['turma'])){
-    $turma      = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
-    $ano        = $mysqli->real_escape_string($_POST['ano']);
-    $semestre   = $mysqli->real_escape_string($_POST['semestre']);
-    $aluno      = $mysqli->real_escape_string($_POST['aluno']);
-    $nomeorientador = $mysqli->real_escape_string($_POST['nomeorientador']);
+    $turma            = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
+    $ano              = $mysqli->real_escape_string($_POST['ano']);
+    $semestre         = $mysqli->real_escape_string($_POST['semestre']);
+    $aluno            = $mysqli->real_escape_string($_POST['aluno']);
+    $nomeorientador   = $mysqli->real_escape_string($_POST['nomeorientador']);
+    $orientador       = $mysqli->real_escape_string($_POST['orientador']);
 
-    $nome              = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
-    $tituloTGSI        = BuscaDado('tud_titulo', 'turma_detalhe', 'usu_aluno = '.$aluno);
+    $nome             = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
+    $tituloTGSI       = BuscaDado('tud_titulo', 'turma_detalhe', 'usu_aluno = '.$aluno);
     
       } else {
             echo "<script>location.href='banca.php';</script>";
           $mysqli->Close();
             die();
         }   
-
  ?>
 <!--Formulário Fazer igual ao avalia aluno.php-->
     <div class="band">
@@ -62,7 +62,7 @@
                                 } else {
                                     echo "<option value='1'>Proposta de TGSI</option>";
                                     echo "<option value='2'>TGSI1</option>";
-                                    echo "<option value='2'selected='selected'>TGSI 2</option>";   
+                                    echo "<option value='3'selected='selected'>TGSI 2</option>";  
                                 }
                             ?>
                             </select>
@@ -95,7 +95,6 @@
                                                  c.`cat_codigo` = 3;";
                                 /*retorna a quantidade registros encontrados na consulta acima */
                                 $queryAvaliador = $mysqli->query($sqlAvaliador);
-
                                 /*se quantidade de linhas maior que zero*/
                                 if(mysqli_num_rows($queryAvaliador) > 0){
                                     while ($Avaliador = $queryAvaliador->fetch_assoc()) {
@@ -105,6 +104,7 @@
                             ?>
                         </select>
                      </div>
+                    
                     <div class="span6">
                         <span class="label">Avaliador 3<span class="required"></span></span>
                         <br>
@@ -129,9 +129,14 @@
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
                         <i class="icon-eraser"></i> Limpar</button>
+                        <input type="hidden" name="orientador" value="<?php echo $orientador; ?>">
+                        <input type="hidden" name="descricao" value="<?php echo $tituloTGSI; ?>">
+                        <input type="hidden" name="turma" value="<?php echo $turma; ?>">
+                        <input type="hidden" name="aluno" value="<?php echo $aluno; ?>">
+                        
                     <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
                         <i class="icon-save"></i> Salvar</button>
-                </div>
+                   </div>
         </form>
         </div>
     </div>

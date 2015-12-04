@@ -16,8 +16,8 @@
         $turma      = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
         $orientador = $mysqli->real_escape_string($_POST['orientador']);
         
-        $nome     = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
-        $nomeorientador     = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$orientador);
+        $nome           = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
+        $nomeorientador = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$orientador);
         
     } else {
         echo "<script>location.href='banca.php';</script>";
@@ -116,9 +116,10 @@
                     <form name="voltar" method="POST" action="banca-aluno.php">                              
                         <input type="hidden" name="ano" value="<?php echo $ano; ?>">
                         <input type="hidden" name="semestre" value="<?php echo $semestre; ?>">
-                        <input type="hidden" name="turma" value="<?php echo $semestre; ?>">
+                        <input type="hidden" name="turma" value="<?php echo $turma; ?>">
                         <input type="hidden" name="aluno" value="<?php echo $aluno; ?>">
                         <input type="hidden" name="nomeorientador" value="<?php echo $nomeorientador; ?>">
+                        <input type="hidden" name="orientador" value="<?php echo $orientador; ?>">
                        
                         <button class="btn primary gerarBtn" id="novaBanca" name="novaBanca" type="submit">
                         <i class="icon-plus"></i> Cadastrar Nova Banca</button>                        
