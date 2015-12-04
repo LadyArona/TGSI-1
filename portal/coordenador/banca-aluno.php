@@ -15,7 +15,7 @@
     $semestre   = $mysqli->real_escape_string($_POST['semestre']);
     $aluno      = $mysqli->real_escape_string($_POST['aluno']);
     $nomeorientador = $mysqli->real_escape_string($_POST['nomeorientador']);
-    
+
     $nome              = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
     $tituloTGSI        = BuscaDado('tud_titulo', 'turma_detalhe', 'usu_aluno = '.$aluno);
     
@@ -49,9 +49,22 @@
                     <div class="span2"> 
                          <span class="label">Tipo da Avaliação<span class="required"></span></span>
                             <select id="tipo" name="tipo" class="textfield width-100"> 
-                                <option value='1'>Proposta de TGSI</option>
-                                <option value='2'>TGSI 1</option>
-                                <option value='2'>TGSI 2</option> 
+                                 <?php
+                                if ($tipo == 1){
+                                    echo "<option value='1' selected='selected'>Proposta de TGSI</option>";
+                                    echo "<option value='2'>TGSI 1</option>";
+                                    echo "<option value='3'>TGSI 2</option>";
+                                }
+                                    if ($tipo == 2){
+                                    echo "<option value='1'>Proposta de TGSI</option>";
+                                    echo "<option value='2' selected='selected'>>TGSI 1</option>";
+                                    echo "<option value='3'>TGSI 2</option>";
+                                } else {
+                                    echo "<option value='1'>Proposta de TGSI</option>";
+                                    echo "<option value='2'>TGSI1</option>";
+                                    echo "<option value='2'selected='selected'>TGSI 2</option>";   
+                                }
+                            ?>
                             </select>
                     </div>
                     <div class="span2">
@@ -125,3 +138,5 @@
 
 <?php
 	include("../rodape.php");
+?>
+<br>

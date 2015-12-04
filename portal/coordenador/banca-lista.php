@@ -78,6 +78,7 @@
                         echo '                        <input type="hidden" name="ano" value="'.$ano.'">';
                         echo '                        <input type="hidden" name="semestre" value="'.$semestre.'">';
                         echo '                        <input type="hidden" name="turma" value="'.$turma.'">';
+                        echo'                         <input type="hidden" name="nomeorientador" value="'.$nomeorientador.'">';
                         echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
                         echo '                            <i class="icon-edit"></i> Editar';
                         echo '                        </button>';                                         
@@ -118,10 +119,9 @@
                         <input type="hidden" name="turma" value="<?php echo $semestre; ?>">
                         <input type="hidden" name="aluno" value="<?php echo $aluno; ?>">
                         <input type="hidden" name="nomeorientador" value="<?php echo $nomeorientador; ?>">
-                        
-                     
+                       
                         <button class="btn primary gerarBtn" id="novaBanca" name="novaBanca" type="submit">
-                        <i class="icon-save"></i> Cadastrar Nova Banca</button>                        
+                        <i class="icon-plus"></i> Cadastrar Nova Banca</button>                        
                     </form>                     
                 </div>
             </div>
