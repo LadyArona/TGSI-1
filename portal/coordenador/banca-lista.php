@@ -35,7 +35,7 @@
                 $sqlBanca = "SELECT `ban_codigo`, `ban_hora`, `ban_tipo`, `ban_data`, `ban_descricao`, `ban_local`, `usu_codigo`, `tur_codigo`, 
                              case 
                                  when `ban_tipo` = 1 then
-                                     'Proposta Final'
+                                     'Proposta'
                                  when `ban_tipo` = 2 then
                                      'TGSI 1'
                                  when `ban_tipo` = 3 then

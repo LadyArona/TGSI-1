@@ -21,7 +21,7 @@
             $sqlArquivo = "SELECT `arq_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_nome_original`, `arq_situacao`, 
                             case 
                                 when `arq_tipo` = 1 then
-                                    'Proposta Final'
+                                    'Proposta'
                                 when `arq_tipo` = 2 then
                                     'TGSI 1'
                                 when `arq_tipo` = 3 then

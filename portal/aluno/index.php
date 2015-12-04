@@ -52,51 +52,49 @@
                         echo "</div></div></div>";
                     }
                     //Inicializa as variáveis
-                    $PropostaInicialAceita = False;
                     $PropostaAceita        = False;
                     $TGSIAceita            = False; 
                     $TGSI2Aceita           = False;
                     
-                    
                     //Busca o arquivo do aluno caso já tenha enviado
-                    $sqlInicial = "SELECT `arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`
+                    $sqlAluno = "SELECT `arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`
                                  FROM `arquivo` 
-                                 WHERE `arq_tipo`= 4 AND `usu_aluno` = ".$codigoAluno." ORDER BY `arq_codigo` DESC LIMIT 1";
-                                                              
+                                 WHERE `arq_tipo`= 1 AND `usu_aluno` = ".$codigoAluno." ORDER BY `arq_codigo` DESC LIMIT 1";
+
                     /*retorna a quantidade registros encontrados na consulta acima */
-                    $queryInicial = $mysqli->query($sqlInicial);
-                    
+                    $queryAluno = $mysqli->query($sqlAluno);
+
                     /*se quantidade de linhas maior que zero*/
-                    if(mysqli_num_rows($queryInicial) > 0){
-                        $ResultadoPropInicial = $queryInicial->fetch_assoc();
-                        $NomeArquivo = $ResultadoPropInicial['arq_nome'];
-                        
+                    if(mysqli_num_rows($queryAluno) > 0){
+                        $ResultadoProposta = $queryAluno->fetch_assoc();
+                        $NomeArquivoFinal = $ResultadoProposta['arq_nome'];
+
                         //Se o arquivo já foi aprovado mostra em verde
-                        $PropostaInicialPossuiNota = BancaPossuiNota($codigoAluno, 4); //Ve se existe as 3 avaliações desse aluno 
+                        $PropostaPossuiNota = BancaPossuiNota($codigoAluno, 1); //Ve se existe as 3 avaliações desse aluno 
                         //se a proposta possui todas as notas já dá pra saber o resultado
-                        if ($PropostaInicialPossuiNota){
+                        if ($PropostaPossuiNota){
                             //Ve o resultado das avaliações Aprovado ou Reprovado
-                            $PropostaInicialAceita = BancaResultado($codigoAluno, 4); 
+                            $PropostaAceita = BancaResultado($codigoAluno, 1); 
                         }
-                        
-                        if ($PropostaInicialPossuiNota && $PropostaInicialAceita) {
+
+                        if ($PropostaPossuiNota && $PropostaAceita) {
                             //Proposta aceita
                             echo '<div class="box success bordered tip shadowed rounded">';
                             echo '    <div class="row">';
                             echo '        <div class="span10">';
-                            echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Inicial</h2>';
+                            echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta</h2>';
                             echo '            <div class="row">';
                             echo '                <div class="span4 padding-v">';
                             echo '                    <p>';
-                            echo '                        Sua proposta inicial foi aprovada!<br>';
-                            echo '                        Agora você deve enviar a sua Proposta Final.';
+                            echo '                        Sua proposta foi aprovada!<br>';
+                            echo '                        Agora você deve enviar o seu TGSI 1.';
                             echo '                    </p>';
                             echo '                </div>';
                             echo '                <div class="span8 align-right padding-v align-center-phone"> ';
                             echo '                    <button class="btn link" id="verproposta" name="verproposta" type="button" onclick="parent.location=\'resultado-proposta.php\'">';
                             echo '                        <i class="icon-search"></i> Ver Resultado';
                             echo '                    </button>';
-                            echo '                    <button class="btn link" id="baixar" name="baixar" type="button" onclick="window.open(\'./uploads/'.$NomeArquivo.'\', \'_blank\')">';
+                            echo '                    <button class="btn link" id="baixar" name="baixar" type="button" onclick="window.open(\'./uploads/'.$NomeArquivoFinal.'\', \'_blank\')">';
                             echo '                        <i class="icon-download-alt"></i> Baixar Arquivo';
                             echo '                    </button>';
                             echo '                </div>';
@@ -107,16 +105,27 @@
                             echo '        </div>';
                             echo '    </div>';
                             echo '</div>';  
-                        } else if ($PropostaInicialPossuiNota && !$PropostaInicialAceita){
+                        } else if ($PropostaPossuiNota && !$PropostaAceita){
                             //Proposta reprovada, reenviar
                             echo '<div class="box error bordered tip shadowed rounded">';
                             echo '    <div class="row">';
                             echo '        <div class="span10">';
-                            echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Inicial</h2>';
+                            echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta</h2>';
                             echo '            <div class="row">';
                             echo '                <div class="span3 padding-v">';                            
-                            echo '                    <p>Sua proposta inicial foi reprovada!</p>';
+                            echo '                    <p>Sua proposta foi reprovada!</p>';
                             echo '                    <br>';  
+                            echo '                </div>';
+                            echo '                <div class="span9 padding-v align-right align-center-phone">';                         
+                            echo '                    <form name="gerar" method="POST" action="enviar-arquivo.php">';
+                            echo '                        <button class="btn primary gerarBtn" id="verproposta" name="verproposta" type="button" onclick="parent.location=\'resultado-proposta.php\'">';
+                            echo '                            <i class="icon-search"></i> Ver Resultado';
+                            echo '                        </button>';                               
+                            echo '                        <input type="hidden" name="tipo" value="1">';
+                            echo '                        <button class="btn primary gerarBtn" id="gerar" name="gerar"  type="Submit">';
+                            echo '                            <i class="icon-upload-alt"></i> Enviar Arquivo';
+                            echo '                        </button>';                                         
+                            echo '                    </form>';
                             echo '                </div>';
                             echo '            </div>';
                             echo '        </div>';
@@ -130,16 +139,16 @@
                             echo '<div class="box danger bordered tip shadowed rounded">';
                             echo '    <div class="row">';
                             echo '        <div class="span10">';
-                            echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Inicial</h2>';
+                            echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta</h2>';
                             echo '            <div class="row">';
                             echo '                <div class="span6 padding-v">';
                             echo '                    <p>';
-                            echo '                        Sua proposta inicial está pendente!<br>';
+                            echo '                        Sua proposta está pendente!<br>';
                             echo '                        Aguarde o resultado da avaliação.';
                             echo '                    </p>';
                             echo '                </div>';
                             echo '                <div class="span6 align-right padding-v align-center-phone"> ';
-                            echo '                    <button class="btn link" id="baixar" name="baixar"  type="button" onclick="window.open(\'./uploads/'.$NomeArquivo.'\', \'_blank\')">';
+                            echo '                    <button class="btn link" id="baixar" name="baixar"  type="button" onclick="window.open(\'./uploads/'.$NomeArquivoFinal.'\', \'_blank\')">';
                             echo '                        <i class="icon-download-alt"></i> Baixar Arquivo';
                             echo '                    </button>';
                             echo '                </div>';
@@ -156,7 +165,7 @@
                         echo '<div class="box warning bordered tip shadowed rounded">';
                         echo '    <div class="row">';
                         echo '        <div class="span10">';
-                        echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Inicial</h2>';
+                        echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta</h2>';
                         echo '              <div class="row">';
                         echo '                <div class="span6 padding-v">';                            
                         echo '                    <p>Aguardando envio!</p>';
@@ -164,7 +173,7 @@
                         echo '                </div>';
                         echo '                <div class="span6 padding-v align-right align-center-phone">';
                         echo '                    <form name="gerar" method="POST" action="enviar-arquivo.php">';
-                        echo '                        <input type="hidden" name="tipo" value="4">';
+                        echo '                        <input type="hidden" name="tipo" value="1">';
                         echo '                        <button class="btn primary gerarBtn" id="gerar" name="gerar"  type="Submit">';
                         echo '                            <i class="icon-upload-alt"></i> Enviar Arquivo';
                         echo '                        </button>';                                         
@@ -178,161 +187,6 @@
                         echo '    </div>';
                         echo '</div>';                        
                     }
-                    
-                    echo '<p>';
-                    echo '<h1 id="iconMed" class="align-center"><i class="icon-arrow-down"></i></h1>';
-                    echo '</p>';                    
-                    
-                    if ($PropostaInicialAceita) {
-                        //Busca o arquivo do aluno caso já tenha enviado
-                        $sqlAluno = "SELECT `arq_codigo`, `usu_aluno`, `tur_codigo`, `arq_data`, `arq_hora`, `arq_obs`, `arq_nome`, `arq_situacao`, `arq_tipo`
-                                     FROM `arquivo` 
-                                     WHERE `arq_tipo`= 1 AND `usu_aluno` = ".$codigoAluno." ORDER BY `arq_codigo` DESC LIMIT 1";
-
-                        /*retorna a quantidade registros encontrados na consulta acima */
-                        $queryAluno = $mysqli->query($sqlAluno);
-
-                        /*se quantidade de linhas maior que zero*/
-                        if(mysqli_num_rows($queryAluno) > 0){
-                            $ResultadoProposta = $queryAluno->fetch_assoc();
-                            $NomeArquivoFinal = $ResultadoProposta['arq_nome'];
-
-                            //Se o arquivo já foi aprovado mostra em verde
-                            $PropostaPossuiNota = BancaPossuiNota($codigoAluno, 1); //Ve se existe as 3 avaliações desse aluno 
-                            //se a proposta possui todas as notas já dá pra saber o resultado
-                            if ($PropostaPossuiNota){
-                                //Ve o resultado das avaliações Aprovado ou Reprovado
-                                $PropostaAceita = BancaResultado($codigoAluno, 1); 
-                            }
-
-                            if ($PropostaPossuiNota && $PropostaAceita) {
-                                //Proposta aceita
-                                echo '<div class="box success bordered tip shadowed rounded">';
-                                echo '    <div class="row">';
-                                echo '        <div class="span10">';
-                                echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Final</h2>';
-                                echo '            <div class="row">';
-                                echo '                <div class="span4 padding-v">';
-                                echo '                    <p>';
-                                echo '                        Sua proposta final foi aprovada!<br>';
-                                echo '                        Agora você deve enviar o seu TGSI 1.';
-                                echo '                    </p>';
-                                echo '                </div>';
-                                echo '                <div class="span8 align-right padding-v align-center-phone"> ';
-                                echo '                    <button class="btn link" id="verproposta" name="verproposta" type="button" onclick="parent.location=\'resultado-proposta.php\'">';
-                                echo '                        <i class="icon-search"></i> Ver Resultado';
-                                echo '                    </button>';
-                                echo '                    <button class="btn link" id="baixar" name="baixar" type="button" onclick="window.open(\'./uploads/'.$NomeArquivoFinal.'\', \'_blank\')">';
-                                echo '                        <i class="icon-download-alt"></i> Baixar Arquivo';
-                                echo '                    </button>';
-                                echo '                </div>';
-                                echo '            </div>';
-                                echo '        </div>';
-                                echo '        <div class="span2 align-center padding-top">';
-                                echo '            <h1 id="iconBig" class="success"><i class="icon-ok-circle"></i></h1>';
-                                echo '        </div>';
-                                echo '    </div>';
-                                echo '</div>';  
-                            } else if ($PropostaPossuiNota && !$PropostaAceita){
-                                //Proposta reprovada, reenviar
-                                echo '<div class="box error bordered tip shadowed rounded">';
-                                echo '    <div class="row">';
-                                echo '        <div class="span10">';
-                                echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Final</h2>';
-                                echo '            <div class="row">';
-                                echo '                <div class="span3 padding-v">';                            
-                                echo '                    <p>Sua proposta final foi reprovada!</p>';
-                                echo '                    <br>';  
-                                echo '                </div>';
-                                echo '                <div class="span9 padding-v align-right align-center-phone">';                         
-                                echo '                    <form name="gerar" method="POST" action="enviar-arquivo.php">';
-                                echo '                        <button class="btn primary gerarBtn" id="verproposta" name="verproposta" type="button" onclick="parent.location=\'resultado-proposta.php\'">';
-                                echo '                            <i class="icon-search"></i> Ver Resultado';
-                                echo '                        </button>';                               
-                                echo '                        <input type="hidden" name="tipo" value="1">';
-                                echo '                        <button class="btn primary gerarBtn" id="gerar" name="gerar"  type="Submit">';
-                                echo '                            <i class="icon-upload-alt"></i> Enviar Arquivo';
-                                echo '                        </button>';                                         
-                                echo '                    </form>';
-                                echo '                </div>';
-                                echo '            </div>';
-                                echo '        </div>';
-                                echo '        <div class="span2 align-center padding-top">';
-                                echo '            <h1 id="iconBig" class="error"><i class="icon-remove-circle"></i></h1>';
-                                echo '        </div>';
-                                echo '    </div>';
-                                echo '</div>';                        
-                            } else {
-                                //Aguardando resultado
-                                echo '<div class="box danger bordered tip shadowed rounded">';
-                                echo '    <div class="row">';
-                                echo '        <div class="span10">';
-                                echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Final</h2>';
-                                echo '            <div class="row">';
-                                echo '                <div class="span6 padding-v">';
-                                echo '                    <p>';
-                                echo '                        Sua proposta final está pendente!<br>';
-                                echo '                        Aguarde o resultado da avaliação.';
-                                echo '                    </p>';
-                                echo '                </div>';
-                                echo '                <div class="span6 align-right padding-v align-center-phone"> ';
-                                echo '                    <button class="btn link" id="baixar" name="baixar"  type="button" onclick="window.open(\'./uploads/'.$NomeArquivoFinal.'\', \'_blank\')">';
-                                echo '                        <i class="icon-download-alt"></i> Baixar Arquivo';
-                                echo '                    </button>';
-                                echo '                </div>';
-                                echo '            </div>';
-                                echo '        </div>';
-                                echo '        <div class="span2 align-center padding-top">';
-                                echo '            <h1 id="iconBig" class="danger"><i class="icon-remove-circle"></i></h1>';
-                                echo '        </div>';
-                                echo '    </div>';
-                                echo '</div>';                              
-                            }
-                        } else {
-                            //Aguardando envio
-                            echo '<div class="box warning bordered tip shadowed rounded">';
-                            echo '    <div class="row">';
-                            echo '        <div class="span10">';
-                            echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Final</h2>';
-                            echo '              <div class="row">';
-                            echo '                <div class="span6 padding-v">';                            
-                            echo '                    <p>Aguardando envio!</p>';
-                            echo '                    <br>';  
-                            echo '                </div>';
-                            echo '                <div class="span6 padding-v align-right align-center-phone">';
-                            echo '                    <form name="gerar" method="POST" action="enviar-arquivo.php">';
-                            echo '                        <input type="hidden" name="tipo" value="1">';
-                            echo '                        <button class="btn primary gerarBtn" id="gerar" name="gerar"  type="Submit">';
-                            echo '                            <i class="icon-upload-alt"></i> Enviar Arquivo';
-                            echo '                        </button>';                                         
-                            echo '                    </form>';
-                            echo '                </div>';
-                            echo '            </div>';
-                            echo '        </div>';
-                            echo '        <div class="span2 align-center padding-top">';
-                            echo '            <h1 id="iconBig" class="warning"><i class="icon-ok-circle"></i></h1>';
-                            echo '        </div>';
-                            echo '    </div>';
-                            echo '</div>';                        
-                        }
-                    } else {
-                        //Aguardando liberação
-                        echo '<div class="box info bordered tip shadowed rounded">';                   
-                        echo '    <div class="row">';
-                        echo '        <div class="span10">';
-                        echo '            <h2 class="primary stroked-bottom text-shadowed margin-bottom ">Proposta - Final</h2>';
-                        echo '            <div class="row">';
-                        echo '                <div class="span6 padding-v">';
-                        echo '                   <p>Aguardando liberação.</p>';
-                        echo '                </div>';
-                        echo '            </div>';
-                        echo '        </div>';
-                        echo '        <div class="span2 align-center padding-top">';
-                        echo '            <h1 id="iconBig" class="primary"><i class="icon-ban-circle"></i></h1>';
-                        echo '        </div>';
-                        echo '    </div>';
-                        echo '</div>';
-                    }  
                     
                     echo '<p>';
                     echo '<h1 id="iconMed" class="align-center"><i class="icon-arrow-down"></i></h1>';

@@ -11,7 +11,7 @@
         $tipo = $_POST['tipo'];
         
         switch ($tipo){
-            case 1: $tipoNome = 'Proposta Final'; Break; 
+            case 1: $tipoNome = 'Proposta'; Break; 
             case 2: $tipoNome = 'TGSI1'; Break; 
             case 3: $tipoNome = 'TGSI2'; Break;
             case 4: $tipoNome = 'Proposta Inicial'; Break;

@@ -50,7 +50,7 @@
                                         b.`ban_codigo`,                                        
                                         case 
                                           when b.`ban_tipo` = 1 then
-                                             'Proposta Final'
+                                             'Proposta'
                                           when b.`ban_tipo` = 2 then
                                              'TGSI 1'
                                           when b.`ban_tipo` = 3 then
