@@ -72,7 +72,6 @@
                             echo '                        <input type="hidden" name="semestre" value="'.$semestre.'">';
                             echo '                        <input type="hidden" name="orientador" value="'.$Linha['usu_orientador'].'">';
                             echo '                        <input type="hidden" name="turma" value="'.$ResultadoTurma['tur_codigo'].'">';
-                            
                             echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
                             echo '                            <i class="icon-search"></i> Ver bancas';
                             echo '                        </button>';                                         

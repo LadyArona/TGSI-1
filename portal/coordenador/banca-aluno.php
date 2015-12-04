@@ -10,36 +10,50 @@
     include("../include/conexao.php"); 
 
   if (isset($_POST['turma'])){
-    $turma = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
-    $ano = $mysqli->real_escape_string($_POST['ano']);
-    $semestre = $mysqli->real_escape_string($_POST['semestre']);
-    $aluno = $mysqli->real_escape_string($_POST['aluno']);
-
+    $turma      = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
+    $ano        = $mysqli->real_escape_string($_POST['ano']);
+    $semestre   = $mysqli->real_escape_string($_POST['semestre']);
+    $aluno      = $mysqli->real_escape_string($_POST['aluno']);
+    $nomeorientador = $mysqli->real_escape_string($_POST['nomeorientador']);
+    
+    $nome              = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
+    $tituloTGSI        = BuscaDado('tud_titulo', 'turma_detalhe', 'usu_aluno = '.$aluno);
+    
       } else {
             echo "<script>location.href='banca.php';</script>";
           $mysqli->Close();
             die();
-        }    
+        }   
+
  ?>
 <!--Formulário Fazer igual ao avalia aluno.php-->
     <div class="band">
         <div class="container">
-            <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Banca</h2>
+            <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Banca de <?php echo $nome?></h2>
             <fieldset class="bordered rounded shadowed margin-bottom"> 
-                <legend class="h3 primary text-shadowed no-margin-bottom">Dados do aluno</legend> 
-                <div class="row"> 
-                    <div class="span4"> 
-                        <span class="label" id="nome">Nome do aluno:</span><?php echo $nome?></div>
-                       <div class="span4"> 
-                        <span class="label" id="tipo">Tipo de avaliação:</span><?php echo $nome?></div> 
-                    <div class="span4"> 
-                        <span class="label" id="descricao">Título do TGSI:</span><?php echo $nome?></div> 
-              </div>
+                <div class="row">
+                    <div class="span12"> 
+                        <span class="label" id="descricao">Título do TGSI:</span><?php echo $tituloTGSI?>
+                    </div>  
+                </div>
+                    <div class='row'>     
+                        <div class="span12"> 
+                            <span class="label" id="avaliador1" name='orientador'>Orientador e avaliador 1:</span><?php echo $nomeorientador?></div> 
+                    </div>
+                 <br>
             </fieldset>
-        <form id="insereBanca" action="banca-avaliadores.php" method="post"> <!--depois colocar insere-banca.php-->
+            <form id="insereBanca" action="insere-banca.php" method="post"> 
            <fieldset class="bordered rounded shadowed margin-bottom"> 
                 <legend class="h3 primary text-shadowed no-margin-bottom">Dados da Banca</legend> 
-                <div class='row'>  
+                <div class='row'> 
+                    <div class="span2"> 
+                         <span class="label">Tipo da Avaliação<span class="required"></span></span>
+                            <select id="tipo" name="tipo" class="textfield width-100"> 
+                                <option value='1'>Proposta de TGSI</option>
+                                <option value='2'>TGSI 1</option>
+                                <option value='2'>TGSI 2</option> 
+                            </select>
+                    </div>
                     <div class="span2">
                         <span class="label">Data<span class="required"></span></span><br>
                         <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
@@ -48,11 +62,54 @@
                         <span class="label">Hora<span class="required"></span></span><br>
                         <input id="hora" name="hora" class="textfield width-100" type="hora" maxlength="150" required>
                     </div>
-                   <div class="span8">
+                
+                    <div class="span6">
                         <span class="label">Local da Defesa<span class="required"></span></span><br>
                         <input id="local" name="local" class="textfield width-100" type="text" maxlength="150" required>
                     </div>
                 </div>
+                <div class="row">  
+                    <div class="span6">
+                        <span class="label">Avaliador 2<span class="required"></span></span>
+                        <br>
+                        <select class="textfield width-100" id="avaliador2" name="avaliador2" required>
+                            <option value=""></option>                            
+                            <?php
+                                /*pega no banco de dados do usuario com categoria =3 (avaliador)*/
+                                $sqlAvaliador = "SELECT distinct  u.`USU_CODIGO`,u.`USU_NOME`,c.`CAT_CODIGO`
+                                                 FROM `usuario` u,`categoria` c
+                                                 WHERE
+                                                 c.`cat_codigo` = 3;";
+                                /*retorna a quantidade registros encontrados na consulta acima */
+                                $queryAvaliador = $mysqli->query($sqlAvaliador);
+
+                                /*se quantidade de linhas maior que zero*/
+                                if(mysqli_num_rows($queryAvaliador) > 0){
+                                    while ($Avaliador = $queryAvaliador->fetch_assoc()) {
+                                        echo '<option value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                    }    
+                                }
+                            ?>
+                        </select>
+                     </div>
+                    <div class="span6">
+                        <span class="label">Avaliador 3<span class="required"></span></span>
+                        <br>
+                        <select id="avaliador3" name="avaliador3" class="textfield width-100"> 
+                             <option value=""></option>                            
+                            <?php
+                                $queryAvaliador = $mysqli->query($sqlAvaliador);
+                                 /*se quantidade de linhas maior que zero*/
+                                if(mysqli_num_rows($queryAvaliador) > 0){
+                                    while ($Avaliador = $queryAvaliador->fetch_assoc()) {
+                                        echo '<option value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                    }    
+                                }
+                            ?>                              
+                        </select>
+                    </div>
+                </div>
+                <br> 
              </fieldset>
                  <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
@@ -63,7 +120,6 @@
                         <i class="icon-save"></i> Salvar</button>
                 </div>
         </form>
-           
         </div>
     </div>
 
