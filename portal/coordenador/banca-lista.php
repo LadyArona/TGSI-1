@@ -18,11 +18,7 @@
         
         $nome           = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
         $nomeorientador = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$orientador);
-        
-    } else {
-        echo "<script>location.href='banca.php';</script>";
-        $mysqli->Close();
-        die();
+
     }   
 ?>
 
@@ -120,6 +116,7 @@
                         <input type="hidden" name="aluno" value="<?php echo $aluno; ?>">
                         <input type="hidden" name="nomeorientador" value="<?php echo $nomeorientador; ?>">
                         <input type="hidden" name="orientador" value="<?php echo $orientador; ?>">
+                        <input type="hidden" name="nome" value="<?php echo $nome; ?>">
                        
                         <button class="btn primary gerarBtn" id="novaBanca" name="novaBanca" type="submit">
                         <i class="icon-plus"></i> Cadastrar Nova Banca</button>                        
@@ -131,8 +128,8 @@
 </div>
 <br>
 
+<?php 
 
-<?php
    include("../rodape.php");
     $mysqli->Close();
-?>            
+            

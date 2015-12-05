@@ -17,7 +17,7 @@
                     <div class="span4"> 
                         <label class="label" for="ano">Ano<span class="required"></span></label>
                         <br>
-                        <input id="ano" name="ano" class="textfield width-100 integer" type="text" value=""/>  
+                        <input id="ano" name="ano" class="textfield width-100 integer" type="number" value=""/>  
                     </div> 
                     <div class="span4"> 
                         <span class="label">Período<span class="required"></span></span>
@@ -36,8 +36,11 @@
                 </div>
                 <!--FIM Caixa de busca-->
             </form>
-        </div>
-    <?php //função recebe mensagem
+            <br>
+            <br>
+       
+            
+      <?php //função recebe mensagem
         if(isset($_GET['mensagem'])){
             echo "<div class='row'><div class='span8'><div class='box ";
             echo $_GET['mensagem'];
@@ -46,47 +49,12 @@
             echo "</div></div></div>";
         }
     ?>
+        </div>
         <br> 
     </div>                
         <!--FIM do form Busca Banca-->
 <br>
 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-                <?php //Função mensagem
-                    if(isset($_GET['mensagem'])){
-                        echo "<div class='row'><div class='span8'><div class='box ";
-                        echo $_GET['mensagem'];
-                        echo "'><button type='button' class='close' data-dismiss='box'>&times;</button>";
-                        echo $_GET['texto'];
-                        echo "</div></div></div>";
-                    }
-                ?>
             </div>
         </div>
 

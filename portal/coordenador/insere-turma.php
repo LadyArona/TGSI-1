@@ -13,7 +13,9 @@
     //Se o ano e semestre forem diferentes do ano e semestre inicial e estes modificados já existirem no banco então
     //não deixa cadastrar nem editar e mostra mensagem
     if (($anoInicial != $ano) || ($semestreInicial != $semestre)) {
-        $query = "SELECT tur_codigo, tur_ano, tur_semestre  from turma where tur_ano = '$ano' and tur_semestre = '$semestre'";
+        $query = "SELECT tur_codigo, tur_ano, tur_semestre
+                    FROM turma 
+                        WHERE tur_ano = '$ano' and tur_semestre = '$semestre'";
         /*retorna a quantidade registros encontrados na consulta acima */
         $queryTurma = $mysqli->query($query);        
         //se existe turma com ano e semestre iguais então a turma ja existe
