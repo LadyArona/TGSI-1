@@ -16,10 +16,9 @@
     $aluno            = $mysqli->real_escape_string($_POST['aluno']);
     $nomeorientador   = $mysqli->real_escape_string($_POST['nomeorientador']);
     $orientador       = $mysqli->real_escape_string($_POST['orientador']);
-
-    $nome             = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
+    $nome             = $mysqli->real_escape_string($_POST['nome']);
     $tituloTGSI       = BuscaDado('tud_titulo', 'turma_detalhe', 'usu_aluno = '.$aluno);
-    
+    $tipo = 0;
       } else {
             echo "<script>location.href='banca.php';</script>";
           $mysqli->Close();
@@ -48,18 +47,25 @@
                 <div class='row'> 
                     <div class="span2"> 
                          <span class="label">Tipo da Avaliação<span class="required"></span></span>
-                            <select id="tipo" name="tipo" class="textfield width-100"> 
+                         <select id="tipo" name="tipo" class="textfield width-100" required> 
                                  <?php
-                                if ($tipo == 1){
+                                if ($tipo == 0){
+                                    echo "<option value='' selected='selected'></option>";
+                                    echo "<option value='1'>Proposta de TGSI</option>";
+                                    echo "<option value='2'>TGSI 1</option>";
+                                    echo "<option value='3'>TGSI 2</option>";
+                                } else if ($tipo == 1){
+                                    echo "<option value=''></option>";
                                     echo "<option value='1' selected='selected'>Proposta de TGSI</option>";
                                     echo "<option value='2'>TGSI 1</option>";
                                     echo "<option value='3'>TGSI 2</option>";
-                                }
-                                    if ($tipo == 2){
+                                } else if ($tipo == 2){
+                                    echo "<option value=''></option>";
                                     echo "<option value='1'>Proposta de TGSI</option>";
                                     echo "<option value='2' selected='selected'>>TGSI 1</option>";
                                     echo "<option value='3'>TGSI 2</option>";
                                 } else {
+                                    echo "<option value=''></option>";
                                     echo "<option value='1'>Proposta de TGSI</option>";
                                     echo "<option value='2'>TGSI1</option>";
                                     echo "<option value='3'selected='selected'>TGSI 2</option>";  
@@ -73,7 +79,7 @@
                     </div>
                     <div class="span2">
                         <span class="label">Hora<span class="required"></span></span><br>
-                        <input id="hora" name="hora" class="textfield width-100" type="hora" maxlength="150" required>
+                        <input id="hora" name="hora" class="textfield width-100" type="time" maxlength="150" required>
                     </div>
                 
                     <div class="span6">
@@ -133,6 +139,7 @@
                         <input type="hidden" name="descricao" value="<?php echo $tituloTGSI; ?>">
                         <input type="hidden" name="turma" value="<?php echo $turma; ?>">
                         <input type="hidden" name="aluno" value="<?php echo $aluno; ?>">
+                        <input type="hidden" name="nome" value="<?php echo $nome; ?>">
                         
                     <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
                         <i class="icon-save"></i> Salvar</button>

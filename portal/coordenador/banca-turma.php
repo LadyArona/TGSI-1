@@ -82,7 +82,8 @@
                         } 
                         echo '        </tbody>'; 
                         echo '    </table>'; 
-                        echo '</div>';             
+                        echo '</div>';
+
                     } else {
                         //função recebe mensagem -> Não existe alunos na turma
                         echo "<div class='row'><div class='span8'><div class='box error";
