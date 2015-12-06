@@ -1,20 +1,26 @@
 <?php
     //Define a página como sendo do coordenador para uso restrito
     session_start();
-    $_SESSION['categoriaPagina'] = 4;
+    $_SESSION['categoriaPagina'] = 2;
     include("../restrito.php");
     include("cabecalho.php");
     include("../navbar.php");
-    include("navbar-aluno.php");
+    include("./navbar_orientador.php");
     
     include("../include/conexao.php");
     include("../include/funcoes.php");    
     
     $tipo = 1;
     $tipoNome = 'Proposta';
-
-    $aluno     = $_SESSION['UsuarioCOD'];
-    $alunoNome = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
+    
+    if (isset($_POST['aluno'])){
+        $aluno     = $mysqli->real_escape_string($_POST['aluno']);
+        $alunoNome = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
+    } else {
+      echo "<script>location.href='index.php';</script>";
+      $mysqli->Close();
+      die();
+    }
 ?>
 
 <!-- main -->
@@ -40,7 +46,7 @@
                 $local     = $ResultBanca['ban_local'];
                 $descricao = $ResultBanca['ban_descricao'];
                 $turma          = $ResultBanca['tur_codigo'];
-                $orientador     = BuscaDado('usu_orientador', 'turma_detalhe', 'usu_aluno = '.$aluno.' AND tur_codigo = '.$turma);
+                $orientador     = $_SESSION['UsuarioCOD'];
                 $orientadorNome = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$orientador);
 
                 $sqlArquivo = "SELECT `arq_codigo`, `arq_nome` 
@@ -244,11 +250,6 @@
                     echo '            </div>';
                     echo '            <br>';
                     echo '        </form>';
-                    echo '        <div class="form-actions">';
-                    echo '             <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location=\'index.php\'">';
-                    echo '                 <i class="icon-arrow-left"></i> Voltar</button>';
-                    echo '        </div>';
-                  
                 } else {
                     echo '<div class="box warning bordered tip shadowed rounded">';                   
                     echo '    <div class="row">';
@@ -284,7 +285,10 @@
                 echo '    </div>';
                 echo '</div>';                
             }
-        ?>    
+        ?>
+        <br>
+        <button class="btn left" id="voltar" name="voltar" type="button" onclick="parent.location='index.php'"> 
+        <i class="icon-arrow-left"></i> Voltar</button>         
     </div>
 </div>   
                                     

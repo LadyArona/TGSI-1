@@ -96,8 +96,12 @@
                             $cor = 'default';
                         }
                         $hoje = date('Y-m-d H:i');
-                        echo '  <div class="span6">';
-                        echo '      <div class="box '.$cor.' bordered tip shadowed rounded">';     
+                        if (mysqli_num_rows($queryAvaliador) == 1) {
+                            echo '  <div class="span12">';
+                        } else {
+                            echo '  <div class="span6">';
+                        }
+                        echo '      <div class="box '.$cor.' bordered shadowed rounded">';     
                         echo '          <br><b>Banca de '.$Resultado['ban_tipo_nome'].'</b>';
                         echo '          <br><b>Data:</b> '.date('d/m/Y', strtotime($Resultado['ban_data'])).'';      
                         echo '          <br><b>Hora:</b> '.date('H:i', strtotime($Resultado['ban_hora'])).'';
@@ -133,7 +137,7 @@
                         echo '      </div>';
                         echo '  </div>';
 
-                        if ($contaLinhas >= 2) {
+                        if (($contaLinhas >= 2) || (mysqli_num_rows($queryAvaliador) == 1)) {
                             echo '</div>';
                             $contaLinhas = 0;
                         }
@@ -157,3 +161,4 @@
         ?>
     </body>
 </html>
+

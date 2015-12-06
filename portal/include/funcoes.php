@@ -145,7 +145,7 @@ function BuscaDado($NomedoCampo, $NomeDaTabela, $Condicao) {
 }
 
 function BancaPossuiNota($codluno, $tipo){
-    //Ve se existe as 3 avaliações desse aluno desse tipo
+    //Ve se existe as 3 avaliações desse aluno
     include("conexao.php");       
 
     $sql = "SELECT bav.`bav_codigo` 
@@ -176,7 +176,7 @@ function BancaPossuiNota($codluno, $tipo){
 }
 
 function BancaResultado($codluno, $tipo){
-    //Ve se existe as 3 avaliações desse aluno desse tipo
+    //Ve o resultado das avaliações Aprovado ou Reprovado
     include("conexao.php");       
 
     $sql = "SELECT bav.`bav_codigo`, `bav_nota_soma` 

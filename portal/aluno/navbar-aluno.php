@@ -10,7 +10,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i> 
                     Resultado Avaliações <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">    
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu"> 
                         <li class="">
                             <a href="resultado-proposta.php" target="">
                                 Proposta

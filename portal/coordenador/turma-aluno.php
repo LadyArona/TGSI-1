@@ -87,7 +87,7 @@
                           </select>
                     </div>
                     <div class="span4">
-                        <span class="label">Coorientador<span class="required"></span></span><br>
+                        <span class="label">Coorientador</span><br>
                         <select class="textfield width-100" id="coorientador" name="coorientador">
                             <option value=""></option>
                             <?php

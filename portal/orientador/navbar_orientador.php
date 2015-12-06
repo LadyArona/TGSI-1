@@ -3,23 +3,7 @@
         <ul class="nav responsive">
             <li class=""><a href="index.php" target=""><i class="icon-home"></i>  
                 Página Inicial </a>
-            </li>    
-            <!-- Parecer para aluno antes da Banca-->
-              <li class="">
-            <div class="btn-group block">
-                <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-edit"></i> 
-                Parecer <span class="caret"></span>
-                </a>                    
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
-                    <li class="">
-                        <a href="busca_alunoParecer.php" target="">
-                            Buscar Aluno
-                        </a>
-                    </li>
-               </ul>
-            </div>
-            </li> 
-                          
+            </li>
             <!-- Pesquisar -->
             <li class="">
             <div class="btn-group block">
