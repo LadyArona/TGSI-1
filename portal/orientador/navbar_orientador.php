@@ -10,17 +10,12 @@
                 <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i> 
                 Pesquisar <span class="caret"></span>
                 </a>                    
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">             
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu"> 
                     <li class="">
-                        <a href="pesquisa-usuario.php" target="">
-                            Orientandos
+                        <a href="pesquisa-alunoOrientar.php" target="">
+                            Alunos orientados
                         </a>
                     </li>
-                    <li class="">
-                        <a href="pesquisa-banca.php" target="">
-                            Banca
-                        </a>
-                    </li> 
                 </ul>
             </div>
             </li> 

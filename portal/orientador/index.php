@@ -66,6 +66,7 @@
                         echo '    <div class="box default bordered shadowed rounded">';
                         echo '        <br>';
                         echo '        <p><b>'.$Resultado['USU_MATRICULA'].' - '.$Resultado['USU_NOME'].'</b>';
+                        echo '        <br><i>'.$Resultado['USU_EMAIL'].'</i>';
                         echo '        <br>'.$Resultado['tud_titulo'].'</p>';
                         echo '        <br>';
                         echo '        <div class="container">';
