@@ -74,14 +74,14 @@
                         echo '                        <input type="hidden" name="turma" value="'.$turma.'">';
                         echo'                         <input type="hidden" name="nomeorientador" value="'.$nomeorientador.'">';
                             
-                        echo'                       $sql = "SELECT bav.`bav_codigo`
-                                                    FROM `banca_detalhe_avaliacao` as bav
-                                                            INNER JOIN `banca_detalhe` as bd
-                                                            ON bd.`band_codigo` = bav.`band_codigo`
-                                                        INNER JOIN `banca` as b
-                                                            ON b.`ban_codigo` = bd.`ban_codigo`
-                                                    WHERE b.`ban_tipo` = $tipo_avaliacao
-                                                    AND b.`usu_codigo` = $cod_usuario;";';
+//                                               $sql = "SELECT bav.`bav_codigo`
+//                                                    FROM `banca_detalhe_avaliacao` as bav
+//                                                            INNER JOIN `banca_detalhe` as bd
+//                                                            ON bd.`band_codigo` = bav.`band_codigo`
+//                                                        INNER JOIN `banca` as b
+//                                                            ON b.`ban_codigo` = bd.`ban_codigo`
+//                                                    WHERE b.`ban_tipo` = $tipo_avaliacao
+//                                                    AND b.`usu_codigo` = $cod_usuario;";
     
     
                         echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
