@@ -110,7 +110,6 @@
                             ?>
                         </select>
                      </div>
-                    
                     <div class="span6">
                         <span class="label">Avaliador 3<span class="required"></span></span>
                         <br>

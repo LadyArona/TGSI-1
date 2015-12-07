@@ -17,7 +17,7 @@
                     <div class="span4"> 
                         <label class="label" for="ano">Ano<span class="required"></span></label>
                         <br>
-                        <input id="ano" name="ano" class="textfield width-100 integer" type="number" value=""/>  
+                        <input id="ano" name="ano" class="textfield width-100 integer" type="number" value="" required=""/>  
                     </div> 
                     <div class="span4"> 
                         <span class="label">Período<span class="required"></span></span>
@@ -36,10 +36,7 @@
                 </div>
                 <!--FIM Caixa de busca-->
             </form>
-            <br>
-            <br>
-       
-            
+<br>
       <?php //função recebe mensagem
         if(isset($_GET['mensagem'])){
             echo "<div class='row'><div class='span8'><div class='box ";
@@ -50,11 +47,9 @@
         }
     ?>
         </div>
-        <br> 
     </div>                
         <!--FIM do form Busca Banca-->
 <br>
-
             </div>
         </div>
 

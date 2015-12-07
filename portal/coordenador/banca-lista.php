@@ -15,9 +15,9 @@
         $aluno      = $mysqli->real_escape_string($_POST['aluno']); /*pegando os valores do formulario*/
         $turma      = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
         $orientador = $mysqli->real_escape_string($_POST['orientador']);
-        
         $nome           = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
         $nomeorientador = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$orientador);
+        
 
     }   
 ?>
@@ -36,8 +36,6 @@
                                      'TGSI 1'
                                  when `ban_tipo` = 3 then
                                      'TGSI 2'
-                                 when `ban_tipo` = 4 then
-                                     'Proposta Inicial'
                              end as `ban_tipo_nome`                              
                              FROM `banca` 
                              WHERE `usu_codigo` = ".$aluno;
@@ -75,6 +73,17 @@
                         echo '                        <input type="hidden" name="semestre" value="'.$semestre.'">';
                         echo '                        <input type="hidden" name="turma" value="'.$turma.'">';
                         echo'                         <input type="hidden" name="nomeorientador" value="'.$nomeorientador.'">';
+                            
+                        echo'                       $sql = "SELECT bav.`bav_codigo`
+                                                    FROM `banca_detalhe_avaliacao` as bav
+                                                            INNER JOIN `banca_detalhe` as bd
+                                                            ON bd.`band_codigo` = bav.`band_codigo`
+                                                        INNER JOIN `banca` as b
+                                                            ON b.`ban_codigo` = bd.`ban_codigo`
+                                                    WHERE b.`ban_tipo` = $tipo_avaliacao
+                                                    AND b.`usu_codigo` = $cod_usuario;";';
+    
+    
                         echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
                         echo '                            <i class="icon-edit"></i> Editar';
                         echo '                        </button>';                                         

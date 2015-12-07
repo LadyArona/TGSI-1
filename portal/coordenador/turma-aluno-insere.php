@@ -43,5 +43,5 @@
     echo "<script>location.href='turma-aluno.php?Turma=$descTurma';</script>";
     $mysqli->Close();
     die();        
-    //Se não, se o códio tiver valor, faz um UPDATE where codigo = $codigo;            
+    //Se não, se o código tiver valor, faz um UPDATE where codigo = $codigo;            
 ?>     

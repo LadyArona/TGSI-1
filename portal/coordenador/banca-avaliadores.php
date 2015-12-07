@@ -42,8 +42,7 @@
                        <span class="label" id="local">Local da Defesa:</span><?php echo $nome?></div>
                 </div>    
             </fieldset>
-                
-            <form id="insereBanca" action="insere-banca-detalhe.php" method="post">
+         <form id="insereBanca" action="insere-banca-detalhe.php" method="post">
            <fieldset class="bordered rounded shadowed margin-bottom"> 
                 <legend class="h3 primary text-shadowed no-margin-bottom">Dados dos Avaliadores</legend> 
                 <div class='row'>     
@@ -77,7 +76,6 @@
                         <i class="icon-save"></i> Salvar</button>
                 </div>
         </form>
-           
         </div>
     </div>
 

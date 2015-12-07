@@ -3,7 +3,6 @@
     session_start();
     $_SESSION['categoriaPagina'] = 1;
     include("../restrito.php");
-    
     include("cabecalho.php");
     include("../navbar.php");
     include("navbar-coordenador.php");
@@ -39,7 +38,7 @@
                     </div>
                                                 
             </form>
-             
+                <br>
                 <!--FIM Caixa de busca-->
             <br>  
             

@@ -25,7 +25,6 @@
         }       
     } 
 
-
     if (($codigo >= 0)  && ($codigo != '')) {
         $sql = "UPDATE `turma`
                 SET `tur_ano`='$ano',`tur_semestre`='$semestre',`tur_descricao`='$descricao',`tur_data_proposta`='$data_proposta'
@@ -33,7 +32,6 @@
     } else {
         $sql = "INSERT INTO `turma` (`tur_ano`, `tur_semestre`, `tur_descricao`, `tur_data_proposta`)
                 VALUES ('$ano','$semestre','$descricao', '$data_proposta')";
-
 
     }
 
