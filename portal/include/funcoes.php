@@ -217,3 +217,8 @@ function BancaResultado($codluno, $tipo){
     }
     $mysqli->Close();
 }
+
+function gerar_pdf($corpo){
+    
+    return true;
+}

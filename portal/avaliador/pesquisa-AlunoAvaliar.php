@@ -23,7 +23,7 @@
                     <div class="span3"> 
                         <span class="label">Período</span>
                         <br >
-                        <select id="periodo" name="periodo" class="selectfield">
+                        <select id="semestre" name="semestre" class="selectfield">
                             <option value="0" selected>0. Todos</option>
                             <option value="1">1. Semestre</option>
                             <option value="2">2. Semestre</option>
