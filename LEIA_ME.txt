@@ -1,0 +1,32 @@
+============================================================================================================
+
+TECNOLOGIAS UTILIZADAS
+----------------------
+O sistema foi desenvolvido em localhost utilizando:
+- Sistema operacional Windows 7 e 10
+- Apache 2.4.9
+- PHP 5.5.12
+- MySQL 5.6.17
+- phpMyAdmin 4.1.14
+
+E testado em servidor da empresa HostGator utilizando:
+- Sistema operacional Linux
+- Apache 2.2.29
+- PHP 5.2.17
+- MySQL 5.5.40-36.1
+- phpMyAdmin 4.0.10
+
+============================================================================================================
+
+SEQUENCIA DE INSTALAÇÃO
+-----------------------
+
+1 - Criar um novo banco de dados chamado "gerenciador";
+2 - Importar o SQL localizado na pasta "Banco de Dados", arquivo "gerenciador.sql";
+3 - Acessar a pasta "portal/include" e editar o arquivo "conexao.php" e colocar os dados para acesso ao banco de dados que foi criado acima;
+4 - Acessar a pasta "portal/include" e editar o arquivo "config.php" e colocar a nova URL do sistema;
+5 - Subir os dados para o servidor;
+
+OBS: No banco de dados já haverá um usuário padrão o sistema gerenciador de TGSI para um primeiro acesso:
+	Login: admin
+	Senha: admin
