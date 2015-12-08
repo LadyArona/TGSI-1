@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Dez-2015 às 23:02
+-- Generation Time: 08-Dez-2015 às 23:22
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -193,6 +193,13 @@ CREATE TABLE IF NOT EXISTS `usuario_categoria` (
   PRIMARY KEY (`USU_CODIGO`,`CAT_CODIGO`),
   KEY `CAT_CODIGO` (`CAT_CODIGO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuario_categoria`
+--
+
+INSERT INTO `usuario_categoria` (`USU_CODIGO`, `CAT_CODIGO`) VALUES
+(1, 1);
 
 --
 -- Constraints for dumped tables
