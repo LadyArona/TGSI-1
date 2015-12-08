@@ -133,7 +133,7 @@
                                 $sqlAvaliador = "SELECT distinct  u.`USU_CODIGO`, u.`USU_NOME`, c.`CAT_CODIGO`
                                                 FROM `usuario` as u
                                                         INNER JOIN `usuario_categoria` AS c
-                                                        ON U.`usu_codigo` = c.`usu_codigo` 
+                                                        ON u.`usu_codigo` = c.`usu_codigo` 
                                                 WHERE c.`cat_codigo` = 3";
                                 /*retorna a quantidade registros encontrados na consulta acima */
                                 $queryAvaliador = $mysqli->query($sqlAvaliador);

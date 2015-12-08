@@ -122,6 +122,15 @@
                     $nota6  = $nota6/3;
                     $nota7  = $nota7/3;
                     $soma   = $soma/3;
+
+                    $nota1  = number_format($nota1, 2, '.', '');
+                    $nota2  = number_format($nota2, 2, '.', '');
+                    $nota3  = number_format($nota3, 2, '.', '');
+                    $nota4  = number_format($nota4, 2, '.', '');
+                    $nota5  = number_format($nota5, 2, '.', '');
+                    $nota6  = number_format($nota6, 2, '.', '');
+                    $nota7  = number_format($nota7, 2, '.', '');
+                    $soma   = number_format($soma, 2, ',', '');                      
                     
                     //Mostra o resultado
                     echo '        <fieldset class="bordered rounded shadowed margin-bottom">'; 
