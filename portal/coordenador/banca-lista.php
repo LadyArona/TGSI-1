@@ -17,8 +17,6 @@
         $orientador = $mysqli->real_escape_string($_POST['orientador']);
         $nome           = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$aluno);
         $nomeorientador = BuscaDado('usu_nome', 'usuario', 'usu_codigo = '.$orientador);
-        
-
     }   
 ?>
 
@@ -28,15 +26,22 @@
         <div class="box shadowed bordered rounded">
             <?php
                 /*pega no banco de dados da turma */
-                $sqlBanca = "SELECT `ban_codigo`, `ban_hora`, `ban_tipo`, `ban_data`, `ban_descricao`, `ban_local`, `usu_codigo`, `tur_codigo`, 
-                             case 
-                                 when `ban_tipo` = 1 then
-                                     'Proposta'
-                                 when `ban_tipo` = 2 then
-                                     'TGSI 1'
-                                 when `ban_tipo` = 3 then
-                                     'TGSI 2'
-                             end as `ban_tipo_nome`                              
+                $sqlBanca = "SELECT `ban_codigo`, 
+                                    `ban_hora`, 
+                                    `ban_tipo`, 
+                                    `ban_data`, 
+                                    `ban_descricao`, 
+                                    `ban_local`, 
+                                    `usu_codigo`, 
+                                    `tur_codigo`, 
+                                    case 
+                                        when `ban_tipo` = 1 then
+                                            'Proposta'
+                                        when `ban_tipo` = 2 then
+                                            'TGSI 1'
+                                        when `ban_tipo` = 3 then
+                                            'TGSI 2'
+                                    end as `ban_tipo_nome`                              
                              FROM `banca` 
                              WHERE `usu_codigo` = ".$aluno;
                 /*retorna a quantidade registros encontrados na consulta acima */
@@ -65,30 +70,41 @@
                         echo '            <td WIDTH="100">'.$ResultadoBanca['ban_hora'].'</td>';
                         echo '            <td>'.$ResultadoBanca['ban_descricao'].'</td>';
                         echo '            <td>'.$ResultadoBanca['ban_local'].'</td>';
-                        echo              '<td WIDTH="155">';
-                        echo '                <div class="align-center align-center-phone">';                         
-                        echo '                    <form name="verbanca" method="POST" action="banca-aluno.php">';                              
-                        echo '                        <input type="hidden" name="aluno" value="'.$aluno.'">';
-                        echo '                        <input type="hidden" name="ano" value="'.$ano.'">';
-                        echo '                        <input type="hidden" name="semestre" value="'.$semestre.'">';
-                        echo '                        <input type="hidden" name="turma" value="'.$turma.'">';
-                        echo'                         <input type="hidden" name="nomeorientador" value="'.$nomeorientador.'">';
-                            
-//                                                   $sql = "SELECT bav.`bav_codigo`
-//                                                    FROM `banca_detalhe_avaliacao` as bav
-//                                                            INNER JOIN `banca_detalhe` as bd
-//                                                            ON bd.`band_codigo` = bav.`band_codigo`
-//                                                        INNER JOIN `banca` as b
-//                                                            ON b.`ban_codigo` = bd.`ban_codigo`
-//                                                    WHERE b.`ban_tipo` = $tipo_avaliacao
-//                                                    AND b.`usu_codigo` = $cod_usuario;";
-    
-    
-                        echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
-                        echo '                            <i class="icon-edit"></i> Editar';
-                        echo '                        </button>';                                         
-                        echo '                    </form>';
-                        echo '                </div>';
+                        echo '            <td WIDTH="155">';
+                        
+                        $sqlPossuiAva = "SELECT bav.`bav_codigo`
+                                        FROM `banca_detalhe_avaliacao` as bav
+                                                INNER JOIN `banca_detalhe` as bd
+                                                ON bd.`band_codigo` = bav.`band_codigo`
+                                            INNER JOIN `banca` as b
+                                                ON b.`ban_codigo` = bd.`ban_codigo`
+                                        WHERE bd.`ban_codigo` = ".$ResultadoBanca['ban_codigo'];
+                        $queryPossuiAva = $mysqli->query($sqlPossuiAva);
+                        if(mysqli_num_rows($queryPossuiAva) > 0){
+                            echo '                        <button class="btn primary gerarBtn small disabled" id="gerar" name="gerar"  type="Submit">';
+                            echo '                            <i class="icon-edit"></i> Editar';
+                            echo '                        </button>';                              
+                        } else {
+                            echo '                <div class="align-center align-center-phone">';                         
+                            echo '                    <form name="verbanca" method="POST" action="banca-aluno.php">';
+                            echo '                        <input type="hidden" name="codigo" value="'.$ResultadoBanca['ban_codigo'].'">';
+                            echo '                        <input type="hidden" name="aluno" value="'.$aluno.'">';
+                            echo '                        <input type="hidden" name="ano" value="'.$ano.'">';
+                            echo '                        <input type="hidden" name="semestre" value="'.$semestre.'">';
+                            echo '                        <input type="hidden" name="turma" value="'.$turma.'">';
+                            echo '                        <input type="hidden" name="orientador" value="'.$orientador.'">';
+                            echo '                        <input type="hidden" name="nome" value="'.$nome.'">';
+                            echo'                         <input type="hidden" name="nomeorientador" value="'.$nomeorientador.'">';
+                            echo'                         <input type="hidden" name="tipo" value="'.$ResultadoBanca['ban_tipo'].'">';
+                            echo'                         <input type="hidden" name="data" value="'.$ResultadoBanca['ban_data'].'">';
+                            echo'                         <input type="hidden" name="hora" value="'.$ResultadoBanca['ban_hora'].'">';
+                            echo'                         <input type="hidden" name="local" value="'.$ResultadoBanca['ban_local'].'">';
+                            echo '                        <button class="btn primary gerarBtn small" id="gerar" name="gerar"  type="Submit">';
+                            echo '                            <i class="icon-edit"></i> Editar';
+                            echo '                        </button>';                                         
+                            echo '                    </form>';
+                            echo '                </div>';                            
+                        } 
                         echo '             </td>';
                         echo '        </tr>';
                     } 
@@ -126,7 +142,6 @@
                         <input type="hidden" name="nomeorientador" value="<?php echo $nomeorientador; ?>">
                         <input type="hidden" name="orientador" value="<?php echo $orientador; ?>">
                         <input type="hidden" name="nome" value="<?php echo $nome; ?>">
-                       
                         <button class="btn primary gerarBtn" id="novaBanca" name="novaBanca" type="submit">
                         <i class="icon-plus"></i> Cadastrar Nova Banca</button>                        
                     </form>                     

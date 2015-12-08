@@ -9,35 +9,70 @@
     include("../include/funcoes.php");
     include("../include/conexao.php"); 
 
-  if (isset($_POST['turma'])){
-    $turma            = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
-    $ano              = $mysqli->real_escape_string($_POST['ano']);
-    $semestre         = $mysqli->real_escape_string($_POST['semestre']);
-    $aluno            = $mysqli->real_escape_string($_POST['aluno']);
-    $nomeorientador   = $mysqli->real_escape_string($_POST['nomeorientador']);
-    $orientador       = $mysqli->real_escape_string($_POST['orientador']);
-    $nome             = $mysqli->real_escape_string($_POST['nome']);
-    $tituloTGSI       = BuscaDado('tud_titulo', 'turma_detalhe', 'usu_aluno = '.$aluno);
-    $tipo = 0;
-      } else {
-            echo "<script>location.href='banca.php';</script>";
-          $mysqli->Close();
-            die();
-        }   
+    if (isset($_POST['turma'])){
+        $turma            = $mysqli->real_escape_string($_POST['turma']); /*pegando os valores do formulario*/
+        $ano              = $mysqli->real_escape_string($_POST['ano']);
+        $semestre         = $mysqli->real_escape_string($_POST['semestre']);
+        $aluno            = $mysqli->real_escape_string($_POST['aluno']);
+        $nomeorientador   = $mysqli->real_escape_string($_POST['nomeorientador']);
+        $orientador       = $mysqli->real_escape_string($_POST['orientador']);
+        $nome             = $mysqli->real_escape_string($_POST['nome']);
+        $tituloTGSI       = BuscaDado('tud_titulo', 'turma_detalhe', 'usu_aluno = '.$aluno);
+        $tipo = 0;
+        
+        if (isset($_POST['codigo'])){
+            $codigo = $mysqli->real_escape_string($_POST['codigo']);
+            $tipo   = $mysqli->real_escape_string($_POST['tipo']);
+            $data   = $mysqli->real_escape_string($_POST['data']);
+            $hora   = $mysqli->real_escape_string($_POST['hora']);
+            $local  = $mysqli->real_escape_string($_POST['local']);
+            
+            $sqlPegaAva = "SELECT `band_codigo`, `ban_codigo`, `usu_codigo`
+                             FROM `banca_detalhe` 
+                             WHERE `ban_codigo` = $codigo";
+            
+            $queryPegaAva = $mysqli->query($sqlPegaAva);
+            /*se quantidade de linhas maior que zero*/
+            if(mysqli_num_rows($queryPegaAva) > 0){
+                while ($PegaAva = $queryPegaAva->fetch_assoc()) {
+                    if ($PegaAva['usu_codigo'] != $orientador){
+                        if (empty($ava1)) {
+                            $ava1 = $PegaAva['usu_codigo'];
+                        } else {
+                            $ava2 = $PegaAva['usu_codigo'];
+                        }
+                    }
+                }
+            }          
+        } else {
+            $codigo = '';
+            $tipo   = 0;
+            $data   = '';
+            $hora   = '';
+            $local  = '';
+            $ava1   = '';
+            $ava2   = '';            
+        }       
+    } else {
+        echo "<script>location.href='banca.php';</script>";
+        $mysqli->Close();
+        die();
+    }   
  ?>
 <!--Formulário Fazer igual ao avalia aluno.php-->
     <div class="band">
         <div class="container">
             <h2 class="primary stroked-bottom text-shadowed margin-bottom "> Cadastro de Banca de <?php echo $nome?></h2>
-            <fieldset class="bordered rounded shadowed margin-bottom"> 
+            <fieldset class="bordered rounded shadowed margin-bottom">
+                <br>
                 <div class="row">
                     <div class="span12"> 
-                        <span class="label" id="descricao">Título do TGSI:</span><?php echo $tituloTGSI?>
+                        <span class="label" id="descricao">Título do TGSI: </span><?php echo $tituloTGSI?>
                     </div>  
                 </div>
                     <div class='row'>     
                         <div class="span12"> 
-                            <span class="label" id="avaliador1" name='orientador'>Orientador e avaliador 1:</span><?php echo $nomeorientador?></div> 
+                            <span class="label" id="avaliador1" name='orientador'>Orientador e avaliador 1: </span><?php echo $nomeorientador?></div> 
                     </div>
                  <br>
             </fieldset>
@@ -47,7 +82,7 @@
                 <div class='row'> 
                     <div class="span2"> 
                          <span class="label">Tipo da Avaliação<span class="required"></span></span>
-                         <select id="tipo" name="tipo" class="textfield width-100" required> 
+                         <select id="tipo" name="tipo" class="textfield width-100" required <?php if ($tipo > 0) {echo 'disabled';}?>> 
                                  <?php
                                 if ($tipo == 0){
                                     echo "<option value='' selected='selected'></option>";
@@ -75,16 +110,16 @@
                     </div>
                     <div class="span2">
                         <span class="label">Data<span class="required"></span></span><br>
-                        <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required>
+                        <input id="data" name="data" class="textfield width-100" type="date" maxlength="150" required value="<?php echo $data?>">
                     </div>
                     <div class="span2">
                         <span class="label">Hora<span class="required"></span></span><br>
-                        <input id="hora" name="hora" class="textfield width-100" type="time" maxlength="150" required>
+                        <input id="hora" name="hora" class="textfield width-100" type="time" maxlength="150" required value="<?php echo $hora?>">
                     </div>
                 
                     <div class="span6">
                         <span class="label">Local da Defesa<span class="required"></span></span><br>
-                        <input id="local" name="local" class="textfield width-100" type="text" maxlength="150" required>
+                        <input id="local" name="local" class="textfield width-100" type="text" maxlength="150" required value="<?php echo $local?>">
                     </div>
                 </div>
                 <div class="row">  
@@ -95,16 +130,21 @@
                             <option value=""></option>                            
                             <?php
                                 /*pega no banco de dados do usuario com categoria =3 (avaliador)*/
-                                $sqlAvaliador = "SELECT distinct  u.`USU_CODIGO`,u.`USU_NOME`,c.`CAT_CODIGO`
-                                                 FROM `usuario` u,`categoria` c
-                                                 WHERE
-                                                 c.`cat_codigo` = 3;";
+                                $sqlAvaliador = "SELECT distinct  u.`USU_CODIGO`, u.`USU_NOME`, c.`CAT_CODIGO`
+                                                FROM `usuario` as u
+                                                        INNER JOIN `usuario_categoria` AS c
+                                                        ON U.`usu_codigo` = c.`usu_codigo` 
+                                                WHERE c.`cat_codigo` = 3";
                                 /*retorna a quantidade registros encontrados na consulta acima */
                                 $queryAvaliador = $mysqli->query($sqlAvaliador);
                                 /*se quantidade de linhas maior que zero*/
                                 if(mysqli_num_rows($queryAvaliador) > 0){
                                     while ($Avaliador = $queryAvaliador->fetch_assoc()) {
-                                        echo '<option value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                        if ($ava1 == $Avaliador['USU_CODIGO']) {
+                                            echo '<option selected="selected" value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                        } else {
+                                            echo '<option value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                        }
                                     }    
                                 }
                             ?>
@@ -120,7 +160,11 @@
                                  /*se quantidade de linhas maior que zero*/
                                 if(mysqli_num_rows($queryAvaliador) > 0){
                                     while ($Avaliador = $queryAvaliador->fetch_assoc()) {
-                                        echo '<option value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                        if ($ava2 == $Avaliador['USU_CODIGO']) {
+                                            echo '<option selected="selected" value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                        } else {
+                                            echo '<option value="'.$Avaliador['USU_CODIGO'].'">'.$Avaliador['USU_NOME'].'</option>';
+                                        }
                                     }    
                                 }
                             ?>                              
@@ -128,8 +172,8 @@
                     </div>
                 </div>
                 <br> 
-             </fieldset>
-                 <div class="form-actions">
+            </fieldset>
+                <div class="form-actions">
                     <button class="btn left cancelBtn" id="cancelar" name="cancel" type="button" onclick="parent.location='index.php'">
                         <i class="icon-ban-circle"></i> Cancelar</button>
                     <button class="btn left Reset" id="limpar" name="limpar" type="reset">
@@ -139,10 +183,11 @@
                         <input type="hidden" name="turma" value="<?php echo $turma; ?>">
                         <input type="hidden" name="aluno" value="<?php echo $aluno; ?>">
                         <input type="hidden" name="nome" value="<?php echo $nome; ?>">
+                        <input type="hidden" name="codigo" value="<?php echo $codigo; ?>">
                         
                     <button class="btn primary saveBtn" id="salvar" name="save" type="submit">
                         <i class="icon-save"></i> Salvar</button>
-                   </div>
+                </div>
         </form>
         </div>
     </div>
