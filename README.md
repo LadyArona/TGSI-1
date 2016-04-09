@@ -4,7 +4,7 @@ Trabalho desenvolvido para a disciplica de **Projeto de Software II**
 
 **Bacharelado em Sistemas de Informação**
 
-**Universidade Federal de Santa Maria**
+**Universidade Federal de Santa Maria - Frederico Westphalen**
 
 **2º Semeste de 2015**
 
